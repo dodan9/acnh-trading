@@ -6,4 +6,13 @@ import mkcert from "vite-plugin-mkcert";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), mkcert()],
+  server: {
+    proxy: {
+      "/nooki": {
+        target: "https://api.nookipedia.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/nooki/, ""),
+      },
+    },
+  },
 });
