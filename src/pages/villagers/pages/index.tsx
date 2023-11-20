@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
 import { VillagerFilter, useVillagerListQuery } from "../services/query";
 import { ChangeEvent, useState } from "react";
-import { VillagerDebut, VillagerPersonality, VillagerSpecies } from "../types";
+import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useNavigate } from "react-router";
 import LoadingSpinner from "@src/components/LoadingSpinner";
+import { useTranslation } from "react-i18next";
 
 const Villagers = () => {
+  const { t } = useTranslation();
+
   const defaultFilter: VillagerFilter = {
-    game: VillagerDebut.NewHorizons,
+    game: VillagerGame.NewHorizons,
     nhdetails: true,
   };
   const [filter, setFilter] = useState<VillagerFilter>(defaultFilter);
@@ -32,7 +35,7 @@ const Villagers = () => {
             value={filter.species ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="선택" />
+            <option value="" label="-" />
             {Object.entries(VillagerSpecies).map(([key, value]) => {
               return <option key={key} value={value} label={key} />;
             })}
@@ -46,7 +49,7 @@ const Villagers = () => {
             value={filter.personality ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="선택" />
+            <option value="" label="-" />
             {Object.entries(VillagerPersonality).map(([key, value]) => {
               return <option key={key} value={value} label={key} />;
             })}
@@ -60,9 +63,11 @@ const Villagers = () => {
             value={filter.game ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="선택" />
-            {Object.entries(VillagerDebut).map(([key, value]) => {
-              return <option key={key} value={value} label={key} />;
+            <option value="" label="-" />
+            {Object.entries(VillagerGame).map(([key, value]) => {
+              return (
+                <option key={key} value={value} label={t(`game.${key}`)} />
+              );
             })}
           </select>
         </div>
@@ -78,10 +83,9 @@ const Villagers = () => {
                 backgroudColor={villager.title_color}
                 textColor={villager.text_color}
                 key={villager.url}
-                onClick={() => navigate(villager.name)}
               >
-                <h3>{villager.name}</h3>
-                <div>
+                <h3>{t(`villager.${villager.name}`)}</h3>
+                <div onClick={() => navigate(villager.name)}>
                   <img src={villager.image_url} />
                 </div>
               </VillagerCard>
@@ -109,6 +113,10 @@ const VillagerCard = styled.div<{ backgroudColor: string; textColor: string }>`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  /* background: linear-gradient(
+    #${(props) => props.backgroudColor},
+    #${(props) => props.textColor}
+  ); */
   background-color: #${(props) => props.backgroudColor};
   color: #${(props) => props.textColor};
   padding: 20px 30px;
@@ -118,6 +126,8 @@ const VillagerCard = styled.div<{ backgroudColor: string; textColor: string }>`
 
   & img {
     width: 120px;
+    cursor: pointer;
+    /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3)); */
   }
   & h3 {
     width: 100%;
@@ -125,5 +135,17 @@ const VillagerCard = styled.div<{ backgroudColor: string; textColor: string }>`
     padding: 5px 10px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.3);
+  }
+  &:hover {
+    color: #${(props) => props.backgroudColor};
+    /* background: linear-gradient(
+      #${(props) => props.textColor},
+      #${(props) => props.backgroudColor}
+    ); */
+    background-color: #${(props) => props.textColor};
+    transition: 0.2s;
+    & h3 {
+      background-color: rgba(50, 50, 50, 0.1);
+    }
   }
 `;

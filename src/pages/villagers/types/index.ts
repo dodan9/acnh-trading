@@ -67,7 +67,7 @@ export enum VillagerBirthSign {
   물고기자리 = "Pisces",
 }
 
-export enum VillagerDebut {
+export enum VillagerGame {
   Doubutsu_no_Mori = "DNM",
   AnimalCrossing = "AC",
   Doubutsu_no_Mori_e = "E_PLUS",
@@ -76,9 +76,9 @@ export enum VillagerDebut {
   NewLeaf = "NL",
   WelcomAmiibo = "WA",
   NewHorizons = "NH",
-  FILM = "FILM",
   HappyHomeDesigner = "HHD",
-  PC = "PC",
+  // FILM = "FILM",
+  // PC = "PC",
 }
 
 export enum VillagerHobby {
@@ -129,7 +129,7 @@ export interface Villager {
   prev_phrases?: any[]; // 이전 말버릇
   clothing: string;
   islander: boolean; // 게임큐브 때 동물의 숲 주민이었는가 (36마리)
-  debut: VillagerDebut; // 처음 등장한
-  appearances: VillagerDebut[]; // 등장하는 시리즈
+  debut: VillagerGame; // 처음 등장한
+  appearances: VillagerGame[]; // 등장하는 시리즈
   nh_details?: NewHorizonsVillagerType;
 }
