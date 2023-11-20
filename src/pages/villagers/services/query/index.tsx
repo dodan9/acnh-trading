@@ -12,7 +12,7 @@ export interface VillagerFilter {
   name?: string; // 주민 이름
   species?: VillagerSpecies; // 주민 종
   personality?: VillagerPersonality; // 주민 성격
-  game?: VillagerDebut[];
+  game?: VillagerDebut;
   birthmonth?: string; // 생일 월
   birthday?: string; // 생일 일
   nhdetails?: boolean; // nh_details가 있는 주민들 반환 여부

@@ -4,7 +4,7 @@ import { useVillagerListQuery } from "../services/query";
 const VillagerDetail = () => {
   const { name } = useParams();
 
-  const { data: villager } = useVillagerListQuery({ name });
+  const { data: villager } = useVillagerListQuery({ name, nhdetails: true });
 
   return (
     <>
