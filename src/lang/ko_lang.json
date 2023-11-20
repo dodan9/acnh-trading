@@ -488,7 +488,7 @@
   "style": {
     "Active": "스포츠",
     "Cool": "멋쟁이",
-    "Cute": "깜찍함",
+    "Cute": "귀여움",
     "Elegant": "우아함",
     "Gorgeous": "화려함",
     "Simple": "심플함"
@@ -542,5 +542,20 @@
     "Wet Suit": "잠수복",
     "Reactions": "리액션",
     "Fencing": "울타리"
+  },
+
+  "month": {
+    "January": "1월",
+    "February": "2월",
+    "March": "3월",
+    "April": "4월",
+    "May": "5월",
+    "June": "6월",
+    "July": "7월",
+    "August": "8월",
+    "September": "9월",
+    "October": "10월",
+    "November": "11월",
+    "December": "12월"
   }
 }

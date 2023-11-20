@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { mainRoutes } from "./routes/mainRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import styled from "@emotion/styled";
 import "@src/lang/i18next";
 import { Container } from "./styled";
 

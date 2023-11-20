@@ -95,7 +95,7 @@ export interface NewHorizonsVillagerType {
   photo_url: string; // 액자 사진
   icon_url: string; // 주민 아이콘
   quote: string; // 액자 뒤 좋아하는 말
-  sub_personality: "A" | "B";
+  ["sub-personality"]: "A" | "B";
   catchphrase: string; // 말버릇
   clothing: string; // 기본 옷
   clothing_variation: string; // 기본 옷 종류?

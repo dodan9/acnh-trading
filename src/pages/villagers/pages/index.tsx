@@ -32,11 +32,11 @@ const Villagers = () => {
         <div>
           종족:
           <select
-            name="species"
+            name='species'
             value={filter.species ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="-" />
+            <option value='' label='-' />
             {Object.entries(VillagerSpecies).map(([key, value]) => {
               return (
                 <option key={key} value={value} label={t(`species.${value}`)} />
@@ -48,11 +48,11 @@ const Villagers = () => {
         <div>
           성격:
           <select
-            name="personality"
+            name='personality'
             value={filter.personality ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="-" />
+            <option value='' label='-' />
             {Object.entries(VillagerPersonality).map(([key, value]) => {
               return (
                 <option
@@ -68,11 +68,11 @@ const Villagers = () => {
         <div>
           시리즈:
           <select
-            name="game"
+            name='game'
             value={filter.game ?? ""}
             onChange={handleSelectChange}
           >
-            <option value="" label="-" />
+            <option value='' label='-' />
             {Object.entries(VillagerGame).map(([key, value]) => {
               return (
                 <option key={key} value={value} label={t(`game.${key}`)} />
