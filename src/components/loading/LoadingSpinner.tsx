@@ -14,8 +14,9 @@ const Spinner = styled.div`
   }
   width: 50px;
   height: 50px;
-  border: 3px solid rgba(81, 170, 51, 0.3);
-  border-top-color: #54d035;
+  border: 8px solid rgba(81, 170, 51, 0.3);
+  border-top-color: rgb(109, 225, 225);
   border-radius: 100%;
   animation: spin 1s ease-in-out infinite;
+  margin: 0 auto;
 `;

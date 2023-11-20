@@ -1,10 +1,11 @@
-import styled from "@emotion/styled";
 import { VillagerFilter, useVillagerListQuery } from "../services/query";
 import { ChangeEvent, useState } from "react";
 import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useNavigate } from "react-router";
-import LoadingSpinner from "@src/components/LoadingSpinner";
 import { useTranslation } from "react-i18next";
+import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { Wrapper } from "@src/styled";
+import { OptionBox, VillagerList, VillagerCard } from "../styled";
 
 const Villagers = () => {
   const { t } = useTranslation();
@@ -24,8 +25,8 @@ const Villagers = () => {
   };
 
   return (
-    <>
-      <div>주민들</div>
+    <Wrapper>
+      <div>주민 목록</div>
 
       <OptionBox>
         <div>
@@ -37,7 +38,9 @@ const Villagers = () => {
           >
             <option value="" label="-" />
             {Object.entries(VillagerSpecies).map(([key, value]) => {
-              return <option key={key} value={value} label={key} />;
+              return (
+                <option key={key} value={value} label={t(`species.${value}`)} />
+              );
             })}
           </select>
         </div>
@@ -51,7 +54,13 @@ const Villagers = () => {
           >
             <option value="" label="-" />
             {Object.entries(VillagerPersonality).map(([key, value]) => {
-              return <option key={key} value={value} label={key} />;
+              return (
+                <option
+                  key={key}
+                  value={value}
+                  label={t(`personality.${value}`)}
+                />
+              );
             })}
           </select>
         </div>
@@ -84,68 +93,19 @@ const Villagers = () => {
                 textColor={villager.text_color}
                 key={villager.url}
               >
-                <h3>{t(`villager.${villager.name}`)}</h3>
                 <div onClick={() => navigate(villager.name)}>
-                  <img src={villager.image_url} />
+                  {/* <img src={villager.image_url} /> */}
+                  {villager.nh_details && (
+                    <img src={villager.nh_details.icon_url} />
+                  )}
                 </div>
+                <h3>{t(`villager.${villager.name}`)}</h3>
               </VillagerCard>
             );
           })}
       </VillagerList>
-    </>
+    </Wrapper>
   );
 };
 
 export default Villagers;
-
-const OptionBox = styled.div`
-  padding: 20px 0;
-`;
-
-const VillagerList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
-  gap: 10px;
-`;
-
-const VillagerCard = styled.div<{ backgroudColor: string; textColor: string }>`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* background: linear-gradient(
-    #${(props) => props.backgroudColor},
-    #${(props) => props.textColor}
-  ); */
-  background-color: #${(props) => props.backgroudColor};
-  color: #${(props) => props.textColor};
-  padding: 20px 30px;
-  width: max-content;
-  border-radius: 10px;
-  gap: 20px;
-
-  & img {
-    width: 120px;
-    cursor: pointer;
-    /* filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3)); */
-  }
-  & h3 {
-    width: 100%;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  &:hover {
-    color: #${(props) => props.backgroudColor};
-    /* background: linear-gradient(
-      #${(props) => props.textColor},
-      #${(props) => props.backgroudColor}
-    ); */
-    background-color: #${(props) => props.textColor};
-    transition: 0.2s;
-    & h3 {
-      background-color: rgba(50, 50, 50, 0.1);
-    }
-  }
-`;

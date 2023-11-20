@@ -4,6 +4,7 @@ import { mainRoutes } from "./routes/mainRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import styled from "@emotion/styled";
 import "@src/lang/i18next";
+import { Container } from "./styled";
 
 function App() {
   const queryClient = new QueryClient({
@@ -29,7 +30,3 @@ function App() {
 }
 
 export default App;
-
-const Container = styled.div`
-  padding: 20px;
-`;

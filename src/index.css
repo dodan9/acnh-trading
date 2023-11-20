@@ -5,6 +5,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Jua", sans-serif;
+  position: relative;
+}
+
+body {
+  background-color: rgb(235, 226, 188);
+  color: rgb(65, 51, 45);
 }
 
 /* :root {

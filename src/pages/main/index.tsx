@@ -10,6 +10,12 @@ const Main = () => {
       <div>Main!!!</div>
 
       <div onClick={() => navigate("villagers")}>주민들</div>
+
+      <div onClick={() => navigate("museum")}>도감</div>
+
+      <div onClick={() => navigate("housewear")}>가구</div>
+
+      <div onClick={() => navigate("item")}>아이템</div>
     </>
   );
 };
