@@ -27,7 +27,7 @@ export const useSingleClothing = ({
     return response.data;
   };
 
-  return useQuery<ClothingDetailType[]>({
+  return useQuery<ClothingDetailType>({
     queryKey: [query_key.CLOTHING_DETAIL, name],
     queryFn: getClothingDetail,
   });

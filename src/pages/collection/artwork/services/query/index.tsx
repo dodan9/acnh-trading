@@ -27,7 +27,7 @@ export const useArtworkDetail = ({
     return response.data;
   };
 
-  return useQuery<ArtworkDetailType[]>({
+  return useQuery<ArtworkDetailType>({
     queryKey: [query_key.ARTWORK_DETAIL, name],
     queryFn: getArtworkDetail,
   });
