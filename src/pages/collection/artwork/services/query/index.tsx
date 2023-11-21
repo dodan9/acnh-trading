@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ArtworkDetailType, ArtworkFilterType } from "../../types";
+import { ArtworkFilterType } from "../../types";
 import { getArtworkDetailApi, getArtworkListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
 
@@ -9,7 +9,7 @@ export const useArtworkList = (filter?: ArtworkFilterType) => {
     return response.data;
   };
 
-  return useQuery<ArtworkDetailType[]>({
+  return useQuery({
     queryKey: [query_key.ARTWORK_LIST, filter],
     queryFn: getArtworkList,
   });
@@ -27,7 +27,7 @@ export const useArtworkDetail = ({
     return response.data;
   };
 
-  return useQuery<ArtworkDetailType>({
+  return useQuery({
     queryKey: [query_key.ARTWORK_DETAIL, name],
     queryFn: getArtworkDetail,
   });

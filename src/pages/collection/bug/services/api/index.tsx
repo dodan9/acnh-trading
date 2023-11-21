@@ -1,8 +1,8 @@
 import { nookRequest } from "@src/services/api";
-import { BugFilterType } from "../../types";
+import { BugDetailType, BugFilterType } from "../../types";
 
 export const getBugListApi = (filter?: BugFilterType) => {
-  return nookRequest({
+  return nookRequest<BugDetailType[]>({
     url: `/nh/bugs`,
     method: "GET",
     params: filter,
@@ -16,7 +16,7 @@ export const getBugDetailApi = ({
   name: string;
   thumbsize?: number;
 }) => {
-  return nookRequest({
+  return nookRequest<BugDetailType>({
     url: `/nh/bugs/${name}`,
     method: "GET",
     params: { thumbsize },

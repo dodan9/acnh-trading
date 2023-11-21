@@ -1,8 +1,8 @@
 import { nookRequest } from "@src/services/api";
-import { VillagerFilter } from "../query";
+import { Villager, VillagerFilter } from "../../types";
 
 export const getVillagerListApi = (filter?: VillagerFilter) => {
-  return nookRequest({
+  return nookRequest<Villager[]>({
     url: "/villagers",
     method: "GET",
     params: filter,

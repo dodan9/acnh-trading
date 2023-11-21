@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { query_key } from "@src/services/query/query_key";
-import { FishDetailType, FishFilterType } from "../../types";
+import { FishFilterType } from "../../types";
 import { getFishDetailApi, getFishListApi } from "../api";
 
 export const useFishList = (filter?: FishFilterType) => {
@@ -9,7 +9,7 @@ export const useFishList = (filter?: FishFilterType) => {
     return response.data;
   };
 
-  return useQuery<FishDetailType[]>({
+  return useQuery({
     queryKey: [query_key.FISH_LIST, filter],
     queryFn: getFishList,
   });
@@ -27,7 +27,7 @@ export const useFishDetail = ({
     return response.data;
   };
 
-  return useQuery<FishDetailType>({
+  return useQuery({
     queryKey: [query_key.FISH_DETAIL, name],
     queryFn: getFishDetail,
   });

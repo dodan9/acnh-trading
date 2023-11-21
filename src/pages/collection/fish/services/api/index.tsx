@@ -1,8 +1,8 @@
 import { nookRequest } from "@src/services/api";
-import { FishFilterType } from "../../types";
+import { FishDetailType, FishFilterType } from "../../types";
 
 export const getFishListApi = (filter?: FishFilterType) => {
-  return nookRequest({
+  return nookRequest<FishDetailType[]>({
     url: `/nh/fish`,
     method: "GET",
     params: filter,
@@ -16,7 +16,7 @@ export const getFishDetailApi = ({
   name: string;
   thumbsize?: number;
 }) => {
-  return nookRequest({
+  return nookRequest<FishDetailType>({
     url: `/nh/fish/${name}`,
     method: "GET",
     params: { thumbsize },

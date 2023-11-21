@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BugDetailType, BugFilterType } from "../../types";
+import { BugFilterType } from "../../types";
 import { getBugDetailApi, getBugListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
 
@@ -9,7 +9,7 @@ export const useBugList = (filter?: BugFilterType) => {
     return response.data;
   };
 
-  return useQuery<BugDetailType[]>({
+  return useQuery({
     queryKey: [query_key.BUG_LIST, filter],
     queryFn: getBugList,
   });
@@ -27,7 +27,7 @@ export const useBugDetail = ({
     return response.data;
   };
 
-  return useQuery<BugDetailType>({
+  return useQuery({
     queryKey: [query_key.BUG_DETAIL, name],
     queryFn: getBugDetail,
   });

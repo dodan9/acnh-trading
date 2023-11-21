@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ClothingDetailType, ClothingFilterType } from "../../types";
+import { ClothingFilterType } from "../../types";
 import { getClothingListApi, getClothingDetailApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
 
@@ -9,7 +9,7 @@ export const useClothingList = (filter?: ClothingFilterType) => {
     return response.data;
   };
 
-  return useQuery<ClothingDetailType[]>({
+  return useQuery({
     queryKey: [query_key.CLOTHING_LIST, filter],
     queryFn: getClothingList,
   });
@@ -27,7 +27,7 @@ export const useSingleClothing = ({
     return response.data;
   };
 
-  return useQuery<ClothingDetailType>({
+  return useQuery({
     queryKey: [query_key.CLOTHING_DETAIL, name],
     queryFn: getClothingDetail,
   });

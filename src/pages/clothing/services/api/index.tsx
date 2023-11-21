@@ -1,8 +1,8 @@
 import { nookRequest } from "@src/services/api";
-import { ClothingFilterType } from "../../types";
+import { ClothingDetailType, ClothingFilterType } from "../../types";
 
 export const getClothingListApi = (filter?: ClothingFilterType) => {
-  return nookRequest({
+  return nookRequest<ClothingDetailType[]>({
     url: "/nh/clothing",
     method: "GET",
     params: filter,
@@ -16,7 +16,7 @@ export const getClothingDetailApi = ({
   name: string;
   thumbsize?: number;
 }) => {
-  return nookRequest({
+  return nookRequest<ClothingDetailType>({
     url: `/nh/clothing/${name}`,
     method: "GET",
     params: { thumbsize },
