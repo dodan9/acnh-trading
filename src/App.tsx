@@ -9,7 +9,7 @@ function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        retry: 0,
+        retry: 3,
         refetchOnWindowFocus: true,
         gcTime: 1000 * 60 * 5,
         staleTime: 1000 * 60 * 5,
