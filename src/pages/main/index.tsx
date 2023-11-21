@@ -18,6 +18,8 @@ const Main = () => {
       <div onClick={() => navigate("housewear")}>가구</div>
 
       <div onClick={() => navigate("item")}>아이템</div>
+
+      <div onClick={() => navigate("event")}>이벤트</div>
     </>
   );
 };

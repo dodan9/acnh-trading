@@ -22,4 +22,6 @@ export enum query_key {
 
   SEA_CREATURE_LIST = "sea_creature_list",
   SEA_CREATURE_DETAIL = "sea_creature_detail",
+
+  EVENT_LIST = "event_list",
 }
