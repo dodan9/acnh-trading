@@ -4,6 +4,7 @@ import ArtworkList from "@src/pages/collection/artwork/pages";
 import BugList from "@src/pages/collection/bug/pages";
 import FishList from "@src/pages/collection/fish/pages";
 import FossilList from "@src/pages/collection/fossile/pages";
+import SeaCreatureList from "@src/pages/collection/seaCreature/pages";
 import Main from "@src/pages/main";
 import VillagerList from "@src/pages/villagers/pages";
 import VillagerDetail from "@src/pages/villagers/pages/VillagerDetail";
@@ -24,6 +25,7 @@ export const mainRoutes = () => {
       <Route path="/collection/bug" element={<BugList />} />
       <Route path="/collection/fish" element={<FishList />} />
       <Route path="/collection/fossil" element={<FossilList />} />
+      <Route path="/collection/sea_creature" element={<SeaCreatureList />} />
     </Routes>
   );
 };

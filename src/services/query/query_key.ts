@@ -19,4 +19,7 @@ export enum query_key {
   FOSSIL_GROUP_DETAIL = "fossil_group_detail",
   FOSSIL_GROUP_INFO_LIST = "fossil_group_info_list",
   FOSSIL_GROUP_INFO_DETAIL = "fossil_group_info_detail",
+
+  SEA_CREATURE_LIST = "sea_creature_list",
+  SEA_CREATURE_DETAIL = "sea_creature_detail",
 }
