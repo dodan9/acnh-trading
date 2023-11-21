@@ -12,4 +12,11 @@ export enum query_key {
 
   FISH_LIST = "fish_list",
   FISH_DETAIL = "fish_detail",
+
+  FOSSIL_LIST = "fossil_list",
+  FOSSIL_DETAIL = "fossil_detail",
+  FOSSIL_GROUP_LIST = "fossil_group_list",
+  FOSSIL_GROUP_DETAIL = "fossil_group_detail",
+  FOSSIL_GROUP_INFO_LIST = "fossil_group_info_list",
+  FOSSIL_GROUP_INFO_DETAIL = "fossil_group_info_detail",
 }

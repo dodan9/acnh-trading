@@ -1,6 +1,6 @@
 import { ColorEnum } from "@src/assets/enum";
 
-export interface FossileDetailType {
+export interface FossilDetailType {
   name: string;
   url: string;
   image_url: string;
@@ -13,18 +13,18 @@ export interface FossileDetailType {
   colors: ColorEnum[];
 }
 
-export interface FossileGroupType {
+export interface FossilGroupType {
   name: string;
   url: string;
   room: number; // 박물관 방 번호
   description: string;
 }
 
-export interface AllFossilesOfGroupType extends FossileGroupType {
-  fossiles: FossileDetailType[];
+export interface FossilGroupInfoType extends FossilGroupType {
+  fossils: FossilDetailType[];
 }
 
-export interface FossilesOfGroupType extends AllFossilesOfGroupType {
+export interface FossilGroupInfoDetailType extends FossilGroupInfoType {
   matched: {
     type: "group" | "individual"; // 그룹 혹은 개별 화석
     name: string; // 그룹(혹은 화석) 이름
