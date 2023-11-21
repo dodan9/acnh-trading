@@ -9,4 +9,7 @@ export enum query_key {
 
   BUG_LIST = "bug_list",
   BUG_DETAIL = "bug_detail",
+
+  FISH_LIST = "fish_list",
+  FISH_DETAIL = "fish_detail",
 }

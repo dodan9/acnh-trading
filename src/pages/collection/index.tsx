@@ -9,6 +9,7 @@ const Collection = () => {
 
       <div onClick={() => navigate("artwork")}>미술품</div>
       <div onClick={() => navigate("bug")}>곤충</div>
+      <div onClick={() => navigate("fish")}>물고기</div>
     </Wrapper>
   );
 };
