@@ -11,7 +11,7 @@ import {
   PassportBotom,
   HouseInfo,
   PassportQuote,
-} from "../styled";
+} from "../styled/VillagerDetailStyled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 // import { useState } from "react";
 // import Tab from "@mui/material/Tab";

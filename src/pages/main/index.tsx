@@ -11,7 +11,9 @@ const Main = () => {
 
       <div onClick={() => navigate("villagers")}>주민들</div>
 
-      <div onClick={() => navigate("museum")}>도감</div>
+      <div onClick={() => navigate("collect")}>도감</div>
+
+      <div onClick={() => navigate("clothing")}>옷</div>
 
       <div onClick={() => navigate("housewear")}>가구</div>
 

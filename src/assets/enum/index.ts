@@ -1,0 +1,16 @@
+export enum ColorEnum {
+  Aqua = "Aqua",
+  Beige = "Beige",
+  Black = "Black",
+  Blue = "Blue",
+  Brown = "Brown",
+  Colorful = "Colorful",
+  Gray = "Gray",
+  Green = "Green",
+  Orange = "Orange",
+  Pink = "Pink",
+  Purple = "Purple",
+  Red = "Red",
+  White = "White",
+  Yellow = "Yellow",
+}
