@@ -9,9 +9,9 @@ const Main = () => {
     <>
       <div>Main!!!</div>
 
-      <div onClick={() => navigate("villagers")}>주민들</div>
+      <div onClick={() => navigate("villager")}>주민들</div>
 
-      <div onClick={() => navigate("collect")}>도감</div>
+      <div onClick={() => navigate("collection")}>도감</div>
 
       <div onClick={() => navigate("clothing")}>옷</div>
 

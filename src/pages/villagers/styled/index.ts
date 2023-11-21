@@ -5,7 +5,7 @@ export const OptionBox = styled.div`
   padding: 20px 0;
 `;
 
-export const VillagerList = styled.div`
+export const VillagerListBox = styled.div`
   display: grid;
   justify-content: center;
   gap: 16px;

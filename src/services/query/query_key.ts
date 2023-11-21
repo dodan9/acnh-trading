@@ -3,4 +3,7 @@ export enum query_key {
 
   CLOTHING_LIST = "clothing_list",
   CLOTHING_DETAIL = "clothing_detail",
+
+  ARTWORK_LIST = "artwork_list",
+  ARTWORK_DETAIL = "artwork_detail",
 }

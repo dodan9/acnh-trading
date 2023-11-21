@@ -5,9 +5,9 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { Wrapper } from "@src/styled";
-import { OptionBox, VillagerList, VillagerCard } from "../styled";
+import { OptionBox, VillagerListBox, VillagerCard } from "../styled";
 
-const Villagers = () => {
+const VillagerList = () => {
   const { t } = useTranslation();
 
   const defaultFilter: VillagerFilter = {
@@ -32,11 +32,11 @@ const Villagers = () => {
         <div>
           종족:
           <select
-            name='species'
+            name="species"
             value={filter.species ?? ""}
             onChange={handleSelectChange}
           >
-            <option value='' label='-' />
+            <option value="" label="-" />
             {Object.entries(VillagerSpecies).map(([key, value]) => {
               return (
                 <option key={key} value={value} label={t(`species.${value}`)} />
@@ -48,11 +48,11 @@ const Villagers = () => {
         <div>
           성격:
           <select
-            name='personality'
+            name="personality"
             value={filter.personality ?? ""}
             onChange={handleSelectChange}
           >
-            <option value='' label='-' />
+            <option value="" label="-" />
             {Object.entries(VillagerPersonality).map(([key, value]) => {
               return (
                 <option
@@ -68,11 +68,11 @@ const Villagers = () => {
         <div>
           시리즈:
           <select
-            name='game'
+            name="game"
             value={filter.game ?? ""}
             onChange={handleSelectChange}
           >
-            <option value='' label='-' />
+            <option value="" label="-" />
             {Object.entries(VillagerGame).map(([key, value]) => {
               return (
                 <option key={key} value={value} label={t(`game.${key}`)} />
@@ -84,7 +84,7 @@ const Villagers = () => {
 
       {isFetching && <LoadingSpinner />}
 
-      <VillagerList>
+      <VillagerListBox>
         {villager_list &&
           villager_list.map((villager) => {
             return (
@@ -103,9 +103,9 @@ const Villagers = () => {
               </VillagerCard>
             );
           })}
-      </VillagerList>
+      </VillagerListBox>
     </Wrapper>
   );
 };
 
-export default Villagers;
+export default VillagerList;

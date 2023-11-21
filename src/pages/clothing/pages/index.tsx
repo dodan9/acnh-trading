@@ -1,11 +1,10 @@
 import { Wrapper } from "@src/styled";
 import { useClothingList } from "../services/query";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { ClothingFilterType } from "../types";
-import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-const Clothing = () => {
+const ClothingList = () => {
   const [filter, setFilter] = useState<ClothingFilterType>({});
   const { data: clothingList } = useClothingList();
 
@@ -15,25 +14,6 @@ const Clothing = () => {
     const { name, value } = event.target;
     setFilter({ ...filter, [name]: value });
   };
-
-  const getKo = async () => {
-    const response = await axios({
-      url: "https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Bags.json",
-      method: "GET",
-    });
-
-    console.log(
-      response.data.map(
-        (cloth: { name: string; translations: { kRko: string } }) => {
-          return `"${cloth.name}" : "${cloth.translations.kRko}"`;
-        }
-      )
-    );
-  };
-
-  useEffect(() => {
-    getKo();
-  }, []);
 
   return (
     <Wrapper>
@@ -59,4 +39,4 @@ const Clothing = () => {
   );
 };
 
-export default Clothing;
+export default ClothingList;
