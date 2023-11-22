@@ -13,6 +13,7 @@ import {
   PassportQuote,
 } from "../styled/VillagerDetailStyled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { usePhotoDetail } from "@src/pages/item/photo/services/query";
 // import { useState } from "react";
 // import Tab from "@mui/material/Tab";
 // import Tabs from "@mui/material/Tabs";
@@ -25,6 +26,8 @@ const VillagerDetail = () => {
     name,
     nhdetails: true,
   });
+
+  // const { data: photo } = usePhotoDetail({ name: `${name}'s Photo` });
 
   // type TabsType = "인테리어" | "외관";
   // const [tabs, setTabs] = useState<TabsType>("외관");
@@ -46,7 +49,13 @@ const VillagerDetail = () => {
           <>
             <PassportContent>
               <PassportImageBox themeColor={villager[0].title_color}>
-                <img src={villager[0].image_url} />
+                <img
+                  src={
+                    // photo
+                    // ? photo.variations[0].image_url
+                    villager[0].image_url
+                  }
+                />
               </PassportImageBox>
 
               <PassportInfoBox>

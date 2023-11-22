@@ -20,5 +20,5 @@ export interface PhotoDetailType {
   grid_length: number;
   availability: { from: string; note: string }[];
   buy: { price: number; currency: string }[];
-  variations: { variation: string; image_url: string; colors: ColorEnum[] };
+  variations: { variation: string; image_url: string; colors: ColorEnum[] }[];
 }
