@@ -113,7 +113,7 @@ export interface NewHorizonsVillagerType {
   house_music_note: string; // 음악에 관한 정보 (재생 여부 등?)
 }
 
-export interface Villager {
+export interface VillagerDetailType {
   url: string;
   name: string;
   alt_name: string; // 과거 이름(소수만 이름 바뀜)
@@ -137,7 +137,7 @@ export interface Villager {
   nh_details?: NewHorizonsVillagerType;
 }
 
-export interface VillagerFilter {
+export interface VillagerFilterType {
   name?: string; // 주민 이름
   species?: VillagerSpecies; // 주민 종
   personality?: VillagerPersonality; // 주민 성격
