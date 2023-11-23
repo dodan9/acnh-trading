@@ -13,7 +13,9 @@ const PhotoList = () => {
 
       {photo_list &&
         photo_list.map((photo) => {
-          return <div key={photo.name}>{t(`photo.${photo.name}`)}</div>;
+          return (
+            <div key={photo.name}>{t(`${photo.category}.${photo.name}`)}</div>
+          );
         })}
     </Wrapper>
   );
