@@ -1,3 +1,4 @@
+import { sortBy } from "lodash";
 import { create } from "zustand";
 
 interface CartItemType {
@@ -33,19 +34,30 @@ interface Action {
   };
 }
 
-const useCartStore = create<State & Action>((set) => ({
+const useCartStore = create<State & Action>((set, get) => ({
   cart_list: [],
   warning: [""],
 
   actions: {
     addItem: ({ item, index }) => {
       set((state) => {
-        const updatedCartList = state.cart_list.map((list) =>
-          list.index === index
-            ? { ...list, items: [...list.items, item] }
-            : list
-        );
-        return { cart_list: updatedCartList };
+        const cartItem = state.cart_list.find((list) => list.index === index);
+
+        if (cartItem) {
+          cartItem.items.push(item);
+        } else {
+          state.cart_list.push({
+            index,
+            items: [item],
+            isSelected: false,
+            price: 0,
+            unit: "마일",
+          });
+        }
+
+        console.log(get().cart_list);
+        alert("장바구니에 담김!");
+        return { cart_list: [...state.cart_list] };
       });
     },
 
@@ -107,4 +119,11 @@ const useCartStore = create<State & Action>((set) => ({
 }));
 
 export const useCart = () => useCartStore((state) => state.cart_list);
+export const useCartLastIndex = () =>
+  useCartStore((state) =>
+    state.cart_list.length > 0 ? sortBy(state.cart_list, "index")[0].index : 0
+  );
+export const useAddItem = () => useCartStore((state) => state.actions.addItem);
+export const useRemoveItem = () =>
+  useCartStore((state) => state.actions.removeItem);
 export const useCartAction = () => useCartStore((state) => state.actions);

@@ -59,7 +59,7 @@ export const PassportInfoBox = styled.div`
     flex: 5;
   }
 
-  & div:not(:first-child) {
+  & div:not(:first-of-type) {
     width: 100%;
     border-bottom: 2px solid rgb(250, 248, 225);
     padding: 15px 0 5px 5px;
@@ -68,7 +68,7 @@ export const PassportInfoBox = styled.div`
       width: calc(100% - 40px);
     }
   }
-  & div:last-child {
+  & div:last-of-type {
     border: none;
   }
 `;

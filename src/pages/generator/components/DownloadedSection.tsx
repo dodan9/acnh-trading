@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useCart } from "../store/cart";
 import {
   CartItem,
@@ -11,6 +12,7 @@ import {
 
 const DownloadedSection = () => {
   const cart_list = useCart();
+  const { t } = useTranslation();
 
   return (
     <Section>
@@ -30,7 +32,9 @@ const DownloadedSection = () => {
                               <img src={item.image_url} />
                             </div>
                             <div>
-                              {item.name} x {item.amount}
+                              {`${t(`${item.type}.${item.name}`)} x ${
+                                item.amount
+                              }`}
                             </div>
                           </div>
 

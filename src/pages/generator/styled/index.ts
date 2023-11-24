@@ -4,13 +4,27 @@ export const SectionHeader = styled.div`
   background-color: rgb(141, 210, 199);
 `;
 
-export const CartList = styled.ul``;
+export const CartList = styled.ul`
+  width: 100%;
+`;
 
 export const CartItemSection = styled.li`
   display: flex;
 `;
-export const CartItemList = styled.ul``;
-export const CartItem = styled.li``;
+export const CartItemList = styled.ul`
+  width: 100%;
+`;
+export const CartItem = styled.li`
+  width: 100%;
+  & > div {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 50px;
+  }
+`;
 
 export const CartItemPriceBox = styled.div``;
 

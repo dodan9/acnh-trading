@@ -11,6 +11,10 @@
 body {
   background-color: rgb(235, 226, 188);
   color: rgb(65, 51, 45);
+
+  li {
+    list-style: none;
+  }
 }
 
 /* :root {
