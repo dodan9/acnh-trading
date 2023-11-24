@@ -35,7 +35,8 @@ const VillagerList = () => {
                 >
                   <div onClick={() => navigate(villager.name)}>
                     {villager.nh_details && (
-                      <img src={villager.nh_details.icon_url} />
+                      // <img src={villager.nh_details.icon_url} />
+                      <img src={""} />
                     )}
                   </div>
                   <h3>{t(`villager.${villager.name}`)}</h3>

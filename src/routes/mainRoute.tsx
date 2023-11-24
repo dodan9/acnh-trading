@@ -6,6 +6,7 @@ import FishList from "@src/pages/collection/fish/pages";
 import FossilList from "@src/pages/collection/fossile/pages";
 import SeaCreatureList from "@src/pages/collection/seaCreature/pages";
 import EventList from "@src/pages/event/pages";
+import GeneratorMain from "@src/pages/generator/pages";
 import Item from "@src/pages/item";
 import PhotoList from "@src/pages/item/photo/pages";
 import Main from "@src/pages/main";
@@ -34,6 +35,8 @@ export const mainRoutes = () => {
 
       <Route path="/item" element={<Item />} />
       <Route path="/item/photo" element={<PhotoList />} />
+
+      <Route path="/generator" element={<GeneratorMain />} />
     </Routes>
   );
 };
