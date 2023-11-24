@@ -13,10 +13,6 @@ import {
   PassportQuote,
 } from "../styled/VillagerDetailStyled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import { usePhotoDetail } from "@src/pages/item/photo/services/query";
-// import { useState } from "react";
-// import Tab from "@mui/material/Tab";
-// import Tabs from "@mui/material/Tabs";
 
 const VillagerDetail = () => {
   const { name } = useParams();
@@ -26,18 +22,6 @@ const VillagerDetail = () => {
     name,
     nhdetails: true,
   });
-
-  // const { data: photo } = usePhotoDetail({ name: `${name}'s Photo` });
-
-  // type TabsType = "인테리어" | "외관";
-  // const [tabs, setTabs] = useState<TabsType>("외관");
-
-  // const handleChangeTabs = (
-  //   _event: React.SyntheticEvent,
-  //   newValue: TabsType
-  // ) => {
-  //   setTabs(newValue);
-  // };
 
   return (
     <PassportBack>
@@ -49,13 +33,7 @@ const VillagerDetail = () => {
           <>
             <PassportContent>
               <PassportImageBox themeColor={villager[0].title_color}>
-                <img
-                  src={
-                    // photo
-                    // ? photo.variations[0].image_url
-                    villager[0].image_url
-                  }
-                />
+                <img src={villager[0].image_url} />
               </PassportImageBox>
 
               <PassportInfoBox>
@@ -64,9 +42,7 @@ const VillagerDetail = () => {
                 <div>
                   <h3>{t(`villager.${villager[0].name}`)}</h3>
                 </div>
-                {/* <div>{t(`species.${villager[0].species}`)}</div> */}
                 <div>{t(`personality.${villager[0].personality}`)}</div>
-                {/* <div>{t(`hobby.${villager[0].nh_details?.hobby}`)}</div> */}
 
                 <div>
                   (별자리아이콘){t(`month.${villager[0].birthday_month}`)}{" "}

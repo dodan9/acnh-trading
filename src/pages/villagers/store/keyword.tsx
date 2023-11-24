@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { shallow } from "zustand/shallow";
 
 interface VillagerKeyword {
   name: string;
@@ -11,6 +12,6 @@ const useVillagerKeywordStore = create<VillagerKeyword>((set) => ({
 }));
 
 export const useVillagerName = () =>
-  useVillagerKeywordStore((state) => state.name);
+  useVillagerKeywordStore((state) => state.name, shallow);
 export const useVillagerNameAction = () =>
   useVillagerKeywordStore((state) => state.actions);

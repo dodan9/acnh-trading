@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { VillagerFilterType, VillagerGame } from "../types";
+import { shallow } from "zustand/shallow";
 
 interface VillagerFilter {
   filter: VillagerFilterType;
@@ -12,7 +13,7 @@ const useVillagerKeywordStore = create<VillagerFilter>((set) => ({
 }));
 
 export const useVillagerFilter = () =>
-  useVillagerKeywordStore((state) => state.filter);
+  useVillagerKeywordStore((state) => state.filter, shallow);
 
 export const useVillagerFilterAction = () =>
   useVillagerKeywordStore((state) => state.actions);
