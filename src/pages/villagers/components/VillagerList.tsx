@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { useVillagerFilter } from "../store/filter";
 import { useVillagerListQuery } from "../services/query";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/lang/enum";
 
 const VillagerList = () => {
   const { t } = useTranslation();
@@ -24,7 +25,8 @@ const VillagerList = () => {
           villager_list
             .filter(
               (villager) =>
-                name === "" || t(`villager.${villager.name}`).includes(name)
+                name === "" ||
+                t(`${LangEnum.villager}.${villager.name}`).includes(name)
             )
             .map((villager) => {
               return (

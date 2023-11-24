@@ -2,15 +2,17 @@ import { create } from "zustand";
 
 interface CartItemType {
   name: string;
+  type: string;
   image_url: string;
   amount: number;
 }
 interface State {
   cart_list: {
     index: number;
+    isSelected: boolean;
     items: CartItemType[];
     price: number;
-    unit: string;
+    unit: "마일" | "덩";
   }[];
 }
 
@@ -24,6 +26,10 @@ interface Action {
     removeItem: ({ item, index }: Props) => void;
     updateItem: ({ item, index }: Props) => void;
     clearCart: () => void;
+
+    selectItem: (index: number) => void;
+    selectAll: () => void;
+    unselectAll: () => void;
   };
 }
 
@@ -32,7 +38,7 @@ const useCartStore = create<State & Action>((set) => ({
   warning: [""],
 
   actions: {
-    addItem: ({ item, index }) =>
+    addItem: ({ item, index }) => {
       set((state) => {
         const updatedCartList = state.cart_list.map((list) =>
           list.index === index
@@ -40,7 +46,8 @@ const useCartStore = create<State & Action>((set) => ({
             : list
         );
         return { cart_list: updatedCartList };
-      }),
+      });
+    },
 
     removeItem: ({ item, index }) =>
       set((state) => {
@@ -70,6 +77,32 @@ const useCartStore = create<State & Action>((set) => ({
         return { cart_list: updatedCartList };
       }),
     clearCart: () => set({ cart_list: [] }),
+
+    selectItem: (index) =>
+      set((state) => ({
+        cart_list: state.cart_list.map((list) => ({
+          ...list,
+          isSelected: list.index === index,
+        })),
+      })),
+
+    selectAll: () => {
+      set((state) => ({
+        cart_list: state.cart_list.map((list) => ({
+          ...list,
+          isSelected: true,
+        })),
+      }));
+    },
+
+    unselectAll: () => {
+      set((state) => ({
+        cart_list: state.cart_list.map((list) => ({
+          ...list,
+          isSelected: false,
+        })),
+      }));
+    },
   },
 }));
 

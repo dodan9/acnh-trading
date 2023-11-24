@@ -13,6 +13,7 @@ import {
   PassportQuote,
 } from "../styled/VillagerDetailStyled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/lang/enum";
 
 const VillagerDetail = () => {
   const { name } = useParams();
@@ -40,12 +41,15 @@ const VillagerDetail = () => {
                 <PassportQuote>{villager[0].quote}</PassportQuote>
 
                 <div>
-                  <h3>{t(`villager.${villager[0].name}`)}</h3>
+                  <h3>{t(`${LangEnum.villager}.${villager[0].name}`)}</h3>
                 </div>
-                <div>{t(`personality.${villager[0].personality}`)}</div>
+                <div>
+                  {t(`${LangEnum.personality}.${villager[0].personality}`)}
+                </div>
 
                 <div>
-                  (별자리아이콘){t(`month.${villager[0].birthday_month}`)}{" "}
+                  (별자리아이콘)
+                  {t(`${LangEnum.month}.${villager[0].birthday_month}`)}{" "}
                   {villager[0].birthday_day}일생
                 </div>
               </PassportInfoBox>
@@ -53,25 +57,27 @@ const VillagerDetail = () => {
 
             <PassportBotom>
               <div>
-                성격: {t(`personality.${villager[0].personality}`)}{" "}
+                성격: {t(`${LangEnum.personality}.${villager[0].personality}`)}{" "}
                 {villager[0].nh_details?.["sub-personality"]}
               </div>
 
               <div>
                 좋아하는 스타일:{" "}
                 {villager[0].nh_details?.fav_styles
-                  .map((style) => t(`style.${style}`))
+                  .map((style) => t(`${LangEnum.style}.${style}`))
                   .join(", ")}
               </div>
 
               <div>
                 좋아하는 색:{" "}
                 {villager[0].nh_details?.fav_colors
-                  .map((color) => t(`color.${color}`))
+                  .map((color) => t(`${LangEnum.color}.${color}`))
                   .join(", ")}
               </div>
 
-              <div>취미: {t(`hobby.${villager[0].nh_details?.hobby}`)}</div>
+              <div>
+                취미: {t(`${LangEnum.hobby}.${villager[0].nh_details?.hobby}`)}
+              </div>
               <HouseInfo>
                 {/* <img src={villager[0].nh_details?.house_interior_url} />
                 <img src={villager[0].nh_details?.house_exterior_url} /> */}

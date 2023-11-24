@@ -1,6 +1,7 @@
 import { Wrapper } from "@src/styled";
 import { useArtworkList } from "../services/query";
 import { useTranslation } from "react-i18next";
+import { LangEnum } from "@src/lang/enum";
 
 const ArtworkList = () => {
   const { data: artwork_list } = useArtworkList();
@@ -12,7 +13,11 @@ const ArtworkList = () => {
 
       {artwork_list &&
         artwork_list.map((artwork) => {
-          return <div key={artwork.name}>{t(`artwork.${artwork.name}`)}</div>;
+          return (
+            <div key={artwork.name}>
+              {t(`${LangEnum.artwork}.${artwork.name}`)}
+            </div>
+          );
         })}
     </Wrapper>
   );

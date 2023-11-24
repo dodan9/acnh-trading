@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useEventList } from "../services/query";
+import { LangEnum } from "@src/lang/enum";
 
 const EventList = () => {
   const { data: event_list } = useEventList();
@@ -43,8 +44,10 @@ const EventList = () => {
           return (
             <div key={event.event + event.date}>
               {event.event.includes("birthday")
-                ? `${t(`villager.${event.event.split("'")[0]}`)} 생일`
-                : t(`event.${event.event}`)}
+                ? `${t(
+                    `${LangEnum.villager}.${event.event.split("'")[0]}`
+                  )} 생일`
+                : t(`${LangEnum.event}.${event.event}`)}
             </div>
           );
         })}

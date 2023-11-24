@@ -3,6 +3,7 @@ import { useClothingList } from "../services/query";
 import { ChangeEvent, useState } from "react";
 import { ClothingFilterType } from "../types";
 import { useTranslation } from "react-i18next";
+import { LangEnum } from "@src/lang/enum";
 
 const ClothingList = () => {
   const [filter, setFilter] = useState<ClothingFilterType>({});
@@ -31,7 +32,7 @@ const ClothingList = () => {
         clothingList.map((clothing) => {
           return (
             <div key={clothing.name}>
-              {t(`clothing.${clothing.category}.${clothing.name}`)}
+              {t(`${LangEnum.clothing}.${clothing.category}.${clothing.name}`)}
             </div>
           );
         })}

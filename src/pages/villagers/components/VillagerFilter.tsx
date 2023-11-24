@@ -3,6 +3,7 @@ import { OptionBox } from "../styled";
 import { useVillagerFilter, useVillagerFilterAction } from "../store/filter";
 import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useTranslation } from "react-i18next";
+import { LangEnum } from "@src/lang/enum";
 
 const VillagerFilter = () => {
   const { t } = useTranslation();
@@ -26,7 +27,11 @@ const VillagerFilter = () => {
           <option value="" label="-" />
           {Object.entries(VillagerSpecies).map(([key, value]) => {
             return (
-              <option key={key} value={value} label={t(`species.${value}`)} />
+              <option
+                key={key}
+                value={value}
+                label={t(`${LangEnum.species}.${value}`)}
+              />
             );
           })}
         </select>
@@ -45,7 +50,7 @@ const VillagerFilter = () => {
               <option
                 key={key}
                 value={value}
-                label={t(`personality.${value}`)}
+                label={t(`${LangEnum.personality}.${value}`)}
               />
             );
           })}
@@ -61,7 +66,13 @@ const VillagerFilter = () => {
         >
           <option value="" label="-" />
           {Object.entries(VillagerGame).map(([key, value]) => {
-            return <option key={key} value={value} label={t(`game.${key}`)} />;
+            return (
+              <option
+                key={key}
+                value={value}
+                label={t(`${LangEnum.game}.${key}`)}
+              />
+            );
           })}
         </select>
       </div>
