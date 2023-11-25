@@ -27,7 +27,7 @@ const ClothingList = () => {
         image_url: clothing.variations[0].image_url,
         amount: 1,
       },
-      index: cartCount,
+      index: cartCount + 1,
     });
   };
 

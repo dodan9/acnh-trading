@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { backgroundColor } from "./color";
 
 const size = {
   // ss: '320px',
@@ -28,7 +29,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   width: 100%;
-  background-color: rgb(245, 242, 228);
+  background-color: ${backgroundColor.light};
   padding: 16px;
   border-radius: 32px;
 

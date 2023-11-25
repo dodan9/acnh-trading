@@ -129,7 +129,7 @@ export interface VillagerDetailType {
   sign: VillagerBirthSign; // 별자리
   quote: string; // 주민들 인용문 (액자 뒷면에 적힌 좋아하는 말)
   phrase: string; // 말버릇
-  prev_phrases?: any[]; // 이전 말버릇
+  prev_phrases?: string[]; // 이전 말버릇
   clothing: string;
   islander: boolean; // 게임큐브 때 동물의 숲 주민이었는가 (36마리)
   debut: VillagerGame; // 처음 등장한

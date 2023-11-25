@@ -1,8 +1,14 @@
 import styled from "@emotion/styled";
 import { device } from "@src/styled";
 
+export const passportColor = {
+  shadow: "rgb(227, 218, 200)",
+  main: "rgb(250, 248, 225)",
+  background: "rgb(178, 173, 151)",
+};
+
 export const PassportBack = styled.div`
-  background-color: rgb(178, 173, 151);
+  background-color: ${passportColor.background};
   width: 100%;
   height: 100%;
   padding: 0 20px 60px 20px;
@@ -32,13 +38,13 @@ export const PassportImageBox = styled.div<{ themeColor: string }>`
     flex: 3;
   }
 
-  & img:first-child {
+  & img:first-of-type {
     display: block;
     margin: 0 auto;
     height: 100%;
     width: 100%;
     object-fit: contain;
-    border: 10px solid rgb(250, 248, 225);
+    border: 10px solid ${passportColor.main};
     border-radius: 64px;
     padding: 10px;
     background-color: #${(props) => props.themeColor}80;
@@ -47,7 +53,7 @@ export const PassportImageBox = styled.div<{ themeColor: string }>`
 
 export const PassportQuote = styled.div`
   border-radius: 10px;
-  background-color: rgb(250, 248, 225);
+  background-color: ${passportColor.main};
   padding: 10px;
   margin-right: 40px;
 `;
@@ -61,7 +67,7 @@ export const PassportInfoBox = styled.div`
 
   & div:not(:first-of-type) {
     width: 100%;
-    border-bottom: 2px solid rgb(250, 248, 225);
+    border-bottom: 2px solid ${passportColor.main};
     padding: 15px 0 5px 5px;
 
     @media ${device.medium} {
@@ -96,9 +102,9 @@ export const PassportContent = styled.div`
 `;
 
 export const Passport = styled.div`
-  background-color: rgb(250, 248, 225);
+  background-color: ${passportColor.main};
   border-radius: 0 0 40px 40px;
-  border-bottom: 5px solid rgb(227, 218, 200);
+  border-bottom: 5px solid ${passportColor.shadow};
   margin: 0 auto;
   width: 80%;
   padding: 5px;

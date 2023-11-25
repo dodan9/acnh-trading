@@ -12,20 +12,24 @@ const GeneratorMain = () => {
 
     try {
       const div = targetRef.current;
-      const canvas = await html2canvas(div, { scale: 2 });
+      const canvas = await html2canvas(div, {
+        allowTaint: true,
+        useCORS: true,
+        backgroundColor: null,
+      });
       canvas.toBlob((blob) => {
         if (blob !== null) {
           saveAs(blob, "result.png");
         }
       });
     } catch (error) {
-      console.error("Error converting div to image:", error);
+      console.error(error);
     }
   };
 
   return (
     <Wrapper>
-      <div>거래 이미지 생성</div>
+      <div>거래 이미지 생성기</div>
 
       <div ref={targetRef}>
         <DownloadedSection />
