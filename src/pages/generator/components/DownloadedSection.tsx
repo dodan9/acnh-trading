@@ -15,6 +15,7 @@ import {
   EmptyCell,
 } from "../styled";
 import { Fragment } from "react";
+import { imgRequest } from "@src/services/api";
 
 const DownloadedSection = () => {
   const cart_list = useCartList();
@@ -74,6 +75,27 @@ const DownloadedSection = () => {
     );
   };
 
+  // const handleLoad = async (image_url: string, name: string) => {
+  //   const imgElement = document.getElementById(name) as HTMLImageElement;
+  //   const response = await imgRequest({ url: image_url });
+  //   // console.log(response);
+
+  //   // const blob = new Blob([response.data], { type: "image/png" });
+  //   // // Blob을 Data URL로 변환
+  //   // const dataUrl = URL.createObjectURL(blob);
+  //   // // img 태그의 src 속성에 데이터 URI 할당
+
+  //   const uint8Array = new TextEncoder().encode(response.data);
+
+  //   // Convert the Uint8Array to a Base64 string
+  //   const base64String = btoa(
+  //     String.fromCharCode.apply(null, Array.from(uint8Array))
+  //   );
+  //   const dataUrl = "data:image/png;base64," + btoa(base64String);
+
+  //   if (imgElement) imgElement.src = dataUrl;
+  // };
+
   return (
     <Section>
       <SectionHeader>거래소</SectionHeader>
@@ -119,11 +141,18 @@ const DownloadedSection = () => {
                     >{`${list.price} ${list.unit}`}</td>
                   </tr>
                   {list.items.map((item) => {
+                    console.log(item.image_url);
                     return (
                       <Fragment key={item.name}>
                         <CartItem>
                           <td>
-                            <img src={item.image_url} />
+                            <img
+                              src={item.image_url}
+                              // id={item.name}
+                              // onLoad={() =>
+                              //   handleLoad(item.image_url, item.name)
+                              // }
+                            />
                           </td>
                           <td>
                             {`${t(`${item.type}.${item.name}`)} x ${

@@ -22,3 +22,10 @@ nookRequest.interceptors.response.use(
     return error;
   }
 );
+
+export const imgRequest = axios.create({
+  baseURL: "/img",
+});
+imgRequest.interceptors.request.use((config) => {
+  return { ...config, url: config.url?.replace(/^https:\/\/dodo\.ac/, "") };
+});

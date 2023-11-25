@@ -13,6 +13,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/nooki/, ""),
       },
+      "/img": {
+        target: "https://dodo.ac",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/img/, ""),
+      },
     },
   },
 });
