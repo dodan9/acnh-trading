@@ -36,4 +36,7 @@ export enum query_key {
 
   MISCELLANEOUS_LIST = "miscellaneous_list",
   MISCELLANEOUS_DETAIL = "miscellaneous_detail",
+
+  RECIPE_LIST = "recipe_list",
+  RECIPE_DETAIL = "recipe_detail",
 }

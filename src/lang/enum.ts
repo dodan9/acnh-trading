@@ -24,4 +24,5 @@ export enum LangEnum {
   wallMounted = "wall-mounted",
   others = "others",
   fence = "fence",
+  recipe = "recipe",
 }
