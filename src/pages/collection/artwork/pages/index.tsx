@@ -3,7 +3,7 @@ import { useArtworkList } from "../services/query";
 import { useTranslation } from "react-i18next";
 import { LangEnum } from "@src/lang/enum";
 
-const ArtworkList = () => {
+const ArtworkMain = () => {
   const { data: artwork_list } = useArtworkList();
   const { t } = useTranslation();
 
@@ -23,4 +23,4 @@ const ArtworkList = () => {
   );
 };
 
-export default ArtworkList;
+export default ArtworkMain;

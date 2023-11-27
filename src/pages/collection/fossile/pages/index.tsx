@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useFossilList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 
-const FossilList = () => {
+const FossilMain = () => {
   const { data: fossil_list } = useFossilList();
 
   const { t } = useTranslation();
@@ -24,4 +24,4 @@ const FossilList = () => {
   );
 };
 
-export default FossilList;
+export default FossilMain;

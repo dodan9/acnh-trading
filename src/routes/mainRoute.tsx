@@ -1,18 +1,20 @@
 import ClothingList from "@src/pages/clothing/pages";
 import Collection from "@src/pages/collection";
-import ArtworkList from "@src/pages/collection/artwork/pages";
-import BugList from "@src/pages/collection/bug/pages";
-import FishList from "@src/pages/collection/fish/pages";
-import FossilList from "@src/pages/collection/fossile/pages";
-import SeaCreatureList from "@src/pages/collection/seaCreature/pages";
-import EventList from "@src/pages/event/pages";
+import ArtworkMain from "@src/pages/collection/artwork/pages";
+import BugMain from "@src/pages/collection/bug/pages";
+import FishMain from "@src/pages/collection/fish/pages";
+import FossilMain from "@src/pages/collection/fossile/pages";
+import SeaCreatureMain from "@src/pages/collection/seaCreature/pages";
+import EventMain from "@src/pages/event/pages";
 import GeneratorMain from "@src/pages/generator/pages";
-import Item from "@src/pages/item";
-import PhotoList from "@src/pages/item/photo/pages";
+import FunitureMain from "@src/pages/item/furniture/pages";
+import ItemMain from "@src/pages/item";
+import PhotoMain from "@src/pages/item/photo/pages";
 import Main from "@src/pages/main";
 import VillagerMain from "@src/pages/villagers/pages";
 import VillagerDetail from "@src/pages/villagers/pages/VillagerDetail";
 import { Routes, Route } from "react-router-dom";
+import InteriorItemMain from "@src/pages/item/interiorItem/pages";
 
 export const mainRoutes = () => {
   return (
@@ -25,16 +27,18 @@ export const mainRoutes = () => {
       <Route path="/clothing" element={<ClothingList />} />
 
       <Route path="/collection" element={<Collection />} />
-      <Route path="/collection/artwork" element={<ArtworkList />} />
-      <Route path="/collection/bug" element={<BugList />} />
-      <Route path="/collection/fish" element={<FishList />} />
-      <Route path="/collection/fossil" element={<FossilList />} />
-      <Route path="/collection/sea_creature" element={<SeaCreatureList />} />
+      <Route path="/collection/artwork" element={<ArtworkMain />} />
+      <Route path="/collection/bug" element={<BugMain />} />
+      <Route path="/collection/fish" element={<FishMain />} />
+      <Route path="/collection/fossil" element={<FossilMain />} />
+      <Route path="/collection/sea_creature" element={<SeaCreatureMain />} />
 
-      <Route path="/event" element={<EventList />} />
+      <Route path="/event" element={<EventMain />} />
 
-      <Route path="/item" element={<Item />} />
-      <Route path="/item/photo" element={<PhotoList />} />
+      <Route path="/item" element={<ItemMain />} />
+      <Route path="/item/photo" element={<PhotoMain />} />
+      <Route path="/item/funiture" element={<FunitureMain />} />
+      <Route path="/item/interior" element={<InteriorItemMain />} />
 
       <Route path="/generator" element={<GeneratorMain />} />
     </Routes>

@@ -2,7 +2,7 @@ import { Wrapper } from "@src/styled";
 import { useTranslation } from "react-i18next";
 import { usePhotoList } from "../services/query";
 
-const PhotoList = () => {
+const PhotoMain = () => {
   const { data: photo_list } = usePhotoList();
 
   const { t } = useTranslation();
@@ -21,4 +21,4 @@ const PhotoList = () => {
   );
 };
 
-export default PhotoList;
+export default PhotoMain;

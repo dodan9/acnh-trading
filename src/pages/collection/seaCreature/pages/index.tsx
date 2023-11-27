@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSeaCreatureList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 
-const SeaCreatureList = () => {
+const SeaCreatureMain = () => {
   const { data: sea_craeture_list } = useSeaCreatureList();
 
   const { t } = useTranslation();
@@ -24,4 +24,4 @@ const SeaCreatureList = () => {
   );
 };
 
-export default SeaCreatureList;
+export default SeaCreatureMain;

@@ -2,15 +2,15 @@ import { ColorEnum } from "@src/assets/enum";
 import { InteriorBaseType } from "../../types";
 
 export enum FurnitureCategory {
-  Housewares = "Housewares",
-  Miscellaneous = "Miscellaneous",
-  WallMounted = "Wall-mounted",
+  Housewares = "Housewares", // 가구
+  Miscellaneous = "Miscellaneous", // 잡화
+  WallMounted = "Wall-mounted", // 벽걸이 가구
 }
 
 export interface FurnitureFilterType {
-  category: FurnitureCategory;
-  color: ColorEnum[];
-  excludeDetails: boolean;
+  category?: FurnitureCategory;
+  color?: ColorEnum[];
+  excludedetails?: boolean;
 }
 
 export enum LuckySeason {

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useBugList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 
-const BugList = () => {
+const BugMain = () => {
   const { data: bug_list } = useBugList();
 
   const { t } = useTranslation();
@@ -20,4 +20,4 @@ const BugList = () => {
   );
 };
 
-export default BugList;
+export default BugMain;

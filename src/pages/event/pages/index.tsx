@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useEventList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 
-const EventList = () => {
+const EventMain = () => {
   const { data: event_list } = useEventList();
 
   const { t } = useTranslation();
@@ -55,4 +55,4 @@ const EventList = () => {
   );
 };
 
-export default EventList;
+export default EventMain;

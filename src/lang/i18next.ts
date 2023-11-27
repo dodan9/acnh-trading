@@ -16,6 +16,9 @@ import fishKo from "./ko/fish_ko.json";
 import sea_creature_Ko from "./ko/sea-creature_ko.json";
 import photo_ko from "./ko/photo_ko.json";
 import event_ko from "./ko/event_ko.json";
+import houseware_ko from "./ko/houseware_ko.json";
+import miscellaneous_ko from "./ko/miscellaneous_ko.json";
+import wall_mounted_ko from "./ko/wall-mounted_ko.json";
 
 import i18next, { Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -41,6 +44,9 @@ const resource: Resource = {
       ...sea_creature_Ko,
       ...photo_ko,
       ...event_ko,
+      ...houseware_ko,
+      ...miscellaneous_ko,
+      ...wall_mounted_ko,
     },
   },
   "en-US": {

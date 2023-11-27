@@ -27,4 +27,7 @@ export enum query_key {
 
   PHOTO_LIST = "photo_list",
   PHOTO_DETAIL = "photo_detail",
+
+  FURNITURE_LIST = "furniture_list",
+  FURNITURE_DETAIL = "furniture_detail",
 }

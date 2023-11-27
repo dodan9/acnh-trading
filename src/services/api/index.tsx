@@ -4,7 +4,7 @@ export const nookRequest = axios.create({
   // baseURL: `${import.meta.env.VITE_NOOKIPEDIA_URL}`,
   baseURL: "/nooki",
   withCredentials: true,
-  timeout: 10000,
+  timeout: 100000,
   headers: {
     "X-API-KEY": import.meta.env.VITE_NOOKIPEDIA_KEY,
   },

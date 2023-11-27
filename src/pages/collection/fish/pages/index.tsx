@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 
-const FishList = () => {
+const FishMain = () => {
   const { data: fish_list } = useFishList();
 
   const { t } = useTranslation();
@@ -22,4 +22,4 @@ const FishList = () => {
   );
 };
 
-export default FishList;
+export default FishMain;

@@ -108,7 +108,7 @@ const DownloadedSection = () => {
       </button>
     );
   };
-
+  // 정렬, 그룹화 기능 추가 요망
   return (
     <Section>
       <SectionHeader>거래소</SectionHeader>
