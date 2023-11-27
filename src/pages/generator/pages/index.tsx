@@ -13,8 +13,8 @@ const GeneratorMain = () => {
     try {
       const div = targetRef.current;
       const canvas = await html2canvas(div, {
+        logging: true,
         backgroundColor: null,
-        proxy: "/img",
       });
       canvas.toBlob((blob) => {
         if (blob !== null) {

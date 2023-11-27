@@ -6,7 +6,7 @@ import {
   useCartSelectActions,
 } from "../store/cart";
 import {
-  CartItem,
+  CartItemRow,
   CartBody,
   Section,
   SectionHeader,
@@ -14,9 +14,42 @@ import {
   CartTable,
   EmptyCell,
 } from "../styled";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { imgRequest } from "@src/services/api";
 
+const ItemImage = ({
+  name,
+  image_url,
+}: {
+  name: string;
+  image_url: string;
+}) => {
+  const handleLoad = async (image_url: string, name: string) => {
+    const imgElement = document.getElementById(name) as HTMLImageElement;
+
+    try {
+      const response = await imgRequest({
+        url: image_url,
+        headers: {
+          "Content-Type": "image/png",
+        },
+        responseType: "blob",
+      });
+      const blob = response.data;
+
+      const imageUrl = URL.createObjectURL(blob);
+
+      if (imgElement) imgElement.src = imageUrl;
+    } catch (error) {
+      console.error("Error fetching or processing image:", error);
+    }
+  };
+
+  useEffect(() => {
+    handleLoad(image_url, name);
+  }, [image_url]);
+  return <img src={image_url} id={name} />;
+};
 const DownloadedSection = () => {
   const cart_list = useCartList();
   const isSelectedAll =
@@ -32,12 +65,13 @@ const DownloadedSection = () => {
   const { t } = useTranslation();
 
   interface UpdateProp {
-    item: CartItemType;
+    item?: CartItemType;
     index: number;
     amount: number;
   }
 
   const handleUpdateAmount = ({ item, index, amount }: UpdateProp) => {
+    if (!item) return;
     const updatedItem = { ...item, amount };
     updateItemAmount({ item: updatedItem, index });
   };
@@ -75,32 +109,11 @@ const DownloadedSection = () => {
     );
   };
 
-  // const handleLoad = async (image_url: string, name: string) => {
-  //   const imgElement = document.getElementById(name) as HTMLImageElement;
-  //   const response = await imgRequest({ url: image_url });
-  //   // console.log(response);
-
-  //   // const blob = new Blob([response.data], { type: "image/png" });
-  //   // // Blob을 Data URL로 변환
-  //   // const dataUrl = URL.createObjectURL(blob);
-  //   // // img 태그의 src 속성에 데이터 URI 할당
-
-  //   const uint8Array = new TextEncoder().encode(response.data);
-
-  //   // Convert the Uint8Array to a Base64 string
-  //   const base64String = btoa(
-  //     String.fromCharCode.apply(null, Array.from(uint8Array))
-  //   );
-  //   const dataUrl = "data:image/png;base64," + btoa(base64String);
-
-  //   if (imgElement) imgElement.src = dataUrl;
-  // };
-
   return (
     <Section>
       <SectionHeader>거래소</SectionHeader>
 
-      <div>
+      <div data-html2canvas-ignore="true">
         <button onClick={() => clearCart()}>초기화</button>
         <button onClick={() => removeSelectecList()}>선택 항목 삭제</button>
       </div>
@@ -126,7 +139,7 @@ const DownloadedSection = () => {
                 <Fragment key={list.index}>
                   <tr>
                     <td
-                      rowSpan={list.items.length * 2 + 1}
+                      rowSpan={list.items.length + 1}
                       data-html2canvas-ignore="true"
                     >
                       <input
@@ -137,27 +150,75 @@ const DownloadedSection = () => {
                     </td>
                     <td
                       style={{ minWidth: "62px" }}
-                      rowSpan={list.items.length * 2 + 1}
-                    >{`${list.price} ${list.unit}`}</td>
+                      rowSpan={list.items.length + 1}
+                    >
+                      <div>{`${list.price} ${list.unit}`}</div>
+                      <div>
+                        <UpdateAmountButton
+                          index={list.index}
+                          amount={1}
+                          type="price"
+                        />
+                        <UpdateAmountButton
+                          index={list.index}
+                          amount={-1}
+                          type="price"
+                        />
+                        <UpdateAmountButton
+                          index={list.index}
+                          amount={10}
+                          type="price"
+                        />
+                        <UpdateAmountButton
+                          index={list.index}
+                          amount={-10}
+                          type="price"
+                        />
+                      </div>
+                    </td>
                   </tr>
                   {list.items.map((item) => {
-                    console.log(item.image_url);
                     return (
                       <Fragment key={item.name}>
-                        <CartItem>
+                        <CartItemRow>
                           <td>
-                            <img
-                              src={item.image_url}
-                              // id={item.name}
-                              // onLoad={() =>
-                              //   handleLoad(item.image_url, item.name)
-                              // }
+                            <ItemImage
+                              name={item.name}
+                              image_url={item.image_url}
                             />
                           </td>
                           <td>
-                            {`${t(`${item.type}.${item.name}`)} x ${
-                              item.amount
-                            }`}
+                            <div>
+                              {`${t(`${item.type}.${item.name}`)} x ${
+                                item.amount
+                              }`}
+                            </div>
+                            <div data-html2canvas-ignore="true">
+                              <UpdateAmountButton
+                                item={item}
+                                index={list.index}
+                                amount={1}
+                                type="amount"
+                              />
+                              <UpdateAmountButton
+                                item={item}
+                                index={list.index}
+                                amount={-1}
+                                type="amount"
+                              />
+                              <UpdateAmountButton
+                                item={item}
+                                index={list.index}
+                                amount={10}
+                                type="amount"
+                              />
+                              <UpdateAmountButton
+                                item={item}
+                                index={list.index}
+                                amount={-10}
+                                type="amount"
+                              />
+                            </div>
                           </td>
                           <td data-html2canvas-ignore="true">
                             <button
@@ -168,35 +229,7 @@ const DownloadedSection = () => {
                               x
                             </button>
                           </td>
-                        </CartItem>
-                        <tr>
-                          <td colSpan={3} data-html2canvas-ignore="true">
-                            <UpdateAmountButton
-                              item={item}
-                              index={list.index}
-                              amount={1}
-                              type="amount"
-                            />
-                            <UpdateAmountButton
-                              item={item}
-                              index={list.index}
-                              amount={-1}
-                              type="amount"
-                            />
-                            <UpdateAmountButton
-                              item={item}
-                              index={list.index}
-                              amount={10}
-                              type="amount"
-                            />
-                            <UpdateAmountButton
-                              item={item}
-                              index={list.index}
-                              amount={-10}
-                              type="amount"
-                            />
-                          </td>
-                        </tr>
+                        </CartItemRow>
                       </Fragment>
                     );
                   })}

@@ -16,6 +16,7 @@ export default defineConfig({
       "/img": {
         target: "https://dodo.ac",
         changeOrigin: true,
+
         rewrite: (path) => path.replace(/^\/img/, ""),
       },
     },

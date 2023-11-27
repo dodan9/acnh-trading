@@ -12,13 +12,11 @@ export const SectionHeader = styled.div`
 
 export const CartHead = styled.thead``;
 export const CartBody = styled.tbody``;
-export const CartItemRow = styled.tr``;
 
-export const CartItem = styled.tr`
+export const CartItemRow = styled.tr`
   img {
     width: 50px;
   }
-
   border-bottom: 3px dashed ${passportColor.shadow};
 `;
 export const EmptyCell = styled.td`
@@ -33,6 +31,7 @@ export const CartTable = styled.table`
     text-align: center;
     padding: 10px;
   }
+  margin-bottom: 10px;
 `;
 
 export const Section = styled.div`
