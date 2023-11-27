@@ -30,4 +30,10 @@ export enum query_key {
 
   FURNITURE_LIST = "furniture_list",
   FURNITURE_DETAIL = "furniture_detail",
+
+  INTERIORITEM_LIST = "interior_item_list",
+  INTERIORITEM_DETAIL = "interior_item_detail",
+
+  MISCELLANEOUS_LIST = "miscellaneous_list",
+  MISCELLANEOUS_DETAIL = "miscellaneous_detail",
 }

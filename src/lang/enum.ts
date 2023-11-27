@@ -19,5 +19,9 @@ export enum LangEnum {
   category = "category",
   bug = "bug",
   artwork = "artwork",
-  houseware = "Housewares",
+  houseware = "housewares",
+  miscellaneous = "miscellaneous",
+  wallMounted = "wall-mounted",
+  others = "others",
+  fence = "fence",
 }

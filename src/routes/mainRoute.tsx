@@ -15,6 +15,7 @@ import VillagerMain from "@src/pages/villagers/pages";
 import VillagerDetail from "@src/pages/villagers/pages/VillagerDetail";
 import { Routes, Route } from "react-router-dom";
 import InteriorItemMain from "@src/pages/item/interiorItem/pages";
+import MiscellaneousMain from "@src/pages/item/miscellaneous/pages";
 
 export const mainRoutes = () => {
   return (
@@ -39,6 +40,7 @@ export const mainRoutes = () => {
       <Route path="/item/photo" element={<PhotoMain />} />
       <Route path="/item/funiture" element={<FunitureMain />} />
       <Route path="/item/interior" element={<InteriorItemMain />} />
+      <Route path="/item/miscellaneous" element={<MiscellaneousMain />} />
 
       <Route path="/generator" element={<GeneratorMain />} />
     </Routes>
