@@ -1,6 +1,6 @@
 import { Wrapper } from "@src/styled";
-import axios from "axios";
-import { useEffect } from "react";
+// import axios from "axios";
+// import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useEventList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
@@ -9,36 +9,36 @@ const EventMain = () => {
   const { data: event_list } = useEventList();
 
   const { t } = useTranslation();
-  const getKo = async () => {
-    const response = await axios({
-      url: "https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Seasons%20and%20Events.json",
-      method: "GET",
-    });
+  // const getKo = async () => {
+  //   const response = await axios({
+  //     url: "https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Seasons%20and%20Events.json",
+  //     method: "GET",
+  //   });
 
-    let text: string = "";
-    response.data
-      .map(
-        (item: {
-          name: string;
-          type: string;
-          translations?: { kRko?: string };
-          //   kRko?: string;
-          //   USen?: string;
-        }) => {
-          if (item.translations && item.translations.kRko) {
-            text += `"${item.name}" : "${item.translations.kRko}",`;
-          } else {
-            text += `"${item.name}" : "정보 없음",`;
-          }
-        }
-      )
-      .filter((item: any) => item !== undefined);
-    console.log(text);
-  };
+  //   let text: string = "";
+  //   response.data
+  //     .map(
+  //       (item: {
+  //         name: string;
+  //         type: string;
+  //         translations?: { kRko?: string };
+  //         //   kRko?: string;
+  //         //   USen?: string;
+  //       }) => {
+  //         if (item.translations && item.translations.kRko) {
+  //           text += `"${item.name}" : "${item.translations.kRko}",`;
+  //         } else {
+  //           text += `"${item.name}" : "정보 없음",`;
+  //         }
+  //       }
+  //     )
+  //     .filter((item: any) => item !== undefined);
+  //   console.log(text);
+  // };
 
-  useEffect(() => {
-    getKo();
-  }, []);
+  // useEffect(() => {
+  //   getKo();
+  // }, []);
 
   // 절대 이렇게는 안 된다... 개선 필요
   const getEventText = (name: string) => {
