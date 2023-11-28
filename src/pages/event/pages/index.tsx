@@ -15,25 +15,74 @@ const EventMain = () => {
       method: "GET",
     });
 
-    console.log(
-      response.data
-        .map(
-          (item: {
-            name: string;
-            type: string;
-            translations?: { kRko?: string };
-          }) => {
-            if (item.translations && item.translations.kRko)
-              return `"${item.name} ${item.type} ends" : "${item.translations.kRko} 종료"`;
+    let text: string = "";
+    response.data
+      .map(
+        (item: {
+          name: string;
+          type: string;
+          translations?: { kRko?: string };
+          //   kRko?: string;
+          //   USen?: string;
+        }) => {
+          if (item.translations && item.translations.kRko) {
+            text += `"${item.name}" : "${item.translations.kRko}",`;
+          } else {
+            text += `"${item.name}" : "정보 없음",`;
           }
-        )
-        .filter((item: any) => item !== undefined)
-    );
+        }
+      )
+      .filter((item: any) => item !== undefined);
+    console.log(text);
   };
 
   useEffect(() => {
     getKo();
   }, []);
+
+  // 절대 이렇게는 안 된다... 개선 필요
+  const getEventText = (name: string) => {
+    let result: string = "";
+    if (name.includes("birthday")) {
+      result = `${t(
+        `${LangEnum.villager}.${name.replace("'s birthday", "")}`
+      )} 생일`;
+    }
+    if (name.includes("ends") || name.includes("begins")) {
+      const eventName = name.replace("ends", "").replace("begins", "").trim();
+      result = `${t(`${LangEnum.event}.${eventName}`)} ${
+        name.includes("ends") ? "종료" : "시작"
+      }`;
+    }
+
+    if (name.includes("recipes are available")) {
+      const eventName = name
+        .replace("recipes are available", "")
+        .replace("Last day", "")
+        .replace("First day", "")
+        .replace("of", "")
+        .trim();
+      result = `${t(`${LangEnum.event}.${eventName}`)}`;
+      if (name.includes("Last day")) {
+        result += "종료";
+      }
+    }
+
+    if (name.includes("Southern") || name.includes("Northern")) {
+      const eventName = name
+        .replace("Hemisphere", "")
+        .replace("Southern", "")
+        .replace("Northern", "")
+        .replace("(", "")
+        .replace(")", "")
+        .trim();
+      result = `${t(`${LangEnum.event}.${eventName}`)} ${
+        name.includes("Southern") ? "(남반구)" : "(북반구)"
+      }`;
+    }
+
+    return result.trim();
+  };
 
   return (
     <Wrapper>
@@ -41,15 +90,10 @@ const EventMain = () => {
 
       {event_list &&
         event_list.map((event) => {
-          return (
-            <div key={event.event + event.date}>
-              {event.event.includes("birthday")
-                ? `${t(
-                    `${LangEnum.villager}.${event.event.split("'")[0]}`
-                  )} 생일`
-                : t(`${LangEnum.event}.${event.event}`)}
-            </div>
-          );
+          const name = event.event
+            .replace("Nook Shopping event", "")
+            .replace("event", "");
+          return <div key={name + event.date}>{getEventText(name)}</div>;
         })}
     </Wrapper>
   );
