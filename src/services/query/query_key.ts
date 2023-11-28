@@ -39,4 +39,7 @@ export enum query_key {
 
   RECIPE_LIST = "recipe_list",
   RECIPE_DETAIL = "recipe_detail",
+
+  TOOL_LIST = "tool_list",
+  TOOL_DETAIL = "tool_detail",
 }

@@ -12,6 +12,7 @@ const ItemMain = () => {
       <div onClick={() => navigate("interior")}>벽지 / 바닥 / 러그</div>
       <div onClick={() => navigate("miscellaneous")}>아이템(비배치?)</div>
       <div onClick={() => navigate("recipe")}>레시피</div>
+      <div onClick={() => navigate("tools")}>도구</div>
     </Wrapper>
   );
 };

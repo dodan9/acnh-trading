@@ -25,4 +25,5 @@ export enum LangEnum {
   others = "others",
   fence = "fence",
   recipe = "recipe",
+  tools = "tools",
 }

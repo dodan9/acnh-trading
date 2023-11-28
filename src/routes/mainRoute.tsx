@@ -17,6 +17,7 @@ import { Routes, Route } from "react-router-dom";
 import InteriorItemMain from "@src/pages/item/interiorItem/pages";
 import MiscellaneousMain from "@src/pages/item/miscellaneous/pages";
 import RecipeMain from "@src/pages/item/recipe/pages";
+import ToolsMain from "@src/pages/item/tool/pages";
 
 export const mainRoutes = () => {
   return (
@@ -43,6 +44,7 @@ export const mainRoutes = () => {
       <Route path="/item/interior" element={<InteriorItemMain />} />
       <Route path="/item/miscellaneous" element={<MiscellaneousMain />} />
       <Route path="/item/recipe" element={<RecipeMain />} />
+      <Route path="item/tools" element={<ToolsMain />} />
 
       <Route path="/generator" element={<GeneratorMain />} />
     </Routes>
