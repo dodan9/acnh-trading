@@ -15,14 +15,16 @@ export const useClothingList = (filter?: ClothingFilterType) => {
   });
 };
 
-export const useSingleClothing = ({
+export const useClothingDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
-  thumbsize: number;
+  name?: string;
+  thumbsize?: number;
 }) => {
   const getClothingDetail = async () => {
+    if (!name) return;
+    false;
     const response = await getClothingDetailApi({ name, thumbsize });
     return response.data;
   };
@@ -30,5 +32,6 @@ export const useSingleClothing = ({
   return useQuery({
     queryKey: [query_key.CLOTHING_DETAIL, name],
     queryFn: getClothingDetail,
+    enabled: !!name,
   });
 };

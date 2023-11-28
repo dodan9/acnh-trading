@@ -18,6 +18,7 @@ import InteriorItemMain from "@src/pages/item/interiorItem/pages";
 import MiscellaneousMain from "@src/pages/item/miscellaneous/pages";
 import RecipeMain from "@src/pages/item/recipe/pages";
 import ToolsMain from "@src/pages/item/tool/pages";
+import ClothingDetail from "@src/pages/clothing/pages/ClothingDetail";
 
 export const mainRoutes = () => {
   return (
@@ -28,6 +29,7 @@ export const mainRoutes = () => {
       <Route path="/villager/:name" element={<VillagerDetail />} />
 
       <Route path="/clothing" element={<ClothingList />} />
+      <Route path="/clothing/:name" element={<ClothingDetail />} />
 
       <Route path="/collection" element={<Collection />} />
       <Route path="/collection/artwork" element={<ArtworkMain />} />

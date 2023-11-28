@@ -22,6 +22,7 @@
     "i18next": "^23.7.6",
     "immer": "^10.0.3",
     "lodash": "^4.17.21",
+    "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.5.0",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/file-saver": "^2.0.7",
     "@types/lodash": "^4.14.202",
+    "@types/qs": "^6.9.10",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.11.0",

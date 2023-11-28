@@ -1515,6 +1515,39 @@
       "zebra-print backpack": "얼룩말 무늬 타운 배낭",
       "zebra-print shoulder bag": "얼룩말 무늬 숄더백",
       "zen clasp purse": "일본풍 똑딱이 미니백"
+    },
+
+    "category": {
+      "Tops": "상의",
+      "Bottoms": "하의",
+      "Dress-up": "원피스",
+      "Headwear": "모자",
+      "Accessories": "악세서리",
+      "Socks": "양말",
+      "Shoes": "신발",
+      "Bags": "가방",
+      "Umbrellas": "우산"
+    },
+    "style": {
+      "Active": "활동적인",
+      "Cool": "멋진",
+      "Cute": "귀여운",
+      "Elegant": "우아한",
+      "Gorgeous": "화려한",
+      "Simple": "단순한"
+    },
+    "label_theme": {
+      "Comfy": "릴랙스",
+      "Everyday": "데일리",
+      "Fairy tale": "메르헨",
+      "Formal": "포멀",
+      "Goth": "호러",
+      "Outdoorsy": "아웃도어",
+      "Party": "파티",
+      "Sporty": "스포츠",
+      "Theatrical": "스테이지",
+      "Vacation": "바캉스",
+      "Work": "비즈니스"
     }
   }
 }

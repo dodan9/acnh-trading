@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from "qs";
 
 export const nookRequest = axios.create({
   // baseURL: `${import.meta.env.VITE_NOOKIPEDIA_URL}`,
@@ -7,6 +8,9 @@ export const nookRequest = axios.create({
   timeout: 100000,
   headers: {
     "X-API-KEY": import.meta.env.VITE_NOOKIPEDIA_KEY,
+  },
+  paramsSerializer: (params) => {
+    return qs.stringify(params, { arrayFormat: "repeat", skipNulls: true });
   },
 });
 
