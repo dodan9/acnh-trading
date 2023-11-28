@@ -12,10 +12,10 @@ import { LangEnum } from "@src/lang/enum";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { ColorEnum } from "@src/assets/enum";
-import { handleAddItem } from "../store";
 import { ClothingItem } from "../styled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import ClothingFilter from "../components/ClothingFilter";
+import ClothingAddButton from "../components/ClothingAddButton";
 
 const ClothingList = () => {
   const [searchParams] = useSearchParams();
@@ -59,7 +59,7 @@ const ClothingList = () => {
                 )}
               </div>
               <div>
-                <button onClick={() => handleAddItem(clothing)}>거래</button>
+                <ClothingAddButton clothing={clothing} />
               </div>
             </ClothingItem>
           );

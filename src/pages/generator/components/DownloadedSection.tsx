@@ -153,7 +153,7 @@ const DownloadedSection = () => {
                       rowSpan={list.items.length + 1}
                     >
                       <div>{`${list.price} ${list.unit}`}</div>
-                      <div>
+                      <div data-html2canvas-ignore="true">
                         <UpdateAmountButton
                           index={list.index}
                           amount={1}
