@@ -19,6 +19,7 @@ import MiscellaneousMain from "@src/pages/item/miscellaneous/pages";
 import RecipeMain from "@src/pages/item/recipe/pages";
 import ToolsMain from "@src/pages/item/tool/pages";
 import ClothingDetail from "@src/pages/clothing/pages/ClothingDetail";
+import InquiryMain from "@src/pages/inquiry/pages";
 
 export const mainRoutes = () => {
   return (
@@ -49,6 +50,8 @@ export const mainRoutes = () => {
       <Route path="item/tools" element={<ToolsMain />} />
 
       <Route path="/generator" element={<GeneratorMain />} />
+
+      <Route path="/inquiry" element={<InquiryMain />} />
     </Routes>
   );
 };

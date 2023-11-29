@@ -42,4 +42,7 @@ export enum query_key {
 
   TOOL_LIST = "tool_list",
   TOOL_DETAIL = "tool_detail",
+
+  INQUIRY_LIST = "inquiry_list",
+  INQUIRY_DETAIL = "inquiry_detail",
 }

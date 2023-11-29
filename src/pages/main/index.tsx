@@ -50,6 +50,8 @@ const Main = () => {
       <div onClick={() => navigate("event")}>이벤트</div>
 
       <div onClick={() => navigate("generator")}>거래표 생성기</div>
+
+      <div onClick={() => navigate("inquiry")}>문의하기</div>
     </>
   );
 };
