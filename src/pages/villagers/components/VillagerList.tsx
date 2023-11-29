@@ -11,7 +11,6 @@ const VillagerList = () => {
   const { t } = useTranslation();
   const name = useVillagerName();
   const navigate = useNavigate();
-
   const filter = useVillagerFilter();
 
   const { data: villager_list, isLoading } = useVillagerListQuery(filter);
@@ -28,12 +27,12 @@ const VillagerList = () => {
                 name === "" ||
                 t(`${LangEnum.villager}.${villager.name}`).includes(name)
             )
-            .map((villager) => {
+            .map((villager, index) => {
               return (
                 <VillagerCard
                   backgroudColor={villager.title_color}
                   textColor={villager.text_color}
-                  key={villager.url}
+                  key={villager.name + index}
                 >
                   <div onClick={() => navigate(villager.name)}>
                     {villager.nh_details && (
