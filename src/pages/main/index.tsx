@@ -28,8 +28,8 @@ const Main = () => {
   };
 
   useEffect(() => {
-    // getPreFurnitureData({ category: FurnitureCategory.Housewares });
-    getPreFurnitureData({ category: FurnitureCategory.Miscellaneous });
+    getPreFurnitureData({ category: FurnitureCategory.Housewares });
+    // getPreFurnitureData({ category: FurnitureCategory.Miscellaneous });
     // getPreFurnitureData({ category: FurnitureCategory.WallMounted });
   }, [queryClient]);
 
