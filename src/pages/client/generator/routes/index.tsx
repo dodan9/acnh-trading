@@ -1,5 +1,6 @@
+import { lazy } from "react";
 import { Route } from "react-router";
-import GeneratorMain from "../pages";
+const GeneratorMain = lazy(() => import("../pages"));
 
 export const generatorRoutes = () => {
   return (

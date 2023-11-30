@@ -1,6 +1,6 @@
 import { Modal } from "@src/components/modal/Modal";
 import { LangEnum } from "@src/lang/enum";
-import { ClothingCategory } from "@src/pages/clothing/types";
+import { ClothingCategory } from "@src/pages/client/clothing/types";
 import { useTranslation } from "react-i18next";
 
 const CartItemAddModal = ({ onClose }: { onClose: () => void }) => {

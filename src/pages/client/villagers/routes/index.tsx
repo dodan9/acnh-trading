@@ -1,8 +1,9 @@
 import { Route } from "react-router";
-import VillagerMain from "../pages";
 import VillagerDetail from "../pages/VillagerDetail";
+import { lazy } from "react";
+const VillagerMain = lazy(() => import("../pages"));
 
-export const villagerRoutes = () => {
+const villagerRoutes = () => {
   return (
     <>
       <Route path="/villager" element={<VillagerMain />} />
@@ -10,3 +11,5 @@ export const villagerRoutes = () => {
     </>
   );
 };
+
+export default villagerRoutes;

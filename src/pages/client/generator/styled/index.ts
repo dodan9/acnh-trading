@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { passportColor } from "@src/pages/villagers/styled/VillagerDetailStyled";
+import { passportColor } from "@src/pages/client/villagers/styled/VillagerDetailStyled";
 import { backgroundColor, textColor } from "@src/styled/color";
 
 export const SectionHeader = styled.div`

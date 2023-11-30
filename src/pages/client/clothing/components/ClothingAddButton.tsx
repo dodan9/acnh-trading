@@ -1,4 +1,7 @@
-import { useAddItem, useCartLastIndex } from "@src/pages/generator/store/cart";
+import {
+  useAddItem,
+  useCartLastIndex,
+} from "@src/pages/client/generator/store/cart";
 import { ClothingDetailType } from "../types";
 import { LangEnum } from "@src/lang/enum";
 import { memo } from "react";

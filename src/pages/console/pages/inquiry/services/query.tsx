@@ -1,5 +1,8 @@
 import { console_query_key } from "@src/pages/console/auth/console_query_key";
-import { InquiryAnswerType, InquiryDetailType } from "@src/pages/inquiry/types";
+import {
+  InquiryAnswerType,
+  InquiryDetailType,
+} from "@src/pages/client/inquiry/types";
 import { supabase } from "@src/services/supabase";
 import { useQuery } from "@tanstack/react-query";
 

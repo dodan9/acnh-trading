@@ -1,7 +1,7 @@
 import { Wrapper } from "@src/styled";
 import { useNavigate } from "react-router";
 
-const Collection = () => {
+const CollectionMain = () => {
   const navigate = useNavigate();
   return (
     <Wrapper>
@@ -16,4 +16,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default CollectionMain;

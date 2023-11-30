@@ -1,9 +1,12 @@
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
-import { mainRoutes } from "./routes/mainRoute";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@src/lang/i18next";
-import { Container } from "./styled";
+import { Suspense } from "react";
+import LoadingSpinner from "./components/loading/LoadingSpinner";
+import { lazy } from "react";
+const Console = lazy(() => import("@src/pages/console/pages"));
+const Client = lazy(() => import("@src/pages/client"));
 
 function App() {
   const queryClient = new QueryClient({
@@ -20,9 +23,14 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Container>{mainRoutes()}</Container>
-        </BrowserRouter>
+        <Suspense fallback={<LoadingSpinner />}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/*" element={<Client />} />
+              <Route path="/console/*" element={<Console />} />
+            </Routes>
+          </BrowserRouter>
+        </Suspense>
       </QueryClientProvider>
     </>
   );
