@@ -1,4 +1,3 @@
-import { Wrapper } from "@src/styled";
 import { useTranslation } from "react-i18next";
 import { useSeaCreatureList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
@@ -9,7 +8,7 @@ const SeaCreatureMain = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
+    <>
       <div>해산물</div>
 
       {sea_craeture_list &&
@@ -20,7 +19,7 @@ const SeaCreatureMain = () => {
             </div>
           );
         })}
-    </Wrapper>
+    </>
   );
 };
 

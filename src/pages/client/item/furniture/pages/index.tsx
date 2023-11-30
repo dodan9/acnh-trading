@@ -1,4 +1,3 @@
-import { Wrapper } from "@src/styled";
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useFurnitureList } from "../services/query";
@@ -20,7 +19,7 @@ const FunitureMain = () => {
   };
 
   return (
-    <Wrapper>
+    <>
       <div>가구 목록</div>
 
       <div>
@@ -48,7 +47,7 @@ const FunitureMain = () => {
           })}
         </div>
       )}
-    </Wrapper>
+    </>
   );
 };
 

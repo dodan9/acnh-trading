@@ -7,16 +7,16 @@ import { inquiryRoutes } from "@src/pages/client/inquiry/routes";
 
 import Main from "@src/pages/client/main/Main";
 import { lazy } from "react";
-const Collection = lazy(() => import("../collection"));
-const Item = lazy(() => import("../item"));
+const CollectionRoutes = lazy(() => import("../collection"));
+const ItemRoutes = lazy(() => import("../item"));
 
 export const mainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
 
-      <Route path="/collection/*" element={<Collection />} />
-      <Route path="/item/*" element={<Item />} />
+      <Route path="/collection/*" element={<CollectionRoutes />} />
+      <Route path="/item/*" element={<ItemRoutes />} />
 
       {villagerRoutes()}
       {clotingRoutes()}

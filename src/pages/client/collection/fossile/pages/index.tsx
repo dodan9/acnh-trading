@@ -1,4 +1,3 @@
-import { Wrapper } from "@src/styled";
 import { useTranslation } from "react-i18next";
 import { useFossilList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
@@ -9,7 +8,7 @@ const FossilMain = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
+    <>
       <div>화석</div>
 
       {fossil_list &&
@@ -20,7 +19,7 @@ const FossilMain = () => {
             </div>
           );
         })}
-    </Wrapper>
+    </>
   );
 };
 

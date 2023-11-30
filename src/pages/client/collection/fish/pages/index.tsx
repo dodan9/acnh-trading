@@ -1,4 +1,3 @@
-import { Wrapper } from "@src/styled";
 import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
@@ -9,7 +8,7 @@ const FishMain = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
+    <>
       <div>물고기</div>
 
       {fish_list &&
@@ -18,7 +17,7 @@ const FishMain = () => {
             <div key={fish.name}>{t(`${LangEnum.fish}.${fish.name}`)}</div>
           );
         })}
-    </Wrapper>
+    </>
   );
 };
 

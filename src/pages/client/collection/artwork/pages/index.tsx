@@ -1,4 +1,3 @@
-import { Wrapper } from "@src/styled";
 import { useArtworkList } from "../services/query";
 import { useTranslation } from "react-i18next";
 import { LangEnum } from "@src/lang/enum";
@@ -8,7 +7,7 @@ const ArtworkMain = () => {
   const { t } = useTranslation();
 
   return (
-    <Wrapper>
+    <>
       <div>미술품</div>
 
       {artwork_list &&
@@ -19,7 +18,7 @@ const ArtworkMain = () => {
             </div>
           );
         })}
-    </Wrapper>
+    </>
   );
 };
 
