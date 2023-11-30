@@ -8,6 +8,7 @@ import { eventRoutes } from "@src/pages/event/routes";
 import { itemRoutes } from "@src/pages/item/routes";
 import { generatorRoutes } from "@src/pages/generator/routes";
 import { inquiryRoutes } from "@src/pages/inquiry/routes";
+import ThreeTest from "@src/pages/three/pages";
 
 export const mainRoutes = () => {
   return (
@@ -23,6 +24,8 @@ export const mainRoutes = () => {
       {inquiryRoutes()}
 
       <Route path="/console/*" element={<Console />} />
+
+      <Route path="/three/test" element={<ThreeTest />} />
     </Routes>
   );
 };
