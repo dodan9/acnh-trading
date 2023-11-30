@@ -11,19 +11,19 @@ export interface Database {
     Tables: {
       answer: {
         Row: {
-          content: string
+          answer: string
           created_at: string
           id: number
           inquiry_id: number
         }
         Insert: {
-          content: string
+          answer: string
           created_at?: string
           id?: number
           inquiry_id: number
         }
         Update: {
-          content?: string
+          answer?: string
           created_at?: string
           id?: number
           inquiry_id?: number
@@ -40,7 +40,6 @@ export interface Database {
       }
       inquiry: {
         Row: {
-          answer_id: number | null
           content: string
           created_at: string
           email: string | null
@@ -48,7 +47,6 @@ export interface Database {
           title: string
         }
         Insert: {
-          answer_id?: number | null
           content: string
           created_at?: string
           email?: string | null
@@ -56,22 +54,13 @@ export interface Database {
           title: string
         }
         Update: {
-          answer_id?: number | null
           content?: string
           created_at?: string
           email?: string | null
           id?: number
           title?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "inquiry_answer_id_fkey"
-            columns: ["answer_id"]
-            isOneToOne: true
-            referencedRelation: "answer"
-            referencedColumns: ["id"]
-          }
-        ]
+        Relationships: []
       }
     }
     Views: {

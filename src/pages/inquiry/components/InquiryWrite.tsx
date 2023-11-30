@@ -2,23 +2,32 @@ import { supabase } from "@src/services/supabase";
 import { ChangeEvent, useState } from "react";
 import { Wrapper } from "@src/styled";
 import { NewInquiryType } from "../types";
+import { useQueryClient } from "@tanstack/react-query";
+import { query_key } from "@src/services/query/query_key";
 
 export const InquiryWrite = () => {
+  const queryClient = useQueryClient();
   const [newInquiry, setNewInquiry] = useState<NewInquiryType>({
     title: "",
     content: "",
   });
 
   const handleInsertInquiry = async () => {
-    const response = await supabase
-      .from("inquiry")
-      .insert({
+    try {
+      await supabase.from("inquiry").insert({
         title: newInquiry.title,
         content: newInquiry.content,
         email: newInquiry.email,
-      })
-      .select();
-    console.log(response.data);
+      });
+
+      queryClient.invalidateQueries({ queryKey: [query_key.INQUIRY_LIST] });
+      setNewInquiry({
+        title: "",
+        content: "",
+      });
+    } catch (e) {
+      alert(e);
+    }
   };
 
   const handleTextChange = (
@@ -27,6 +36,7 @@ export const InquiryWrite = () => {
     const { name, value } = event.target;
     setNewInquiry({ ...newInquiry, [name]: value });
   };
+
   return (
     <Wrapper>
       <div>문의하기</div>

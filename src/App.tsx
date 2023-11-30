@@ -11,8 +11,8 @@ function App() {
       queries: {
         retry: 3,
         refetchOnWindowFocus: true,
-        gcTime: 1000 * 60 * 20,
-        staleTime: 1000 * 60 * 20,
+        gcTime: 1000 * 60 * 60,
+        staleTime: 1000 * 60 * 60,
       },
     },
   });
