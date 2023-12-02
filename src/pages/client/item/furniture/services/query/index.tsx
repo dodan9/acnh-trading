@@ -1,12 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import { FurnitureDetailType, FurnitureFilterType } from "../../types";
+import {
+  FurnitureCategory,
+  FurnitureDetailType,
+  FurnitureFilterType,
+} from "../../types";
 import { getFurnitureDetailApi, getFurnitureListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
 
 export const useFurnitureList = (filter?: FurnitureFilterType) => {
-  const getFurnitureList = async () => {
-    const response = await getFurnitureListApi(filter);
-    return response.data;
+  const getFurnitureList = async (): Promise<FurnitureDetailType[]> => {
+    if (!filter?.category) return [];
+
+    switch (filter.category) {
+      case FurnitureCategory.Housewares:
+        const { housewares_data } = await import(
+          `@src/assets/furniture/housewares.ts`
+        );
+        return housewares_data;
+      case FurnitureCategory.WallMounted:
+        const { wall_mounted_data } = await import(
+          `@src/assets/furniture/wall-mounted.ts`
+        );
+        return wall_mounted_data;
+      case FurnitureCategory.Miscellaneous:
+        const { miscellaneous_data } = await import(
+          `@src/assets/furniture/miscellaneaous.ts`
+        );
+        return miscellaneous_data;
+    }
   };
 
   return useQuery<FurnitureDetailType[]>({

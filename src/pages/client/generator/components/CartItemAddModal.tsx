@@ -15,7 +15,7 @@ const CartItemAddModal = ({ onClose }: { onClose: () => void }) => {
             .map((category) => t(`${LangEnum.clothing}.category.${category}`))
             .join(", ")}
         </div>
-        <div>가구: 가구, 잡화, 벽장식</div>
+        <div>아이템: 가구, 잡화, 벽장식</div>
       </>
     </Modal>
   );

@@ -13,8 +13,9 @@ import {
   CartHead,
   CartTable,
   EmptyCell,
+  CartNoticeBox,
 } from "../styled";
-import { Fragment, useState } from "react";
+import { ChangeEvent, Fragment, useState } from "react";
 import { ItemImage } from "./CartItemImage";
 import CartItemAddModal from "./CartItemAddModal";
 
@@ -32,6 +33,9 @@ const DownloadedSection = () => {
   } = useCartActions();
   const { selectItem, selectAll } = useCartSelectActions();
   const { t } = useTranslation();
+
+  const [noticeValue, setNoticeValue] = useState<string>("");
+  const [notice, setNotice] = useState<string[]>([]);
 
   interface UpdateProp {
     item?: CartItemType;
@@ -77,6 +81,23 @@ const DownloadedSection = () => {
       </button>
     );
   };
+
+  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setNoticeValue(value);
+  };
+
+  const handleAddNotice = () => {
+    setNotice([...notice, noticeValue]);
+    setNoticeValue("");
+  };
+
+  const handleRemoveNotice = (index: number) => {
+    const updatedNotice = [...notice];
+    updatedNotice.splice(index, 1);
+    setNotice(updatedNotice);
+  };
+
   // 정렬, 그룹화 기능 추가 요망
   return (
     <Section>
@@ -218,6 +239,27 @@ const DownloadedSection = () => {
           </tr>
         </CartBody>
       </CartTable>
+
+      <CartNoticeBox>
+        <div data-html2canvas-ignore="true">덧붙임말</div>
+
+        <div>
+          {notice.length > 0 &&
+            notice.map((noti, index) => {
+              return (
+                <div key={index}>
+                  <span>{noti}</span>
+                  <button onClick={() => handleRemoveNotice(index)}>x</button>
+                </div>
+              );
+            })}
+        </div>
+
+        <div data-html2canvas-ignore="true">
+          <input value={noticeValue} onChange={handleTextChange} />
+          <button onClick={handleAddNotice}>추가</button>
+        </div>
+      </CartNoticeBox>
 
       {isModalOpen && (
         <CartItemAddModal onClose={() => setIsModalOpen(false)} />

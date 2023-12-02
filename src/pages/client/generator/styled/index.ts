@@ -45,4 +45,11 @@ export const Section = styled.div`
   border-radius: 20px;
   overflow: hidden;
   color: ${textColor.light};
+  height: fit-content;
+`;
+
+export const CartNoticeBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

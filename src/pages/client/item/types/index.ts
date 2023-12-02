@@ -1,9 +1,9 @@
-import { FurnitureCategory } from "../furniture/types";
+// import { FurnitureCategory } from "../furniture/types";
 
 export interface InteriorBaseType {
   name: string;
   url: string;
-  category: FurnitureCategory;
+  category: string;
   item_series: string; // 포함된 시리즈
   item_set: string; // 포함된 세트
   themes: string[]; // 테마

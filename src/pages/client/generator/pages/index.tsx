@@ -10,6 +10,7 @@ const GeneratorMain = () => {
   const handleDownload = async () => {
     if (!targetRef.current) return;
 
+    // html-to-image 라이브러리 조사
     try {
       const div = targetRef.current;
       const canvas = await html2canvas(div, {

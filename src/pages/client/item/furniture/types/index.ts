@@ -48,11 +48,11 @@ export interface FurnitureDetailType extends InteriorBaseType {
   custom_pattern_part: string; // 리폼 시 패턴 가능 파트
   height: number; // 높이
   door_decor: boolean; // 문 데코 가능 여부
-  functions: FurnitureFunction[]; // 기능
+  functions: string[]; // 기능
   variations: {
     variation: string;
     pattern: string;
     image_url: string;
-    colors: ColorEnum[];
-  };
+    colors: string[];
+  }[];
 }
