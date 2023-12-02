@@ -8,3 +8,9 @@ export const backgroundColor = {
   littleBlue: "rgb(141, 210, 199)",
   littleGreen: "rgb(174, 212, 191)",
 };
+
+export const passportColor = {
+  shadow: "rgb(227, 218, 200)",
+  main: "rgb(250, 248, 225)",
+  background: "rgb(178, 173, 151)",
+};

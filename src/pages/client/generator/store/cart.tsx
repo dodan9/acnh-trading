@@ -1,3 +1,4 @@
+import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
@@ -115,8 +116,6 @@ export const useCartStore = create<State & Action>()(
                 });
               }
 
-              console.log(cartItem?.items);
-
               return { cart_list: [...state.cart_list] };
             }),
 
@@ -151,9 +150,8 @@ export const useCartStore = create<State & Action>()(
 
               const lastIndex = sortBy(state.cart_list, "index").reverse()[0]
                 .index;
-              const mergedItems = selectedList.reduce(
-                (acc, currentItem) => acc.concat(currentItem.items),
-                [] as CartItemType[]
+              const mergedItems = selectedList.flatMap(
+                (currentItem) => currentItem.items
               );
 
               const newCartItem: CartListType = {
@@ -164,12 +162,11 @@ export const useCartStore = create<State & Action>()(
                 unit: "마일",
               };
 
-              const updatedCartList = state.cart_list.filter(
+              const updatedCartList = filter(
+                state.cart_list,
                 (list) => !list.isSelected
               );
-              updatedCartList
-                ? updatedCartList.push(newCartItem)
-                : [newCartItem];
+              updatedCartList.push(newCartItem);
 
               return { cart_list: updatedCartList };
             }),
@@ -216,4 +213,11 @@ export const useCartLastIndex = () =>
     state.cart_list.length > 0
       ? sortBy(state.cart_list, "index").reverse()[0].index
       : 0
+  );
+
+export const useSelectedAll = () =>
+  useCartStore((state) =>
+    state.cart_list.length > 0
+      ? state.cart_list.every((list) => list.isSelected)
+      : false
   );

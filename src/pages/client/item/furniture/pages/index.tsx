@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useFurnitureList } from "../services/query";
 import { FurnitureCategory } from "../types";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import FurnitureAddButton from "../components/FurnitureAddButton";
 
 const FunitureMain = () => {
   const [currentCategory, setCurrentCategory] = useState<FurnitureCategory>(
@@ -42,6 +43,7 @@ const FunitureMain = () => {
               return (
                 <div key={furniture.name}>
                   {t(`${furniture.category.toLowerCase()}.${furniture.name}`)}
+                  <FurnitureAddButton furniture={furniture} />
                 </div>
               );
           })}

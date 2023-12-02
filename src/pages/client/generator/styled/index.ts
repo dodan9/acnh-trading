@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { passportColor } from "@src/pages/client/villagers/styled/VillagerDetailStyled";
-import { backgroundColor, textColor } from "@src/styled/color";
+import { backgroundColor, passportColor, textColor } from "@src/styled/color";
 
 export const SectionHeader = styled.div`
   width: 100%;
@@ -15,12 +14,20 @@ export const CartBody = styled.tbody``;
 
 export const CartItemRow = styled.tr`
   img {
-    width: 50px;
+    width: 40px;
   }
-  border-bottom: 3px dashed ${passportColor.shadow};
+  &.last {
+    border-bottom: 3px dashed ${passportColor.shadow};
+  }
 `;
 export const EmptyCell = styled.td`
   text-align: center;
+`;
+
+export const PriceCell = styled.td`
+  /* background-color: ${passportColor.main};
+  z-index: 10;
+  border-bottom: 3px dashed ${passportColor.shadow}; */
 `;
 
 export const CartTable = styled.table`
@@ -46,6 +53,9 @@ export const Section = styled.div`
   overflow: hidden;
   color: ${textColor.light};
   height: fit-content;
+  min-width: 280px;
+  max-width: 500px;
+  margin: 0 auto;
 `;
 
 export const CartNoticeBox = styled.div`

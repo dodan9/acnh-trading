@@ -1,10 +1,11 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@src/lang/i18next";
 import { Suspense } from "react";
 import LoadingSpinner from "./components/loading/LoadingSpinner";
 import { lazy } from "react";
+import { Global } from "@emotion/react";
+import { globalStyle } from "./styled/globalStyled";
 const Console = lazy(() => import("@src/pages/console/pages"));
 const Client = lazy(() => import("@src/pages/client"));
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
+        <Global styles={globalStyle} />
         <Suspense fallback={<LoadingSpinner />}>
           <BrowserRouter>
             <Routes>
