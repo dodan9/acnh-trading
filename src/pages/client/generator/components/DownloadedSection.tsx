@@ -9,16 +9,18 @@ import {
   CartNoticeBox,
 } from "../styled";
 import { ChangeEvent, useState } from "react";
-import CartList from "./CartList";
 import {
   useCartActions,
+  useCartList,
   useCartSelectActions,
   useSelectedAll,
 } from "../store/cart";
 import { useNavigate } from "react-router";
+import CartListItem from "./CartListItem";
 
 const DownloadedSection = () => {
   const isSelectedAll = useSelectedAll();
+  const cart_list = useCartList();
   const { clearCart, mergeCart, removeSelectecList } = useCartActions();
   const { selectAll } = useCartSelectActions();
   const navigate = useNavigate();
@@ -69,7 +71,15 @@ const DownloadedSection = () => {
         </CartHead>
         <CartBody>
           <CartItemRow className="last" />
-          <CartList />
+          {cart_list.length > 0 ? (
+            cart_list.map((list) => {
+              return <CartListItem list={list} key={list.index} />;
+            })
+          ) : (
+            <tr>
+              <EmptyCell colSpan={5}>아이템을 담아 주세욥</EmptyCell>
+            </tr>
+          )}
           <tr data-html2canvas-ignore="true">
             <EmptyCell colSpan={5}>
               <button onClick={() => navigate("/")}>아이템 추가하기</button>
