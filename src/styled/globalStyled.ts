@@ -9,7 +9,7 @@ export const globalStyle = css`
     box-sizing: border-box;
     font-family: "Jua", sans-serif;
     position: relative;
-    cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto;
+    /* cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto; */
   }
 
   #root {

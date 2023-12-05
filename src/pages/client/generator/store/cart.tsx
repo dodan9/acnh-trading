@@ -2,6 +2,7 @@ import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
 
 export interface CartItemType {
   name: string;
@@ -30,7 +31,11 @@ interface Action {
     cart: {
       addItem: ({ item, index }: Props) => void;
       removeItem: ({ item, index }: Props) => void;
-      updateItemAmount: ({ item, index }: Props) => void;
+      updateItemAmount: ({
+        item,
+        index,
+        amount,
+      }: Props & { amount: number }) => void;
       removeSelectecList: () => void;
       updatePrice: ({ index, price }: { index: number; price: number }) => void;
 
@@ -48,83 +53,75 @@ interface Action {
 
 export const useCartStore = create<State & Action>()(
   persist(
-    (set) => ({
+    immer((set) => ({
       cart_list: [],
 
       actions: {
         cart: {
           addItem: ({ item, index }) => {
             set((state) => {
+              const isExist = state.cart_list.some((list) =>
+                list.items.some((prev) => prev.name === item.name)
+              );
+              if (isExist) {
+                alert("이미 있는 아이템입니다.");
+                return;
+              }
+
               const cartItem = state.cart_list.find(
                 (list) => list.index === index
               );
 
               if (cartItem) {
-                if (
-                  cartItem.items.some(
-                    (existingItem) => existingItem.name === item.name
-                  )
-                ) {
-                  alert("이미 거래 목록에 있습니다.");
-                  return state;
-                }
-
                 cartItem.items.push(item);
               } else {
                 state.cart_list.push({
                   index,
                   items: [item],
                   isSelected: false,
-                  price: 0,
+                  price: 1,
                   unit: "마일",
                 });
               }
 
               alert("거래 목록에 담김!");
-              return { cart_list: [...state.cart_list] };
             });
           },
 
           removeItem: ({ item, index }) =>
             set((state) => {
-              const updatedCartList = state.cart_list
-                .map((list) => {
-                  if (list.index === index) {
-                    list.items = list.items.filter(
-                      (prev) => prev.name !== item.name
-                    );
-                  }
-                  return list;
-                })
-                .filter((list) => list.items.length > 0);
-              return { cart_list: updatedCartList };
-            }),
-
-          updateItemAmount: ({ item, index }) =>
-            set((state) => {
               const cartItem = state.cart_list.find(
                 (list) => list.index === index
               );
               if (cartItem) {
-                cartItem.items = cartItem.items.map((prev) => {
-                  if (prev.name === item.name) {
-                    return {
-                      ...prev,
-                      amount: Math.max(0, prev.amount + item.amount),
-                    };
-                  } else return prev;
-                });
+                cartItem.items = cartItem.items.filter(
+                  (prev) => prev.name !== item.name
+                );
               }
+              state.cart_list = state.cart_list.filter(
+                (list) => list.items.length > 0
+              );
+            }),
 
-              return { cart_list: [...state.cart_list] };
+          updateItemAmount: ({ item, index, amount }) =>
+            set((state) => {
+              const cartItem = state.cart_list.find(
+                (list) => list.index === index
+              );
+              const existingItem = cartItem?.items.find(
+                (prev) => prev.name === item.name
+              );
+
+              if (existingItem) {
+                existingItem.amount = Math.max(1, existingItem.amount + amount);
+              }
             }),
 
           removeSelectecList: () =>
             set((state) => {
-              const updatedCartList = state.cart_list.filter(
+              state.cart_list = state.cart_list.filter(
                 (list) => !list.isSelected
               );
-              return { cart_list: updatedCartList };
             }),
 
           updatePrice: ({ index, price }) =>
@@ -133,9 +130,8 @@ export const useCartStore = create<State & Action>()(
                 (list) => list.index === index
               );
               if (targetList) {
-                targetList.price = Math.max(0, targetList.price + price);
+                targetList.price = Math.max(1, targetList.price + price);
               }
-              return { cart_list: [...state.cart_list] };
             }),
 
           mergeCart: () =>
@@ -168,7 +164,7 @@ export const useCartStore = create<State & Action>()(
               );
               updatedCartList.push(newCartItem);
 
-              return { cart_list: updatedCartList };
+              state.cart_list = updatedCartList;
             }),
 
           clearCart: () => set({ cart_list: [] }),
@@ -176,13 +172,14 @@ export const useCartStore = create<State & Action>()(
 
         select: {
           selectItem: (index: number) =>
-            set((state) => ({
-              cart_list: state.cart_list.map((list) => ({
-                ...list,
-                isSelected:
-                  list.index === index ? !list.isSelected : list.isSelected,
-              })),
-            })),
+            set((state) => {
+              const targetList = state.cart_list.find(
+                (list) => list.index === index
+              );
+              if (targetList) {
+                targetList.isSelected = !targetList.isSelected;
+              }
+            }),
 
           selectAll: (isSelect: boolean) =>
             set((state) => ({
@@ -193,7 +190,7 @@ export const useCartStore = create<State & Action>()(
             })),
         },
       },
-    }),
+    })),
     {
       name: "cart-storage",
       storage: createJSONStorage(() => sessionStorage),
@@ -203,6 +200,19 @@ export const useCartStore = create<State & Action>()(
 );
 
 export const useCartList = () => useCartStore((state) => state.cart_list);
+export const useSortedCartList = () =>
+  useCartStore((state) => {
+    const sortedCartList = state.cart_list.map((cart) => ({
+      ...cart,
+      items: [...cart.items].sort((a, b) => a.name.localeCompare(b.name)),
+    }));
+
+    sortedCartList.sort((a, b) =>
+      a.items[0].name.localeCompare(b.items[0].name)
+    );
+
+    return sortedCartList;
+  });
 export const useCartActions = () => useCartStore((state) => state.actions.cart);
 export const useCartSelectActions = () =>
   useCartStore((state) => state.actions.select);

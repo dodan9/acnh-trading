@@ -1,13 +1,16 @@
 import { Wrapper } from "@src/styled";
 import DownloadedSection from "../components/DownloadedSection";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
+import { Modal } from "@src/components/modal/Modal";
 
 const GeneratorMain = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
-  const handleDownload = async () => {
+  const [imageData, setImageData] = useState<Blob | false>(false);
+
+  const handleGenerate = async () => {
     if (!targetRef.current) return;
 
     // html-to-image 라이브러리 조사
@@ -19,11 +22,17 @@ const GeneratorMain = () => {
       });
       canvas.toBlob((blob) => {
         if (blob !== null) {
-          saveAs(blob, "result.png");
+          setImageData(blob);
         }
       });
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleDownload = () => {
+    if (imageData) {
+      saveAs(imageData, "result.png");
     }
   };
 
@@ -35,7 +44,16 @@ const GeneratorMain = () => {
         <DownloadedSection />
       </div>
 
-      <button onClick={handleDownload}>다운로드</button>
+      <button onClick={handleGenerate}>미리보기</button>
+
+      {imageData && (
+        <Modal onClose={() => setImageData(false)}>
+          <>
+            <img src={imageData ? URL.createObjectURL(imageData) : ""} />
+            <button onClick={handleDownload}>다운로드</button>
+          </>
+        </Modal>
+      )}
     </Wrapper>
   );
 };

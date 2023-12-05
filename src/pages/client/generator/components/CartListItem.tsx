@@ -7,56 +7,48 @@ import {
 } from "../store/cart";
 import { CartItemRow, PriceCell } from "../styled";
 import { ItemImage } from "./CartItemImage";
+import { memo } from "react";
 
-interface UpdateProp {
-  item?: CartItemType;
+interface PriceUpdateProps {
+  index: number;
+  price: number;
+}
+interface AmountUpdateProps {
+  item: CartItemType;
   index: number;
   amount: number;
 }
 
-const CartListItem = ({ list }: { list: CartListType }) => {
+const CartListItem = memo(({ list }: { list: CartListType }) => {
   const { removeItem, updateItemAmount, updatePrice } = useCartActions();
   const { selectItem } = useCartSelectActions();
   const { t } = useTranslation();
 
-  const handleUpdateAmount = ({ item, index, amount }: UpdateProp) => {
-    if (!item) return;
-    const updatedItem = { ...item, amount };
-    updateItemAmount({ item: updatedItem, index });
-  };
+  const UpdateAmountButton = memo(
+    ({ item, index, amount }: AmountUpdateProps) => {
+      return (
+        <button
+          onClick={() =>
+            updateItemAmount({
+              item,
+              index,
+              amount,
+            })
+          }
+        >
+          {amount > 0 ? `+${amount}` : amount}
+        </button>
+      );
+    }
+  );
 
-  const handleUpdatePrice = ({
-    index,
-    price,
-  }: {
-    index: number;
-    price: number;
-  }) => {
-    updatePrice({ index, price });
-  };
-
-  const UpdateAmountButton = ({
-    item,
-    index,
-    amount,
-    type,
-  }: UpdateProp & { type: "amount" | "price" }) => {
+  const PriceUpdateButton = memo(({ index, price }: PriceUpdateProps) => {
     return (
-      <button
-        onClick={() =>
-          type === "amount"
-            ? handleUpdateAmount({
-                item,
-                index,
-                amount,
-              })
-            : handleUpdatePrice({ index, price: amount })
-        }
-      >
-        {amount > 0 ? `+${amount}` : amount}
+      <button onClick={() => updatePrice({ index, price })}>
+        {price > 0 ? `+${price}` : price}
       </button>
     );
-  };
+  });
 
   return list.items.map((item, index) => {
     return (
@@ -79,30 +71,10 @@ const CartListItem = ({ list }: { list: CartListType }) => {
         <td>
           <div>{`${t(`${item.type}.${item.name}`)} x ${item.amount}`}</div>
           <div data-html2canvas-ignore="true">
-            <UpdateAmountButton
-              item={item}
-              index={list.index}
-              amount={1}
-              type="amount"
-            />
-            <UpdateAmountButton
-              item={item}
-              index={list.index}
-              amount={-1}
-              type="amount"
-            />
-            <UpdateAmountButton
-              item={item}
-              index={list.index}
-              amount={10}
-              type="amount"
-            />
-            <UpdateAmountButton
-              item={item}
-              index={list.index}
-              amount={-10}
-              type="amount"
-            />
+            <UpdateAmountButton item={item} index={list.index} amount={1} />
+            <UpdateAmountButton item={item} index={list.index} amount={-1} />
+            <UpdateAmountButton item={item} index={list.index} amount={10} />
+            <UpdateAmountButton item={item} index={list.index} amount={-10} />
           </div>
         </td>
         <td>
@@ -118,19 +90,15 @@ const CartListItem = ({ list }: { list: CartListType }) => {
           <PriceCell style={{ minWidth: "62px" }} rowSpan={list.items.length}>
             <div>{`${list.price} ${list.unit}`}</div>
             <div data-html2canvas-ignore="true">
-              <UpdateAmountButton index={list.index} amount={1} type="price" />
-              <UpdateAmountButton index={list.index} amount={-1} type="price" />
-              <UpdateAmountButton index={list.index} amount={10} type="price" />
-              <UpdateAmountButton
-                index={list.index}
-                amount={-10}
-                type="price"
-              />
+              <PriceUpdateButton index={list.index} price={1} />
+              <PriceUpdateButton index={list.index} price={-1} />
+              <PriceUpdateButton index={list.index} price={10} />
+              <PriceUpdateButton index={list.index} price={-10} />
             </div>
           </PriceCell>
         )}
       </CartItemRow>
     );
   });
-};
+});
 export default CartListItem;
