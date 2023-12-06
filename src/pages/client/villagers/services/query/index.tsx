@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { getVillagerListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
-import { VillagerFilterType } from "../../types";
+import { useVillagerFilter } from "../../store/filter";
 
-export const useVillagerListQuery = (filter?: VillagerFilterType) => {
+export const useVillagerListQuery = () => {
+  const filter = useVillagerFilter();
+
   const getVillagerList = async () => {
     const response = await getVillagerListApi(filter);
     return response.data;

@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { BugFilterType } from "../../types";
 import { getBugDetailApi, getBugListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
+import { useBugFilter } from "../../store/bugFilter";
 
-export const useBugList = (filter?: BugFilterType) => {
+export const useBugList = () => {
+  const filter = useBugFilter();
+
   const getBugList = async () => {
     const response = await getBugListApi(filter);
     return response.data;

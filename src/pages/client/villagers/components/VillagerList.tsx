@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { VillagerCard, VillagerListBox } from "../styled";
 import { useVillagerName } from "../store/keyword";
 import { useNavigate } from "react-router";
-import { useVillagerFilter } from "../store/filter";
 import { useVillagerListQuery } from "../services/query";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { LangEnum } from "@src/lang/enum";
@@ -11,9 +10,8 @@ const VillagerList = () => {
   const { t } = useTranslation();
   const name = useVillagerName();
   const navigate = useNavigate();
-  const filter = useVillagerFilter();
 
-  const { data: villager_list, isLoading } = useVillagerListQuery(filter);
+  const { data: villager_list, isLoading } = useVillagerListQuery();
 
   return (
     <>
