@@ -24,6 +24,7 @@ import others_ko from "./ko/others_ko.json";
 import fence_ko from "./ko/fence_ko.json";
 import recipe_ko from "./ko/recipe_ko.json";
 import tools_ko from "./ko/tools_ko.json";
+import fossil_ko from "./ko/fossil_ko.json";
 import catchphrase_ko from "./ko/catchphrase_ko.json";
 
 import i18next, { Resource } from "i18next";
@@ -58,6 +59,7 @@ const resource: Resource = {
       ...fence_ko,
       ...recipe_ko,
       ...tools_ko,
+      ...fossil_ko,
       ...catchphrase_ko,
     },
   },
