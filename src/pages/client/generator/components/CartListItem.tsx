@@ -5,7 +5,7 @@ import {
   useCartActions,
   useCartSelectActions,
 } from "../store/cart";
-import { CartItemRow, PriceCell } from "../styled";
+import { AmountBox, AmountCell, CartItemRow, PriceCell } from "../styled";
 import { ItemImage } from "./CartItemImage";
 import { memo } from "react";
 
@@ -20,7 +20,8 @@ interface AmountUpdateProps {
 }
 
 const CartListItem = memo(({ list }: { list: CartListType }) => {
-  const { removeItem, updateItemAmount, updatePrice } = useCartActions();
+  const { removeItem, updateItemAmount, updatePrice, changeUnit } =
+    useCartActions();
   const { selectItem } = useCartSelectActions();
   const { t } = useTranslation();
 
@@ -36,7 +37,7 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
             })
           }
         >
-          {amount > 0 ? `+${amount}` : amount}
+          {amount > 0 ? `+` : "-"}
         </button>
       );
     }
@@ -45,7 +46,7 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
   const PriceUpdateButton = memo(({ index, price }: PriceUpdateProps) => {
     return (
       <button onClick={() => updatePrice({ index, price })}>
-        {price > 0 ? `+${price}` : price}
+        {price > 0 ? `+` : "-"}
       </button>
     );
   });
@@ -57,9 +58,9 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
         className={index + 1 === list.items.length ? "last" : ""}
       >
         {index === 0 && (
-          <td rowSpan={list.items.length} data-html2canvas-ignore="true">
+          <td rowSpan={list.items.length} data-html2canvas-ignore='true'>
             <input
-              type="checkbox"
+              type='checkbox'
               checked={list.isSelected}
               onChange={() => selectItem(list.index)}
             />
@@ -67,34 +68,62 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
         )}
         <td>
           <ItemImage name={item.name} image_url={item.image_url} />
-        </td>
-        <td>
-          <div>{`${t(`${item.type}.${item.name}`)} x ${item.amount}`}</div>
-          <div data-html2canvas-ignore="true">
-            <UpdateAmountButton item={item} index={list.index} amount={1} />
-            <UpdateAmountButton item={item} index={list.index} amount={-1} />
-            <UpdateAmountButton item={item} index={list.index} amount={10} />
-            <UpdateAmountButton item={item} index={list.index} amount={-10} />
-          </div>
-        </td>
-        <td>
           <button
-            data-html2canvas-ignore="true"
+            data-html2canvas-ignore='true'
             onClick={() => removeItem({ item, index: list.index })}
           >
             x
           </button>
         </td>
-
+        <td>
+          <div>{t(`${item.type}.${item.name}`)}</div>
+          <AmountBox>
+            <UpdateAmountButton
+              data-html2canvas-ignore='true'
+              item={item}
+              index={list.index}
+              amount={-1}
+            />
+            <AmountCell>
+              <div>{item.amount}</div>
+              <div />
+            </AmountCell>
+            <UpdateAmountButton
+              data-html2canvas-ignore='true'
+              item={item}
+              index={list.index}
+              amount={1}
+            />
+          </AmountBox>
+        </td>
         {index === 0 && (
-          <PriceCell style={{ minWidth: "62px" }} rowSpan={list.items.length}>
-            <div>{`${list.price} ${list.unit}`}</div>
-            <div data-html2canvas-ignore="true">
-              <PriceUpdateButton index={list.index} price={1} />
-              <PriceUpdateButton index={list.index} price={-1} />
-              <PriceUpdateButton index={list.index} price={10} />
-              <PriceUpdateButton index={list.index} price={-10} />
-            </div>
+          <PriceCell rowSpan={list.items.length}>
+            <AmountBox>
+              <PriceUpdateButton
+                data-html2canvas-ignore='true'
+                index={list.index}
+                price={-1}
+              />
+              <AmountCell>
+                <div>{list.price}</div>
+                <div />
+              </AmountCell>
+
+              <PriceUpdateButton
+                data-html2canvas-ignore='true'
+                index={list.index}
+                price={1}
+              />
+              <span>{list.unit}</span>
+            </AmountBox>
+            {/* <div>
+              <button
+                data-html2canvas-ignore='true'
+                onClick={() => changeUnit({ index: list.index })}
+              >
+                ↔
+              </button>
+            </div> */}
           </PriceCell>
         )}
       </CartItemRow>

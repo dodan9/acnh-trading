@@ -25,22 +25,25 @@ const CartTableBox = () => {
     <CartTable>
       <CartHead>
         <tr>
-          <th data-html2canvas-ignore="true">
+          <th data-html2canvas-ignore='true'>
             <input
-              type="checkbox"
+              type='checkbox'
               checked={isSelectedAll}
               onChange={() => selectAll(!isSelectedAll)}
             />
           </th>
-          <th colSpan={3}>
-            거래 목록 <button onClick={() => setSort("name")}>이름순</button>
-            <button onClick={() => setSort("type")}>종류별</button>
+          <th colSpan={2}>
+            거래 목록
+            <span data-html2canvas-ignore='true'>
+              <button onClick={() => setSort("name")}>이름순</button>
+              <button onClick={() => setSort("type")}>종류별</button>
+            </span>
           </th>
           <th>가격</th>
         </tr>
       </CartHead>
       <CartBody>
-        <CartItemRow className="last" />
+        <CartItemRow className='last' />
         {cart_list.length > 0 ? (
           cart_list.map((list) => {
             return <CartListItem list={list} key={list.index} />;
@@ -50,7 +53,7 @@ const CartTableBox = () => {
             <EmptyCell colSpan={5}>아이템을 담아 주세욥</EmptyCell>
           </tr>
         )}
-        <tr data-html2canvas-ignore="true">
+        <tr data-html2canvas-ignore='true'>
           <EmptyCell colSpan={5}>
             <button onClick={() => navigate("/")}>아이템 추가하기</button>
           </EmptyCell>

@@ -25,13 +25,39 @@ export const EmptyCell = styled.td`
 `;
 
 export const PriceCell = styled.td`
+  min-width: "62px";
   /* background-color: ${passportColor.main};
   z-index: 10;
   border-bottom: 3px dashed ${passportColor.shadow}; */
 `;
 
+export const AmountBox = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  align-items: center;
+`;
+export const AmountCell = styled.div`
+  position: relative;
+
+  & div:first-of-type {
+    padding: 1px 3px;
+    /* position: absolute; */
+  }
+  /* & div:last-of-type {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+  } */
+`;
+
 export const CartTable = styled.table`
   width: 100%;
+  position: relative;
   border-collapse: collapse;
   td,
   th {

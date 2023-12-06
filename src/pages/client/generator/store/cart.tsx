@@ -41,7 +41,7 @@ interface Action {
       updatePrice: ({ index, price }: { index: number; price: number }) => void;
 
       mergeCart: () => void;
-
+      changeUnit: ({ index }: { index: number }) => void;
       clearCart: () => void;
     };
 
@@ -166,6 +166,16 @@ export const useCartStore = create<State & Action>()(
               updatedCartList.push(newCartItem);
 
               state.cart_list = updatedCartList;
+            }),
+
+          changeUnit: ({ index }) =>
+            set((state) => {
+              const targetList = state.cart_list.find(
+                (list) => list.index === index
+              );
+              if (targetList) {
+                targetList.unit = targetList.unit === "마일" ? "덩" : "마일";
+              }
             }),
 
           clearCart: () => set({ cart_list: [] }),

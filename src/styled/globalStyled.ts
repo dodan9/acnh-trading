@@ -30,8 +30,9 @@ export const globalStyle = css`
     border-radius: 0.5rem;
     border-color: ${passportColor.shadow};
     background-color: ${backgroundColor.light};
-    padding: 2px 5px;
+    padding: 1px 5px;
     color: ${textColor.light};
+    padding-top: 3px;
   }
 
   @media ${device.small} {
