@@ -5,7 +5,7 @@ const Main = () => {
 
   return (
     <>
-      <div>Main!!!</div>
+      <div>메뉴</div>
 
       <div onClick={() => navigate("villager")}>주민들</div>
 
@@ -15,13 +15,13 @@ const Main = () => {
 
       <div onClick={() => navigate("item")}>아이템</div>
 
-      {import.meta.env.DEV && (
-        <div onClick={() => navigate("event")}>이벤트</div>
-      )}
-
       <div onClick={() => navigate("generator")}>거래표 생성기</div>
 
       <div onClick={() => navigate("inquiry")}>문의하기</div>
+
+      {import.meta.env.DEV && (
+        <div onClick={() => navigate("event")}>이벤트</div>
+      )}
     </>
   );
 };

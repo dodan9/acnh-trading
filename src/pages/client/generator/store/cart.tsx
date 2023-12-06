@@ -1,5 +1,6 @@
 import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
+import { useTranslation } from "react-i18next";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
@@ -199,25 +200,42 @@ export const useCartStore = create<State & Action>()(
   )
 );
 
-export const useCartList = () => useCartStore((state) => state.cart_list);
-export const useSortedCartList = () =>
+export const useCartList = (sort: "name" | "type" | false) =>
   useCartStore((state) => {
-    const sortedCartList = state.cart_list.map((cart) => ({
-      ...cart,
-      items: [...cart.items].sort((a, b) => a.name.localeCompare(b.name)),
-    }));
+    const { t } = useTranslation();
+    if (sort) {
+      const compareItems = (
+        item1: CartItemType,
+        item2: CartItemType
+      ): number => {
+        if (sort === "name")
+          return t(`${item1.type}.${item1.name}`).localeCompare(
+            t(`${item2.type}.${item2.name}`),
+            "ko-KR"
+          );
+        else return item1.type.localeCompare(item2.type);
+      };
 
-    sortedCartList.sort((a, b) =>
-      a.items[0].name.localeCompare(b.items[0].name)
-    );
+      const sortedCartList = state.cart_list.map((cart) => ({
+        ...cart,
+        items: [...cart.items].sort(compareItems),
+      }));
 
-    return sortedCartList;
+      return sortedCartList.sort((a, b) =>
+        compareItems(a.items[0], b.items[0])
+      );
+    }
+    return state.cart_list;
   });
+
 export const useCartActions = () => useCartStore((state) => state.actions.cart);
+
 export const useCartSelectActions = () =>
   useCartStore((state) => state.actions.select);
+
 export const useAddItem = () =>
   useCartStore((state) => state.actions.cart.addItem);
+
 export const useCartLastIndex = () =>
   useCartStore((state) =>
     state.cart_list.length > 0

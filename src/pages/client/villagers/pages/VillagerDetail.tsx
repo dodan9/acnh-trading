@@ -38,7 +38,9 @@ const VillagerDetail = () => {
               </PassportImageBox>
 
               <PassportInfoBox>
-                <PassportQuote>{villager[0].quote}</PassportQuote>
+                <PassportQuote>
+                  {t(`catchphrase.${villager[0].nh_details?.catchphrase}`)}
+                </PassportQuote>
 
                 <div>
                   <h3>{t(`${LangEnum.villager}.${villager[0].name}`)}</h3>
