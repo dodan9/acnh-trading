@@ -1,5 +1,6 @@
 {
-  "name": "animal-crossing",
+  "homepage": "https://dodan9.github.io/acnh-trading",
+  "name": "acnh-trading",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -45,6 +46,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "gh-pages": "^6.1.0",
     "rollup-plugin-visualizer": "^5.9.3",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
