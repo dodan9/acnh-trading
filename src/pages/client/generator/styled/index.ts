@@ -13,13 +13,20 @@ export const SectionHeader = styled.div`
 export const CartHead = styled.thead``;
 export const CartBody = styled.tbody``;
 
+export const DeleteButton = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
 export const CartItemRow = styled.tr`
-  & [aria-details="image"] > td:first-of-type {
+  & [aria-details="image"] > td:nth-child(1) {
     padding-left: 10px !important;
   }
   img {
     width: 40px;
+    display: block;
   }
+
   &.last {
     border-bottom: 3px dashed ${passportColor.shadow};
   }

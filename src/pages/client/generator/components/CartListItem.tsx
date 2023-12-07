@@ -5,7 +5,13 @@ import {
   useCartActions,
   useCartSelectActions,
 } from "../store/cart";
-import { AmountBox, AmountCell, CartItemRow, PriceCell } from "../styled";
+import {
+  AmountBox,
+  AmountCell,
+  CartItemRow,
+  DeleteButton,
+  PriceCell,
+} from "../styled";
 import { ItemImage } from "./CartItemImage";
 import { ChangeEvent, memo } from "react";
 
@@ -101,19 +107,20 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
           </td>
         )}
         <td aria-details="image">
-          <ItemImage name={item.name} image_url={item.image_url} />
-          <div
-            data-html2canvas-ignore="true"
-            onClick={() => removeItem({ item, index: list.index })}
-          >
-            x
+          <div>
+            <ItemImage name={item.name} image_url={item.image_url} />
+            <DeleteButton
+              data-html2canvas-ignore="true"
+              onClick={() => removeItem({ item, index: list.index })}
+            >
+              x
+            </DeleteButton>
           </div>
         </td>
         <td>
           <div aria-details="amount">
             <div>{t(`${item.type}.${item.name}`)}</div>
             <AmountBox>
-              <div>{` x `}</div>
               <UpdateAmountButton
                 item={item}
                 index={list.index}
@@ -135,6 +142,7 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
                 amount={1}
                 updateItemAmount={updateItemAmount}
               />
+              <div>{` 개`}</div>
             </AmountBox>
           </div>
         </td>
