@@ -1,7 +1,7 @@
 import { getSession } from "@src/services/supabase/auth";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { console_query_key } from "./console_query_key";
 
 const useSession = () => {
@@ -15,6 +15,7 @@ const useSession = () => {
 
 export const useConsoleGuard = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { data: session, isStale, refetch, isSuccess } = useSession();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export const useConsoleGuard = () => {
 
   useEffect(() => {
     if (isSuccess && (!session || !session.user)) {
-      window.location.href = "/console/signin";
+      navigate("/console/signin");
     }
   }, [isSuccess]);
 

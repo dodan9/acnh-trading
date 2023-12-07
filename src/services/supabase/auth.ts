@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { supabase } from ".";
 
 export interface SignDataType {
@@ -33,9 +34,10 @@ export const refresh = async () => {
 
 export const signOut = async () => {
   const { error } = await supabase.auth.signOut();
+  const navigate = useNavigate();
 
   if (error) console.log(error);
-  window.location.href = "/console/signin";
+  navigate("/console/signin");
 };
 
 export const getUser = async () => {
