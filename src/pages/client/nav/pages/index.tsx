@@ -9,6 +9,7 @@ const ClientNav = () => {
   return (
     <Nav>
       <div onClick={() => navigate("/")}>home</div>
+      <div onClick={() => navigate("/console")}>console</div>
       <div onClick={() => setIsModalOpen(true)}>setting</div>
 
       {isModalOpen && <SettingModal onClose={() => setIsModalOpen(false)} />}

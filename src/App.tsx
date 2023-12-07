@@ -26,7 +26,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Global styles={globalStyle} />
         <Suspense fallback={<LoadingSpinner />}>
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <BrowserRouter basename={"/acnh-trading"}>
             <Routes>
               <Route path="/*" element={<Client />} />
               <Route path="/console/*" element={<Console />} />
