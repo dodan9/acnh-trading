@@ -10,12 +10,12 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths(), mkcert(), visualizer()],
   server: {
     proxy: {
-      "/acnh-trading/nooki": {
+      "/nooki": {
         target: "https://api.nookipedia.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/nooki/, ""),
       },
-      "/acnh-trading/img": {
+      "/img": {
         target: "https://dodo.ac",
         changeOrigin: true,
 
