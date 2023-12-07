@@ -7,7 +7,7 @@ import {
 } from "../store/cart";
 import { AmountBox, AmountCell, CartItemRow, PriceCell } from "../styled";
 import { ItemImage } from "./CartItemImage";
-import { ChangeEvent, memo, useState } from "react";
+import { ChangeEvent, memo } from "react";
 
 interface PriceUpdateProps {
   list: CartListType;
@@ -71,23 +71,18 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
   const { t } = useTranslation();
 
   return list.items.map((item, index) => {
-    const [_newAmount, setNewAmount] = useState<number>(item.amount);
-    const [_newPrice, setNewPrice] = useState<number>(list.price);
-
     const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
       console.log(event.target.value);
       if (event.target.value === "") event.target.value = "0";
       console.log(event.target.value);
 
       const newValue = parseInt(event.target.value);
-      setNewAmount(newValue);
       updateItemAmount({ item, index: list.index, amount: newValue });
     };
 
     const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
       if (event.target.value === "") event.target.value = "0";
       const newValue = parseInt(event.target.value);
-      setNewPrice(newValue);
       updatePrice({ index: list.index, price: newValue });
     };
 
