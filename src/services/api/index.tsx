@@ -3,7 +3,7 @@ import qs from "qs";
 
 export const nookRequest = axios.create({
   // baseURL: `${import.meta.env.VITE_NOOKIPEDIA_URL}`,
-  baseURL: "/nooki",
+  baseURL: "/acnh-trading/nooki",
   withCredentials: true,
   timeout: 100000,
   headers: {
@@ -28,7 +28,7 @@ nookRequest.interceptors.response.use(
 );
 
 export const imgRequest = axios.create({
-  baseURL: "/img",
+  baseURL: "/acnh-trading/img",
 });
 imgRequest.interceptors.request.use((config) => {
   return { ...config, url: config.url?.replace(/^https:\/\/dodo\.ac/, "") };
