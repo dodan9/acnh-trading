@@ -91,14 +91,15 @@ export const useCartStore = create<State & Action>()(
 
           removeItem: ({ item, index }) =>
             set((state) => {
-              const cartItem = state.cart_list.find(
-                (list) => list.index === index
-              );
-              if (cartItem) {
-                cartItem.items = cartItem.items.filter(
-                  (prev) => prev.name !== item.name
-                );
-              }
+              state.cart_list = state.cart_list.map((list) => {
+                if (list.index === index) {
+                  list.items = list.items.filter(
+                    (prev) => prev.name !== item.name
+                  );
+                }
+                return list;
+              });
+
               state.cart_list = state.cart_list.filter(
                 (list) => list.items.length > 0
               );
@@ -114,7 +115,7 @@ export const useCartStore = create<State & Action>()(
               );
 
               if (existingItem) {
-                existingItem.amount = Math.max(1, existingItem.amount + amount);
+                existingItem.amount = Math.max(0, amount);
               }
             }),
 
@@ -131,7 +132,7 @@ export const useCartStore = create<State & Action>()(
                 (list) => list.index === index
               );
               if (targetList) {
-                targetList.price = Math.max(1, targetList.price + price);
+                targetList.price = Math.max(0, price);
               }
             }),
 
@@ -155,7 +156,7 @@ export const useCartStore = create<State & Action>()(
                 index: lastIndex + 1,
                 items: mergedItems,
                 isSelected: false,
-                price: 0,
+                price: 1,
                 unit: "마일",
               };
 

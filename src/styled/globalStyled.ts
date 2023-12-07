@@ -9,7 +9,11 @@ export const globalStyle = css`
     box-sizing: border-box;
     font-family: "Jua", sans-serif;
     position: relative;
+    font-size: 0.92rem;
     /* cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto; */
+    @media ${device.medium} {
+      font-size: 1rem;
+    }
   }
 
   #root {
@@ -33,9 +37,9 @@ export const globalStyle = css`
     padding: 1px 5px;
     color: ${textColor.light};
     padding-top: 3px;
-  }
-
-  @media ${device.small} {
-    font-size: 0.2rem;
+    &[aria-details="icon"] {
+      border-radius: 2px;
+      border: 2px solid ${passportColor.shadow};
+    }
   }
 `;

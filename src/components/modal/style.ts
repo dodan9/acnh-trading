@@ -23,4 +23,5 @@ export const ModalContainer = styled.div`
   max-height: calc(100% - 64px);
   max-width: calc(100% - 64px);
   position: relative;
+  overflow-y: auto;
 `;

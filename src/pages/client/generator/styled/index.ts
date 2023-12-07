@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { device } from "@src/styled";
 import { backgroundColor, passportColor, textColor } from "@src/styled/color";
 
 export const SectionHeader = styled.div`
@@ -13,11 +14,27 @@ export const CartHead = styled.thead``;
 export const CartBody = styled.tbody``;
 
 export const CartItemRow = styled.tr`
+  & [aria-details="image"] > td:first-of-type {
+    padding-left: 10px !important;
+  }
   img {
     width: 40px;
   }
   &.last {
     border-bottom: 3px dashed ${passportColor.shadow};
+  }
+
+  @media ${device.medium} {
+    img {
+      width: 60px;
+    }
+    div[aria-details="amount"] {
+      white-space: pre;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
   }
 `;
 export const EmptyCell = styled.td`
@@ -25,7 +42,6 @@ export const EmptyCell = styled.td`
 `;
 
 export const PriceCell = styled.td`
-  min-width: "62px";
   /* background-color: ${passportColor.main};
   z-index: 10;
   border-bottom: 3px dashed ${passportColor.shadow}; */
@@ -41,18 +57,25 @@ export const AmountBox = styled.div`
 export const AmountCell = styled.div`
   position: relative;
 
-  & div:first-of-type {
+  & div {
     padding: 1px 3px;
-    /* position: absolute; */
   }
-  /* & div:last-of-type {
+  & div[data-html2canvas-ignore] {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: white;
     top: 0;
     left: 0;
-  } */
+    padding: 1px 0 0 0;
+    & input {
+      display: block;
+      border: none;
+      width: 100%;
+      text-align: center;
+      border-bottom: 2px solid ${passportColor.shadow};
+    }
+  }
 `;
 
 export const CartTable = styled.table`
@@ -62,7 +85,12 @@ export const CartTable = styled.table`
   td,
   th {
     text-align: center;
+  }
+  th {
     padding: 10px;
+  }
+  td {
+    padding: 10px 0;
   }
   margin-bottom: 10px;
 `;
