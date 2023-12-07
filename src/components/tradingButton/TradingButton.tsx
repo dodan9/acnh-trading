@@ -3,22 +3,24 @@ import {
   useCartLastIndex,
 } from "@src/pages/client/generator/store/cart";
 import { memo } from "react";
-import { FurnitureDetailType } from "../types";
 
-const FurnitureAddButton = ({
-  furniture,
-}: {
-  furniture: FurnitureDetailType;
-}) => {
+interface TradingItemType {
+  name: string;
+  type: string;
+  image_url: string;
+  amount: number;
+}
+
+const TradingButton = ({ name, type, image_url, amount }: TradingItemType) => {
   const cartCount = useCartLastIndex();
   const addItem = useAddItem();
   const handleAddItem = () => {
     addItem({
       item: {
-        name: furniture.name,
-        type: `${furniture.category.toLowerCase()}`,
-        image_url: furniture.variations[0].image_url,
-        amount: 1,
+        name,
+        type,
+        image_url,
+        amount,
       },
       index: cartCount + 1,
     });
@@ -27,4 +29,4 @@ const FurnitureAddButton = ({
   return <button onClick={() => handleAddItem()}>거래</button>;
 };
 
-export default memo(FurnitureAddButton);
+export default memo(TradingButton);

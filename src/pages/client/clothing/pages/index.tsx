@@ -15,7 +15,7 @@ import { ColorEnum } from "@src/assets/enum";
 import { ClothingItem } from "../styled";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import ClothingFilter from "../components/ClothingFilter";
-import ClothingAddButton from "../components/ClothingAddButton";
+import TradingButton from "@src/components/tradingButton/TradingButton";
 
 const ClothingList = () => {
   const [searchParams] = useSearchParams();
@@ -59,7 +59,12 @@ const ClothingList = () => {
                 )}
               </div>
               <div>
-                <ClothingAddButton clothing={clothing} />
+                <TradingButton
+                  name={clothing.name}
+                  type={`${LangEnum.clothing}.${clothing.category}`}
+                  image_url={clothing.variations[0].image_url}
+                  amount={1}
+                />
               </div>
             </ClothingItem>
           );

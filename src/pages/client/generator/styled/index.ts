@@ -19,8 +19,8 @@ export const DeleteButton = styled.div`
   top: 0;
 `;
 export const CartItemRow = styled.tr`
-  & [aria-details="image"] > td:nth-child(1) {
-    padding-left: 10px !important;
+  & > td[aria-details="image"]:first-child {
+    padding-left: 15px !important;
   }
   img {
     width: 40px;
@@ -114,7 +114,7 @@ export const Section = styled.div`
   overflow: hidden;
   color: ${textColor.light};
   height: fit-content;
-  min-width: 280px;
+
   max-width: 500px;
   margin: 0 auto;
 `;
@@ -123,4 +123,7 @@ export const CartNoticeBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 0 0 10px 0;
 `;
