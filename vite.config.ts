@@ -6,6 +6,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/acnh-trading/",
   plugins: [react(), tsconfigPaths(), mkcert(), visualizer()],
   server: {
     proxy: {
