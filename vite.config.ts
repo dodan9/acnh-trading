@@ -6,20 +6,19 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/acnh-trading/",
   plugins: [react(), tsconfigPaths(), mkcert(), visualizer()],
   server: {
     proxy: {
-      "/acnh-trading/nooki": {
+      "/nooki": {
         target: "https://api.nookipedia.com",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/acnh-trading\/nooki/, ""),
+        rewrite: (path) => path.replace(/^\/nooki/, ""),
       },
-      "/acnh-trading/img": {
+      "/img": {
         target: "https://dodo.ac",
         changeOrigin: true,
 
-        rewrite: (path) => path.replace(/^\/acnh-trading\/img/, ""),
+        rewrite: (path) => path.replace(/^\/img/, ""),
       },
     },
   },
