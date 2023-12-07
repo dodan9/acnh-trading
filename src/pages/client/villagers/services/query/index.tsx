@@ -13,7 +13,7 @@ export const useVillagerListQuery = (query?: VillagerFilterType) => {
   };
 
   return useQuery({
-    queryKey: [query_key.VIILAGER_LIST, filter],
+    queryKey: [query_key.VIILAGER_LIST, filter, query],
     queryFn: getVillagerList,
   });
 };
