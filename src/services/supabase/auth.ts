@@ -15,13 +15,13 @@ export const signUp = async ({ email, password }: SignDataType) => {
 };
 
 export const signIn = async ({ email, password }: SignDataType) => {
+  const navigate = useNavigate();
   const { data } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
 
-  console.log(data);
-  if (data.user) window.location.href = "/console/home";
+  if (data.user) navigate("/console/home");
   else alert("fail");
 };
 
