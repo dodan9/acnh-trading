@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 
 export const nookRequest = axios.create({
-  baseURL: import.meta.env.PROD ? `/acnh-trading/nooki` : "/nooki",
+  baseURL: "/nooki",
   withCredentials: true,
   timeout: 100000,
   headers: {
@@ -27,7 +27,7 @@ nookRequest.interceptors.response.use(
 );
 
 export const imgRequest = axios.create({
-  baseURL: import.meta.env.PROD ? "/acnh-trading/img" : "/img",
+  baseURL: "/img",
 });
 imgRequest.interceptors.request.use((config) => {
   return { ...config, url: config.url?.replace(/^https:\/\/dodo\.ac/, "") };

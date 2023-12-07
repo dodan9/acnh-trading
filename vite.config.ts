@@ -13,15 +13,13 @@ export default defineConfig({
       "/acnh-trading/nooki": {
         target: "https://api.nookipedia.com",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/acnh-trading\/nooki/, ""),
+        rewrite: (path) => path.replace(/^\/acnh-trading\/nooki/, "/nooki"),
       },
       "/acnh-trading/img": {
         target: "https://dodo.ac",
         changeOrigin: true,
-
-        rewrite: (path) => path.replace(/^\/acnh-trading\/img/, ""),
+        rewrite: (path) => path.replace(/^\/acnh-trading\/img/, "/img"),
       },
-
       "/nooki": {
         target: "https://api.nookipedia.com",
         changeOrigin: true,
