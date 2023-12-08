@@ -1,12 +1,16 @@
 import { InquiryView } from "../components/InquiryView";
 import { InquiryWrite } from "../components/InquiryWrite";
+import { Wrapper } from "@src/styled";
+import { InquiryContainer } from "../styled";
 
 const InquiryMain = () => {
   return (
-    <>
-      <InquiryView />
-      <InquiryWrite />
-    </>
+    <Wrapper>
+      <InquiryContainer>
+        <InquiryView />
+        <InquiryWrite />
+      </InquiryContainer>
+    </Wrapper>
   );
 };
 

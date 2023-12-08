@@ -11,7 +11,7 @@ export const globalStyle = css`
     position: relative;
     font-size: 0.92rem;
     /* cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto; */
-    @media ${device.large} {
+    @media ${device.medium} {
       font-size: 1rem;
     }
   }

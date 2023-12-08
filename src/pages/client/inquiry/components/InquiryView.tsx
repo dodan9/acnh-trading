@@ -1,22 +1,23 @@
-import { Wrapper } from "@src/styled";
 import { useInquiryList } from "../services/query";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { InquiryMessage } from "../styled";
+import { Title } from "@src/styled";
 
 export const InquiryView = () => {
   const { data: inquiry_list, isLoading } = useInquiryList();
   return (
-    <Wrapper>
-      <div>문의글</div>
+    <>
+      <Title>문의글</Title>
       {isLoading && <LoadingSpinner />}
       {inquiry_list &&
         inquiry_list.map((inquiry) => {
           return (
-            <div key={inquiry.created_at + inquiry.id}>
+            <InquiryMessage key={inquiry.created_at + inquiry.id}>
               <div>{inquiry.title}</div>
               <div>{inquiry.content}</div>
-            </div>
+            </InquiryMessage>
           );
         })}
-    </Wrapper>
+    </>
   );
 };

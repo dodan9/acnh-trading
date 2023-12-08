@@ -32,11 +32,12 @@ const VillagerList = () => {
                   textColor={villager.text_color}
                   key={villager.name + index}
                 >
-                  <div onClick={() => navigate(villager.name)}>
-                    {villager.nh_details && (
-                      <img src={villager.nh_details.icon_url} />
-                    )}
-                  </div>
+                  {villager.nh_details && (
+                    <img
+                      src={villager.nh_details.icon_url}
+                      onClick={() => navigate(villager.name)}
+                    />
+                  )}
                   <h3>{t(`villager.${villager.name}`)}</h3>
                 </VillagerCard>
               );

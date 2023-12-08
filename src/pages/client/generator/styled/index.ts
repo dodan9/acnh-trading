@@ -115,7 +115,7 @@ export const Section = styled.div`
   color: ${textColor.light};
   height: fit-content;
 
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 `;
 

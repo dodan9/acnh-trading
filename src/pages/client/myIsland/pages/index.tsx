@@ -1,14 +1,14 @@
-import { Modal } from "@src/components/modal/Modal";
+import { addMinutes, differenceInMinutes, format, set } from "date-fns";
 import {
-  useIslandInfo,
-  useIslandActions,
   FruitType,
   HemisphereType,
-} from "../store/setting";
-import { addMinutes, differenceInMinutes, format, set } from "date-fns";
+  useIslandActions,
+  useIslandInfo,
+} from "../../nav/store/setting";
+import { Wrapper } from "@src/styled";
 import { ChangeEvent, useState } from "react";
 
-const SettingModal = ({ onClose }: { onClose: () => void }) => {
+const MyIsland = () => {
   const { name, time, fruit, hemisphere } = useIslandInfo();
   const { setName, setTime, setFruit, setHemisphere } = useIslandActions();
 
@@ -53,9 +53,8 @@ const SettingModal = ({ onClose }: { onClose: () => void }) => {
     setHemisphere(event.target.value as HemisphereType);
     setEditField("");
   };
-
   return (
-    <Modal onClose={onClose}>
+    <Wrapper>
       <div>
         <div>섬 정보</div>
 
@@ -180,8 +179,8 @@ const SettingModal = ({ onClose }: { onClose: () => void }) => {
           평판 기록할 수 있게 하고, 만약 평판이 5점 이하라면 현재 평판보다 한 단계 높은 평판이 되기 위한 조건 나열
         */}
       </div>
-    </Modal>
+    </Wrapper>
   );
 };
 
-export default SettingModal;
+export default MyIsland;

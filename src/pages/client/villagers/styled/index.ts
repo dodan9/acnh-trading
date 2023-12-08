@@ -6,13 +6,15 @@ export const OptionBox = styled.div`
 `;
 
 export const VillagerListBox = styled.div`
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, 140px);
+  align-items: center;
 
+  gap: 16px;
   @media ${device.medium} {
-    grid-template-columns: repeat(auto-fill, 180px);
+    gap: 32px;
   }
 `;
 
@@ -22,37 +24,42 @@ export const VillagerCard = styled.div<{
 }>`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-self: center;
   background-color: #${(props) => (props.backgroudColor.toLowerCase() === "ffffff" ? "eeeeee" : props.backgroudColor)}CC;
   color: #${(props) => props.textColor};
-  width: max-content;
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
   border-radius: 32px;
-  padding: 16px 25px;
+  padding: 10px;
 
   @media ${device.medium} {
-    gap: 10px;
-    padding: 20px 30px;
+    width: 160px;
+    padding: 16px;
   }
 
   & img {
+    display: block;
     cursor: pointer;
-    width: 90px;
-
+    width: calc(120px - 2 * 10px - 1.1rem - 8px);
     @media ${device.medium} {
-      width: 120px;
+      width: calc(160px - 2 * 16px - 1.3rem - 8px);
     }
   }
   & h3 {
-    width: 100%;
+    width: calc(100% - 16px);
     text-align: center;
     padding-top: 5px;
     padding-bottom: 3px;
     border-radius: 25px 40px / 40px 25px;
     background-color: #${(props) => props.backgroudColor};
     font-size: 1rem;
+    line-height: 1.1rem;
 
     @media ${device.medium} {
+      width: calc(100% - 32px);
+      line-height: 1.3rem;
       font-size: 1.2rem;
     }
   }

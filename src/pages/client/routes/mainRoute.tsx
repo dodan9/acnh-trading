@@ -7,6 +7,7 @@ import { inquiryRoutes } from "@src/pages/client/inquiry/routes";
 
 import Main from "@src/pages/client/main/Main";
 import { lazy } from "react";
+import MyIsland from "../myIsland/pages";
 const CollectionRoutes = lazy(() => import("../collection"));
 const ItemRoutes = lazy(() => import("../item"));
 
@@ -23,6 +24,8 @@ export const mainRoutes = () => {
       {eventRoutes()}
       {generatorRoutes()}
       {inquiryRoutes()}
+
+      <Route path="/my-island" element={<MyIsland />} />
     </Routes>
   );
 };
