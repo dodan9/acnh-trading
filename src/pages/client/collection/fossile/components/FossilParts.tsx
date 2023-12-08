@@ -1,21 +1,23 @@
 import { LangEnum } from "@src/lang/enum";
 import { FossilDetailType } from "../types";
 import { useTranslation } from "react-i18next";
-import { FossilGroupPartBox, FossilPartCard } from "../styled";
+import { FossilPartsBox, FossilPartCard, FossilGroupBox } from "../styled";
 import TradingButton from "@src/components/tradingButton/TradingButton";
 
 const FossilParts = ({
-  selectedGroup,
+  group,
   fossils,
 }: {
-  selectedGroup: string;
+  group: string;
   fossils: FossilDetailType[];
 }) => {
   const { t } = useTranslation();
   return (
-    <div>
-      <div>{t(`${LangEnum.fossil}.group.${selectedGroup}`)}</div>
-      <FossilGroupPartBox>
+    <FossilGroupBox>
+      <h3>
+        {t(`${LangEnum.fossil}.group.${group}`)}, {fossils.length}개
+      </h3>
+      <FossilPartsBox>
         {fossils &&
           fossils.map((fossil) => (
             <FossilPartCard key={fossil.name}>
@@ -23,6 +25,14 @@ const FossilParts = ({
                 <img src={fossil.image_url} />
               </div>
               <div>{t(`${LangEnum.fossil}.parts.${fossil.name}`)}</div>
+              <div>
+                색상:{" "}
+                {fossil.colors
+                  .map((color) => t(`${LangEnum.color}.${color}`))
+                  .join(", ")}
+              </div>
+              <div>판매: {fossil.sell} 벨</div>
+              <div>해피홈 점수: {fossil.hha_base} 점</div>
               <div>
                 <TradingButton
                   name={fossil.name}
@@ -33,8 +43,8 @@ const FossilParts = ({
               </div>
             </FossilPartCard>
           ))}
-      </FossilGroupPartBox>
-    </div>
+      </FossilPartsBox>
+    </FossilGroupBox>
   );
 };
 

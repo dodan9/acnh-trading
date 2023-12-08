@@ -1,10 +1,11 @@
 import { useFossilList } from "../services/query";
 import groupBy from "lodash/groupBy";
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { FossilDetailType } from "../types";
 import FossilParts from "../components/FossilParts";
-import FossilGroup from "../components/FossilGroup";
+import { Title } from "@src/styled";
+import { LangEnum } from "@src/lang/enum";
+import { useTranslation } from "react-i18next";
 
 const FossilMain = () => {
   const { data: fossil_list } = useFossilList();
@@ -12,44 +13,50 @@ const FossilMain = () => {
     { [key: string]: FossilDetailType[] } | false
   >(false);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedGroup, setSelectedGroup] = useState<string | false>(false);
+  const { t } = useTranslation();
+
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const partsOrder = [
+    "right",
     "skull",
     "neck",
     "chest",
+    "body",
     "torso",
     "pelvis",
     "tail",
     "tail tip",
+    "left",
   ];
-
-  const handleSelectGroup = (group: string) => {
-    if (searchParams.get("group") === group) {
-      searchParams.delete("group");
-      setSearchParams(searchParams);
-      setSelectedGroup(false);
-    } else {
-      searchParams.set("group", group);
-      setSearchParams(searchParams);
-    }
-  };
 
   const getPartIndex = (part: string) => {
     const foundIndex = partsOrder.findIndex((order) => part.includes(order));
     return foundIndex !== -1 ? foundIndex : partsOrder.length;
   };
 
+  const handleSearchKeyword = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchKeyword(event.target.value);
+  };
+
   useEffect(() => {
     if (fossil_list) {
+      let filteredFossilList = fossil_list;
+
+      if (searchKeyword !== "") {
+        filteredFossilList = filteredFossilList.filter((fossil) =>
+          t(`${LangEnum.fossil}.parts.${fossil.name}`).includes(searchKeyword)
+        );
+      }
+
       const newGroupedFossilList = groupBy(
-        fossil_list.filter((fossil) => fossil.fossil_group !== ""),
+        filteredFossilList.filter((fossil) => fossil.fossil_group !== ""),
         "fossil_group"
       );
-      const singleFossils = fossil_list.filter(
+      const singleFossils = filteredFossilList.filter(
         (fossil) => fossil.fossil_group === ""
       );
+
       singleFossils.forEach((fossil) => {
         newGroupedFossilList[fossil.name] = [fossil];
       });
@@ -62,35 +69,19 @@ const FossilMain = () => {
 
       setGroupedFossilList(newGroupedFossilList);
     }
-  }, [fossil_list]);
-
-  useEffect(() => {
-    if (searchParams.get("group")) {
-      setSelectedGroup(searchParams.get("group")!);
-    } else {
-      setSelectedGroup(false);
-    }
-  }, [searchParams]);
+  }, [fossil_list, searchKeyword]);
 
   return (
     <>
-      <div>화석</div>
+      <Title>화석</Title>
+
+      <div>
+        검색: <input value={searchKeyword} onChange={handleSearchKeyword} />
+      </div>
 
       {groupedFossilList &&
-        (selectedGroup ? (
-          <FossilParts
-            selectedGroup={selectedGroup}
-            fossils={groupedFossilList[selectedGroup]}
-          />
-        ) : (
-          Object.entries(groupedFossilList).map(([group, fossils]) => (
-            <FossilGroup
-              key={group}
-              group={group}
-              onSelectGroup={handleSelectGroup}
-              count={fossils.length}
-            />
-          ))
+        Object.entries(groupedFossilList).map(([group, fossils]) => (
+          <FossilParts key={group} group={group} fossils={fossils} />
         ))}
     </>
   );

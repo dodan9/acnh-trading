@@ -14,7 +14,7 @@ export const VillagerListBox = styled.div`
 
   gap: 16px;
   @media ${device.medium} {
-    gap: 32px;
+    gap: 24px;
   }
 `;
 

@@ -21,12 +21,7 @@ const routes = () => {
 };
 
 const CollectionRoutes = () => {
-  return (
-    <Wrapper>
-      <div>도감</div>
-      {routes()}
-    </Wrapper>
-  );
+  return <Wrapper>{routes()}</Wrapper>;
 };
 
 export default CollectionRoutes;
