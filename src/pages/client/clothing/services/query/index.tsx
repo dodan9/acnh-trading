@@ -23,8 +23,7 @@ export const useClothingDetail = ({
   thumbsize?: number;
 }) => {
   const getClothingDetail = async () => {
-    if (!name) return;
-    false;
+    if (!name) return false;
     const response = await getClothingDetailApi({ name, thumbsize });
     return response.data;
   };

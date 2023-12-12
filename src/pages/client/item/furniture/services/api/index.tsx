@@ -14,7 +14,7 @@ export const getFurnitureDetailApi = ({
   thumbsize,
 }: {
   name: string;
-  thumbsize: number;
+  thumbsize?: number;
 }) => {
   return nookRequest<FurnitureDetailType>({
     url: `/nh/furniture/${name}`,

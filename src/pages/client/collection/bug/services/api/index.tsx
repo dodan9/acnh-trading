@@ -2,8 +2,9 @@ import { nookRequest } from "@src/services/api";
 import { BugDetailType, BugFilterType } from "../../types";
 
 export const getBugListApi = (filter?: BugFilterType) => {
-  if (filter) {
+  if (filter?.month) {
     return nookRequest<{
+      month: string;
       north: BugDetailType[];
       south: BugDetailType[];
     }>({

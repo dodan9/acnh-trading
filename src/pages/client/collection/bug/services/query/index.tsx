@@ -21,10 +21,11 @@ export const useBugDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
+  name?: string;
   thumbsize?: number;
 }) => {
   const getBugDetail = async () => {
+    if (!name) return false;
     const response = await getBugDetailApi({ name, thumbsize });
     return response.data;
   };

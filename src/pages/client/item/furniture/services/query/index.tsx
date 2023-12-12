@@ -55,10 +55,11 @@ export const useFurnitureDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
-  thumbsize: number;
+  name?: string;
+  thumbsize?: number;
 }) => {
   const getFurnitureDetail = async () => {
+    if (!name) return false;
     const response = await getFurnitureDetailApi({ name, thumbsize });
     return response.data;
   };

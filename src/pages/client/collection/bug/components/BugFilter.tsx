@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, memo } from "react";
 import { useBugFilter, useBugFilterAction } from "../store/bugFilter";
 
 const BugFilter = () => {
@@ -20,11 +20,13 @@ const BugFilter = () => {
         <option value="" label="전체" />
 
         {Array.from({ length: 12 }, (_, index) => {
-          return <option value={index + 1} label={String(index + 1)} />;
+          return (
+            <option key={index} value={index + 1} label={String(index + 1)} />
+          );
         })}
       </select>
     </>
   );
 };
 
-export default BugFilter;
+export default memo(BugFilter);
