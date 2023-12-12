@@ -17,6 +17,7 @@ const BugDetail = () => {
         <img src={bug.render_url} />
       </div>
       <div>{t(`${LangEnum.bug}.${bug.name}`)}</div>
+      <div>{bug.rarity}</div>
 
       <div onClick={() => navigate(`/item/funiture/${bug.name} model`)}>
         모형 보러 가기

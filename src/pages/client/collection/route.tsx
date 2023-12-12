@@ -5,7 +5,7 @@ import FishMain from "./fish/pages";
 import FossilMain from "./fossile/pages";
 import CollectionMain from "./main";
 import SeaCreatureMain from "./seaCreature/pages";
-import BugDetail from "./bug/components/BugDetail";
+import BugDetail from "./bug/pages/BugDetail";
 
 export const collectionRoute = () => {
   return (

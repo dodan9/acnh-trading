@@ -72,9 +72,6 @@ i18next.use(initReactI18next).init({
   resources: resource,
   lng: "ko-KR",
   fallbackLng: "ko-KR",
-  interpolation: {
-    escapeValue: false,
-  },
 });
 
 export default i18next;
