@@ -29,7 +29,7 @@ const useFurnitureFilterStore = create<State & Action>()(
         set((state) => {
           if (state.filter.color?.includes(color)) {
             state.filter.color = state.filter.color.filter(
-              (color) => color !== color
+              (current) => current !== color
             );
           } else state.filter.color = [...(state.filter.color || []), color];
         });
