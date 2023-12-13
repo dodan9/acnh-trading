@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { query_key } from "@src/services/query/query_key";
-import { FishFilterType } from "../../types";
 import { getFishDetailApi, getFishListApi } from "../api";
+import { useFishFilter } from "../../store/fishFilter";
 
-export const useFishList = (filter?: FishFilterType) => {
+export const useFishList = () => {
+  const filter = useFishFilter();
+
   const getFishList = async () => {
     const response = await getFishListApi(filter);
     return response.data;
@@ -19,10 +21,11 @@ export const useFishDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
+  name?: string;
   thumbsize?: number;
 }) => {
   const getFishDetail = async () => {
+    if (!name) return false;
     const response = await getFishDetailApi({ name, thumbsize });
     return response.data;
   };

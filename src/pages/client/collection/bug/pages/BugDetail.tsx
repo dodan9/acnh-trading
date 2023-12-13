@@ -19,7 +19,7 @@ const BugDetail = () => {
       <div>{t(`${LangEnum.bug}.${bug.name}`)}</div>
       <div>{bug.rarity}</div>
 
-      <div onClick={() => navigate(`/item/funiture/${bug.name} model`)}>
+      <div onClick={() => navigate(`/item/furniture/${bug.name} model`)}>
         모형 보러 가기
       </div>
     </>

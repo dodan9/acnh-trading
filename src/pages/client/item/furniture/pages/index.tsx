@@ -5,7 +5,7 @@ import { FurnitureCategory } from "../types";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import TradingButton from "@src/components/tradingButton/TradingButton";
 
-const FunitureMain = () => {
+const furnitureMain = () => {
   const [currentCategory, setCurrentCategory] = useState<FurnitureCategory>(
     FurnitureCategory.Miscellaneous
   );
@@ -58,4 +58,4 @@ const FunitureMain = () => {
   );
 };
 
-export default FunitureMain;
+export default furnitureMain;

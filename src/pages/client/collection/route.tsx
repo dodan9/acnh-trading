@@ -6,6 +6,7 @@ import FossilMain from "./fossile/pages";
 import CollectionMain from "./main";
 import SeaCreatureMain from "./seaCreature/pages";
 import BugDetail from "./bug/pages/BugDetail";
+import FishDetail from "./fish/pages/FishDetail";
 
 export const collectionRoute = () => {
   return (
@@ -18,6 +19,7 @@ export const collectionRoute = () => {
       <Route path="/bug/:name" element={<BugDetail />} />
 
       <Route path="/fish" element={<FishMain />} />
+      <Route path="/fish/:name" element={<FishDetail />} />
 
       <Route path="/fossil" element={<FossilMain />} />
 
