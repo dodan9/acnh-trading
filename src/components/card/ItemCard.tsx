@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import TradingButton, { TradingItemType } from "../tradingButton/TradingButton";
-import { ItemCardBox } from "./styled";
+import { ItemCardBox, ItemImageBox } from "./styled";
 
 interface Props {
   item: TradingItemType;
@@ -11,9 +11,9 @@ export const ItemCard = ({ item, ko_name }: Props) => {
 
   return (
     <ItemCardBox onClick={() => navigate(item.name)}>
-      <div>
+      <ItemImageBox>
         <img src={item.image_url} alt={ko_name} />
-      </div>
+      </ItemImageBox>
       <div>{ko_name}</div>
       <div>
         <TradingButton

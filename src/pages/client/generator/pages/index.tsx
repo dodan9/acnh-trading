@@ -14,12 +14,13 @@ const GeneratorMain = () => {
     if (!targetRef.current) return;
 
     // html-to-image 라이브러리 조사
+    // react-image-file-resizer
     try {
       const div = targetRef.current;
       const canvas = await html2canvas(div, {
         logging: true,
         backgroundColor: null,
-        scale: 1,
+        scale: 4,
       });
       canvas.toBlob((blob) => {
         if (blob !== null) {
