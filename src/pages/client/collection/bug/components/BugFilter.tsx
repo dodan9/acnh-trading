@@ -21,7 +21,7 @@ const BugFilter = () => {
 
         {Array.from({ length: 12 }, (_, index) => {
           return (
-            <option key={index} value={index + 1} label={String(index + 1)} />
+            <option key={index} value={index + 1} label={`${index + 1} 월`} />
           );
         })}
       </select>

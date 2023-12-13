@@ -4,7 +4,7 @@ import {
 } from "@src/pages/client/generator/store/cart";
 import { memo } from "react";
 
-interface TradingItemType {
+export interface TradingItemType {
   name: string;
   type: string;
   image_url: string;

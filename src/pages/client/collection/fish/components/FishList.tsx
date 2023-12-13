@@ -1,25 +1,49 @@
 import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
-import { useNavigate } from "react-router";
+import { ItemCard } from "@src/components/card/ItemCard";
+import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { useIslandInfo } from "@src/pages/client/nav/store/setting";
+import { FishDetailType } from "../types";
+import { ItemListBox } from "@src/components/card/styled";
 
 const FishList = () => {
-  const { data: fish_list } = useFishList();
+  const { data: fish_list, isLoading } = useFishList();
 
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { hemisphere } = useIslandInfo();
 
+  const FishListItem = ({ fish }: { fish: FishDetailType }) => {
+    return (
+      <ItemCard
+        key={fish.name}
+        ko_name={t(`${LangEnum.fish}.${fish.name}`)}
+        item={{
+          name: fish.name,
+          image_url: fish.image_url,
+          type: LangEnum.fish,
+          amount: 1,
+        }}
+      />
+    );
+  };
+
+  if (isLoading) return <LoadingSpinner />;
+  if (!fish_list) return <div>no data</div>;
   return (
-    <>
-      {fish_list &&
-        fish_list.map((fish) => {
-          return (
-            <div key={fish.name} onClick={() => navigate(fish.name)}>
-              {t(`${LangEnum.fish}.${fish.name}`)}
-            </div>
-          );
-        })}
-    </>
+    <ItemListBox>
+      {"south" in fish_list && "north" in fish_list
+        ? hemisphere === "north"
+          ? fish_list.north.map((fish) => {
+              return <FishListItem fish={fish} />;
+            })
+          : fish_list.south.map((fish) => {
+              return <FishListItem fish={fish} />;
+            })
+        : fish_list.map((fish) => {
+            return <FishListItem fish={fish} />;
+          })}
+    </ItemListBox>
   );
 };
 

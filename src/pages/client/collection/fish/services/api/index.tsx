@@ -2,11 +2,23 @@ import { nookRequest } from "@src/services/api";
 import { FishDetailType, FishFilterType } from "../../types";
 
 export const getFishListApi = (filter?: FishFilterType) => {
-  return nookRequest<FishDetailType[]>({
-    url: `/nh/fish`,
-    method: "GET",
-    params: filter,
-  });
+  if (filter?.month) {
+    return nookRequest<{
+      month: string;
+      north: FishDetailType[];
+      south: FishDetailType[];
+    }>({
+      url: "/nh/fish",
+      method: "GET",
+      params: filter,
+    });
+  } else {
+    return nookRequest<FishDetailType[]>({
+      url: `/nh/fish`,
+      method: "GET",
+      params: filter,
+    });
+  }
 };
 
 export const getFishDetailApi = ({
