@@ -6,28 +6,49 @@ import {
 } from "../../types";
 import { getFurnitureDetailApi, getFurnitureListApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
+import { useFurnitureFilter } from "../../store/furnitureFilter";
+import { ColorEnum } from "@src/assets/enum";
 
-export const useFurnitureList = (filter?: FurnitureFilterType) => {
+export const useFurnitureList = () => {
+  const filter = useFurnitureFilter();
+
   const getFurnitureList = async (): Promise<FurnitureDetailType[]> => {
     if (!filter?.category) return [];
+    let furniture_data: FurnitureDetailType[] = [];
 
     switch (filter.category) {
       case FurnitureCategory.Housewares:
         const { housewares_data } = await import(
           `@src/assets/furniture/housewares.ts`
         );
-        return housewares_data;
+        furniture_data = housewares_data;
+        break;
+
       case FurnitureCategory.WallMounted:
         const { wall_mounted_data } = await import(
           `@src/assets/furniture/wall-mounted.ts`
         );
-        return wall_mounted_data;
+        furniture_data = wall_mounted_data;
+        break;
+
       case FurnitureCategory.Miscellaneous:
         const { miscellaneous_data } = await import(
           `@src/assets/furniture/miscellaneaous.ts`
         );
-        return miscellaneous_data;
+        furniture_data = miscellaneous_data;
+        break;
     }
+
+    if (filter.color?.length) {
+      furniture_data = furniture_data.filter((furniture) => {
+        return furniture.variations.some((variation) =>
+          variation.colors.some((color) =>
+            filter.color?.includes(color as ColorEnum)
+          )
+        );
+      });
+    }
+    return furniture_data;
   };
 
   return useQuery<FurnitureDetailType[]>({

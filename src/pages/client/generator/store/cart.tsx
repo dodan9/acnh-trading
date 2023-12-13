@@ -2,7 +2,7 @@ import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
 import { useTranslation } from "react-i18next";
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 export interface CartItemType {
@@ -205,7 +205,7 @@ export const useCartStore = create<State & Action>()(
     })),
     {
       name: "cart-storage",
-      storage: createJSONStorage(() => sessionStorage),
+      // storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({ cart_list: state.cart_list }),
     }
   )

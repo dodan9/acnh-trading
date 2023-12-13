@@ -19,8 +19,12 @@ export const DeleteButton = styled.div`
   top: 0;
 `;
 export const CartItemRow = styled.tr`
-  & > td[aria-details="image"]:first-child {
+  /* & > td[aria-details="image"]:first-child {
     padding-left: 15px !important;
+  } */
+  td[aria-details="image"] > div {
+    display: flex;
+    justify-content: center;
   }
   img {
     width: 40px;
