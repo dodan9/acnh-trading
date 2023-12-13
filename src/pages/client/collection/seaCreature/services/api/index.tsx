@@ -2,11 +2,23 @@ import { nookRequest } from "@src/services/api";
 import { SeaCreatureDetailType, SeaCreatureFilterType } from "../../types";
 
 export const getSeaCreatureListApi = (filter?: SeaCreatureFilterType) => {
-  return nookRequest<SeaCreatureDetailType[]>({
-    url: `/nh/sea`,
-    method: "GET",
-    params: filter,
-  });
+  if (filter?.month) {
+    return nookRequest<{
+      month: string;
+      south: SeaCreatureDetailType[];
+      north: SeaCreatureDetailType[];
+    }>({
+      url: `/nh/sea`,
+      method: "GET",
+      params: filter,
+    });
+  } else {
+    return nookRequest<SeaCreatureDetailType[]>({
+      url: `/nh/sea`,
+      method: "GET",
+      params: filter,
+    });
+  }
 };
 
 export const getSeaCreatureDetailApi = ({

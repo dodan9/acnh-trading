@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { query_key } from "@src/services/query/query_key";
 import { getSeaCreatureDetailApi, getSeaCreatureListApi } from "../api";
-import { SeaCreatureFilterType } from "../../types";
+import { useSeaCreatureFilter } from "../../store/seaCreatureFilter";
 
-export const useSeaCreatureList = (filter?: SeaCreatureFilterType) => {
+export const useSeaCreatureList = () => {
+  const filter = useSeaCreatureFilter();
+
   const getSeaCreatureList = async () => {
     const response = await getSeaCreatureListApi(filter);
     return response.data;
@@ -19,10 +21,12 @@ export const useSeaCreatureDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
+  name?: string;
   thumbsize?: number;
 }) => {
   const getSeaCreatureDetail = async () => {
+    if (!name) return false;
+
     const response = await getSeaCreatureDetailApi({ name, thumbsize });
     return response.data;
   };

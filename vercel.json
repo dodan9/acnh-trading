@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/nooki/:path*",
+      "destination": "https://api.nookipedia.com/:path*"
+    },
+    {
+      "source": "/img/:path*",
+      "destination": "https://dodo.ac/:path*"
+    }
+  ]
+}
