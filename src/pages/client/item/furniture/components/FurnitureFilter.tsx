@@ -5,16 +5,26 @@ import {
   useFurnitureKeyword,
 } from "../store/furnitureFilter";
 import { FurnitureCategory } from "../types";
+import { ColorEnum } from "@src/assets/enum";
+import { LangEnum } from "@src/lang/enum";
+import { useTranslation } from "react-i18next";
 
 const FurnitureFilter = () => {
   const keyword = useFurnitureKeyword();
   const filter = useFurnitureFilter();
+
+  const { t } = useTranslation();
 
   const { setKeyword, setCategory, setColor } = useFurnitureFilterAction();
 
   const handleKeywordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
   };
+
+  const handleColorChange = (color: ColorEnum) => {
+    setColor(color);
+  };
+
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value as FurnitureCategory);
   };
@@ -35,6 +45,23 @@ const FurnitureFilter = () => {
           <option value={FurnitureCategory.Miscellaneous}>잡화</option>
           <option value={FurnitureCategory.WallMounted}>벽장식</option>
         </select>
+      </div>
+
+      <div>
+        <div>색상</div>
+        {Object.values(ColorEnum).map((color) => {
+          const isSelected = filter.color?.includes(color);
+          return (
+            <div key={color}>
+              <input
+                type="checkbox"
+                checked={isSelected}
+                onChange={() => handleColorChange(color)}
+              />
+              {t(`${LangEnum.color}.${color}`)}
+            </div>
+          );
+        })}
       </div>
     </>
   );
