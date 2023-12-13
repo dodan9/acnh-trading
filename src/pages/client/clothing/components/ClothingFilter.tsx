@@ -20,8 +20,13 @@ const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
     key: "color" | "style";
     value: ColorEnum | ClothingStyle;
   }) => {
-    searchParams.append(key, value);
-    setSearchParams(searchParams);
+    if (searchParams.getAll(key).length >= 2) {
+      alert("최대 2개까지 선택할 수 있습니다.");
+      return;
+    } else {
+      searchParams.append(key, value);
+      setSearchParams(searchParams);
+    }
   };
 
   const removeSearchParam = ({
@@ -32,14 +37,17 @@ const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
     value: ColorEnum | ClothingStyle;
   }) => {
     const newValues = searchParams.getAll(key).filter((item) => item !== value);
-    newValues.map((newValue) => searchParams.set(key, newValue));
+    if (newValues.length)
+      newValues.map((newValue) => searchParams.set(key, newValue));
+    else searchParams.delete(key);
+
     setSearchParams(searchParams);
   };
 
   const setSearchParamValue = (event: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
     if (value === "") searchParams.delete(name);
-    else searchParams.set(name, value);
+    searchParams.set(name, value);
     setSearchParams(searchParams);
   };
 

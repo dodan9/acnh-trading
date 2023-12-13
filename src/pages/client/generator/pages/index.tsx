@@ -19,7 +19,7 @@ const GeneratorMain = () => {
       const canvas = await html2canvas(div, {
         logging: true,
         backgroundColor: null,
-        scale: 2,
+        scale: 1,
       });
       canvas.toBlob((blob) => {
         if (blob !== null) {
