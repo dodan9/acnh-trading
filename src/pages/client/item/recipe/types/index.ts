@@ -1,7 +1,7 @@
 export interface RecipeFilterType {
-  material: string; // 해당 재료를 사용하는 레시피
-  excludedetails: string;
-  thumbsize: number;
+  material?: string; // 해당 재료를 사용하는 레시피
+  excludedetails?: string;
+  thumbsize?: number;
 }
 
 export interface RecipeDetailType {

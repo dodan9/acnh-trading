@@ -1,26 +1,25 @@
-import { useTranslation } from "react-i18next";
-import { useRecipeList } from "../services/query";
-import { LangEnum } from "@src/lang/enum";
+import { Title } from "@src/styled";
+import RecipeList from "../components/RecipeList";
+import RecipeFilter from "../components/RecipeFilter";
 
 const RecipeMain = () => {
-  const { data: recipe_list } = useRecipeList();
-
-  const { t } = useTranslation();
+  // if (recipe_list)
+  //   console.log(
+  //     uniq(
+  //       recipe_list.flatMap((recipe) => {
+  //         return recipe.materials.map((material) => {
+  //           return material.name;
+  //         });
+  //       })
+  //     )
+  //   );
 
   return (
     <>
-      <div>레시피</div>
+      <Title>레시피</Title>
 
-      <div>
-        {recipe_list &&
-          recipe_list.map((recipe) => {
-            return (
-              <div key={recipe.name}>
-                {t(`${LangEnum.recipe}.${recipe.name}`)}
-              </div>
-            );
-          })}
-      </div>
+      <RecipeFilter />
+      <RecipeList />
     </>
   );
 };

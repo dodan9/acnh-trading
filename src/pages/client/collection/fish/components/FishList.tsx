@@ -16,7 +16,6 @@ const FishList = () => {
   const FishListItem = ({ fish }: { fish: FishDetailType }) => {
     return (
       <ItemCard
-        key={fish.name}
         ko_name={t(`${LangEnum.fish}.${fish.name}`)}
         item={{
           name: fish.name,
@@ -35,13 +34,13 @@ const FishList = () => {
       {"south" in fish_list && "north" in fish_list
         ? hemisphere === "north"
           ? fish_list.north.map((fish) => {
-              return <FishListItem fish={fish} />;
+              return <FishListItem key={fish.name} fish={fish} />;
             })
           : fish_list.south.map((fish) => {
-              return <FishListItem fish={fish} />;
+              return <FishListItem key={fish.name} fish={fish} />;
             })
         : fish_list.map((fish) => {
-            return <FishListItem fish={fish} />;
+            return <FishListItem key={fish.name} fish={fish} />;
           })}
     </ItemListBox>
   );

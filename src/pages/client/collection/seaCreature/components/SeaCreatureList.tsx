@@ -39,13 +39,28 @@ const FishList = () => {
       {"south" in sea_creature_list && "north" in sea_creature_list
         ? hemisphere === "north"
           ? sea_creature_list.north.map((sea_creature) => {
-              return <FishListItem sea_creature={sea_creature} />;
+              return (
+                <FishListItem
+                  key={sea_creature.name}
+                  sea_creature={sea_creature}
+                />
+              );
             })
           : sea_creature_list.south.map((sea_creature) => {
-              return <FishListItem sea_creature={sea_creature} />;
+              return (
+                <FishListItem
+                  key={sea_creature.name}
+                  sea_creature={sea_creature}
+                />
+              );
             })
         : sea_creature_list.map((sea_creature) => {
-            return <FishListItem sea_creature={sea_creature} />;
+            return (
+              <FishListItem
+                key={sea_creature.name}
+                sea_creature={sea_creature}
+              />
+            );
           })}
     </ItemListBox>
   );

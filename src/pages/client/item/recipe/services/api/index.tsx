@@ -14,7 +14,7 @@ export const getRecipeDetailApi = ({
   thumbsize,
 }: {
   name: string;
-  thumbsize: number;
+  thumbsize?: number;
 }) => {
   return nookRequest<RecipeDetailType>({
     url: `/nh/recipes/${name}`,

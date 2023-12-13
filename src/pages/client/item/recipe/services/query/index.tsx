@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { query_key } from "@src/services/query/query_key";
-import { RecipeFilterType } from "../../types";
 import { getRecipeDetailApi, getRecipeListApi } from "../api";
+import { useRecipeFilter } from "../../store/recipeFilter";
 
-export const useRecipeList = (filter?: RecipeFilterType) => {
+export const useRecipeList = () => {
+  const filter = useRecipeFilter();
+
   const getRecipeList = async () => {
     const response = await getRecipeListApi(filter);
     return response.data;
@@ -19,10 +21,11 @@ export const useRecipeDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
-  thumbsize: number;
+  name?: string;
+  thumbsize?: number;
 }) => {
   const getRecipeDetail = async () => {
+    if (!name) return false;
     const response = await getRecipeDetailApi({ name, thumbsize });
     return response.data;
   };

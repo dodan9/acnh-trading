@@ -7,6 +7,7 @@ export const ItemListBox = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  justify-content: center;
 `;
 
 export const ItemCardBox = styled.div`
@@ -17,6 +18,7 @@ export const ItemCardBox = styled.div`
   border-radius: 20px;
   border: 5px solid ${passportColor.shadow};
   text-align: center;
+  cursor: pointer;
 `;
 
 export const ItemImageBox = styled.div`
