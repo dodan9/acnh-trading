@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router";
-import furnitureMain from "./furniture/pages";
 import InteriorItemMain from "./interiorItem/pages";
 import ItemMain from "./main";
 import MiscellaneousMain from "./miscellaneous/pages";
@@ -7,6 +6,7 @@ import PhotoMain from "./photo/pages";
 import RecipeMain from "./recipe/pages";
 import ToolsMain from "./tool/pages";
 import FurnitureDetail from "./furniture/pages/FurnitureDetail";
+import FurnitureMain from "./furniture/pages";
 
 export const itemRoutes = () => {
   return (
@@ -14,7 +14,7 @@ export const itemRoutes = () => {
       <Route path="/" element={<ItemMain />} />
       <Route path="/photo" element={<PhotoMain />} />
 
-      <Route path="/furniture" element={<furnitureMain />} />
+      <Route path="/furniture" element={<FurnitureMain />} />
       <Route path="/furniture/:name" element={<FurnitureDetail />} />
 
       <Route path="/interior" element={<InteriorItemMain />} />
