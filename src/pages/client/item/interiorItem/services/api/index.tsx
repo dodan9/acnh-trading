@@ -16,8 +16,8 @@ export const getInteriorItemDetailApi = ({
   thumbsize,
 }: {
   name: string;
-  color: ColorEnum;
-  thumbsize: number;
+  color?: ColorEnum;
+  thumbsize?: number;
 }) => {
   return nookRequest<InteriorItemDetailType>({
     url: `/nh/interior/${name}`,

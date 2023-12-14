@@ -8,6 +8,7 @@ import ToolsMain from "./tool/pages";
 import FurnitureDetail from "./furniture/pages/FurnitureDetail";
 import FurnitureMain from "./furniture/pages";
 import RecipeDetail from "./recipe/pages/RecipeDetail";
+import InteriorItemDetail from "./interiorItem/pages/InteriorItemDetail";
 
 export const itemRoutes = () => {
   return (
@@ -19,6 +20,7 @@ export const itemRoutes = () => {
       <Route path="/furniture/:name" element={<FurnitureDetail />} />
 
       <Route path="/interior" element={<InteriorItemMain />} />
+      <Route path="/interior/:name" element={<InteriorItemDetail />} />
 
       <Route path="/miscellaneous" element={<MiscellaneousMain />} />
 

@@ -23,11 +23,12 @@ export const useInteriorItemDetail = ({
   color,
   thumbsize,
 }: {
-  name: string;
-  color: ColorEnum;
-  thumbsize: number;
+  name?: string;
+  color?: ColorEnum;
+  thumbsize?: number;
 }) => {
   const getInteriorItemDetail = async () => {
+    if(!name) return false
     const response = await getInteriorItemDetailApi({ name, thumbsize, color });
     return response.data;
   };
