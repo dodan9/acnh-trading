@@ -44,6 +44,7 @@ const FurnitureFilter = () => {
           <option value={FurnitureCategory.Housewares}>가구</option>
           <option value={FurnitureCategory.Miscellaneous}>잡화</option>
           <option value={FurnitureCategory.WallMounted}>벽장식</option>
+          <option value={FurnitureCategory.CeilingDecor}>천장</option>
         </select>
       </div>
 

@@ -37,6 +37,12 @@ export const useFurnitureList = () => {
         );
         furniture_data = miscellaneous_data;
         break;
+      case FurnitureCategory.CeilingDecor:
+        const { ceiling_decor_data } = await import(
+          `@src/assets/furniture/ceiling-decor.ts`
+        );
+        furniture_data = ceiling_decor_data;
+        break;
     }
 
     if (filter.color?.length) {

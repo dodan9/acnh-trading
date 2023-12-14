@@ -15,6 +15,16 @@ const RecipeDetail = () => {
   return (
     <>
       <div>{t(`${LangEnum.recipe}.${recipe.name}`)} 레시피</div>
+
+      <div>
+        {recipe.materials.map((material) => {
+          return (
+            <div key={material.name}>
+              {material.name} x {material.count} 개
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

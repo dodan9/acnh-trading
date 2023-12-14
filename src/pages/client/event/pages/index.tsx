@@ -11,12 +11,12 @@ const EventMain = () => {
   const { data: event_list } = useEventList();
 
   const { t } = useTranslation();
-
+  // https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Ceiling%20Decor.json
   // https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Seasons%20and%20Events.json
   // https://raw.githubusercontent.com/alexislours/translation-sheet-data/master/catchphrases.json
   const getKo = async () => {
     const response = await axios({
-      url: "https://raw.githubusercontent.com/alexislours/translation-sheet-data/master/catchphrases.json",
+      url: "https://raw.githubusercontent.com/Norviah/animal-crossing/master/json/data/Ceiling%20Decor.json",
       method: "GET",
     });
 
@@ -24,13 +24,13 @@ const EventMain = () => {
     response.data
       .map(
         (item: {
-          // name: string;
+          name: string;
           // type: string;
-          locale: { USen: string; KRko: string };
+          translations: { kRko: string };
           //   kRko?: string;
           //   USen?: string;
         }) => {
-          text += `"${item.locale.USen}" : "${item.locale.KRko}",`;
+          text += `"${item.name}" : "${item.translations.kRko}",`;
         }
       )
       .filter((item: any) => item !== undefined);

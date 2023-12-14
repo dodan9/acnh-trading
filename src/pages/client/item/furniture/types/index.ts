@@ -5,6 +5,7 @@ export enum FurnitureCategory {
   Housewares = "Housewares", // 가구
   Miscellaneous = "Miscellaneous", // 잡화
   WallMounted = "Wall-mounted", // 벽걸이 가구
+  CeilingDecor = "Ceiling-Decor", // 벽걸이 가구
 }
 
 export interface FurnitureFilterType {
