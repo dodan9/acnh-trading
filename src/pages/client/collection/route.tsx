@@ -7,6 +7,7 @@ import CollectionMain from "./main";
 import SeaCreatureMain from "./seaCreature/pages";
 import BugDetail from "./bug/pages/BugDetail";
 import FishDetail from "./fish/pages/FishDetail";
+import SeaCreatureDetail from "./seaCreature/pages/SeaCreatureDetail";
 
 export const collectionRoute = () => {
   return (
@@ -24,6 +25,7 @@ export const collectionRoute = () => {
       <Route path="/fossil" element={<FossilMain />} />
 
       <Route path="/sea_creature" element={<SeaCreatureMain />} />
+      <Route path="/sea_creature/:name" element={<SeaCreatureDetail />} />
     </Routes>
   );
 };

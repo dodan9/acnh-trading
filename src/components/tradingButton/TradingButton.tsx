@@ -2,7 +2,7 @@ import {
   useAddItem,
   useCartLastIndex,
 } from "@src/pages/client/generator/store/cart";
-import { memo } from "react";
+import { MouseEvent, memo } from "react";
 
 export interface TradingItemType {
   name: string;
@@ -14,7 +14,9 @@ export interface TradingItemType {
 const TradingButton = ({ name, type, image_url, amount }: TradingItemType) => {
   const cartCount = useCartLastIndex();
   const addItem = useAddItem();
-  const handleAddItem = () => {
+
+  const handleAddItem = (event: MouseEvent) => {
+    event.stopPropagation();
     addItem({
       item: {
         name,
@@ -26,7 +28,7 @@ const TradingButton = ({ name, type, image_url, amount }: TradingItemType) => {
     });
   };
 
-  return <button onClick={() => handleAddItem()}>거래</button>;
+  return <button onClick={handleAddItem}>거래</button>;
 };
 
 export default memo(TradingButton);

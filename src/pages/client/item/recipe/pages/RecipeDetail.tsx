@@ -14,7 +14,7 @@ const RecipeDetail = () => {
   if (!recipe) return <div>no data</div>;
   return (
     <>
-      <div>{t(`${LangEnum.recipe}.${recipe.name}`)}</div>
+      <div>{t(`${LangEnum.recipe}.${recipe.name}`)} 레시피</div>
     </>
   );
 };

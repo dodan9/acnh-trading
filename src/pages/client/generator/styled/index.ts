@@ -35,6 +35,17 @@ export const CartItemRow = styled.tr`
     border-bottom: 3px dashed ${passportColor.shadow};
   }
 
+  div[aria-details="title"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      display: inline-block;
+      width: 1.5rem;
+    }
+  }
+
   @media ${device.medium} {
     img {
       width: 60px;

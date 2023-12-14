@@ -6,6 +6,7 @@ import LoadingSpinner from "./components/loading/LoadingSpinner";
 import { lazy } from "react";
 import { Global } from "@emotion/react";
 import { globalStyle } from "./styled/globalStyled";
+import ScrollToTop from "./util/ScrollToTop";
 const Console = lazy(() => import("@src/pages/console/pages"));
 const Client = lazy(() => import("@src/pages/client"));
 
@@ -27,6 +28,7 @@ function App() {
         <Global styles={globalStyle} />
         <Suspense fallback={<LoadingSpinner />}>
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/*" element={<Client />} />
               <Route path="/console/*" element={<Console />} />

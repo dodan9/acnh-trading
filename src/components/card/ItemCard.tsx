@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router";
 import TradingButton, { TradingItemType } from "../tradingButton/TradingButton";
-import { ItemCardBox, ItemImageBox } from "./styled";
+import { ItemCardBox, ItemIcon, ItemImageBox } from "./styled";
+import { LangEnum } from "@src/lang/enum";
+import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
 
 interface Props {
   item: TradingItemType;
@@ -13,6 +15,7 @@ export const ItemCard = ({ item, ko_name }: Props) => {
     <ItemCardBox onClick={() => navigate(item.name)}>
       <ItemImageBox>
         <img src={item.image_url} alt={ko_name} />
+        {item.type === LangEnum.recipe && <ItemIcon src={PaperRecipe} />}
       </ItemImageBox>
       <div>{ko_name}</div>
       <div>

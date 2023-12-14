@@ -14,6 +14,9 @@ import {
 } from "../styled";
 import { ItemImage } from "./CartItemImage";
 import { ChangeEvent, memo } from "react";
+import { LangEnum } from "@src/lang/enum";
+import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
+import { ItemIcon } from "@src/components/card/styled";
 
 interface PriceUpdateProps {
   list: CartListType;
@@ -115,11 +118,15 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
             >
               x
             </DeleteButton>
+            {item.type === LangEnum.recipe && <ItemIcon src={PaperRecipe} />}
           </div>
         </td>
         <td>
           <div aria-details="amount">
-            <div>{t(`${item.type}.${item.name}`)}</div>
+            <div aria-details="title">
+              {t(`${item.type}.${item.name}`)}
+              {item.type === LangEnum.recipe && <img src={PaperRecipe} />}
+            </div>
             <AmountBox>
               <UpdateAmountButton
                 item={item}

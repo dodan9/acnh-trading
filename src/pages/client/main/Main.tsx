@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router";
 import { MenuBox, MenuSection } from "./styled";
 
-import nookcritters from "@src/assets/icons/nookcritters.png";
-import messages from "@src/assets/icons/messages.png";
-import nookcam from "@src/assets/icons/nookcam.png";
-import nookstore from "@src/assets/icons/nookstore.png";
-import nookwallet from "@src/assets/icons/nookwallet.png";
-import nookmiles from "@src/assets/icons/nookmiles.png";
+import nookcritters from "@src/assets/icons/app_icons/nookcritters.png";
+import messages from "@src/assets/icons/app_icons/messages.png";
+import nookcam from "@src/assets/icons/app_icons/nookcam.png";
+import nookstore from "@src/assets/icons/app_icons/nookstore.png";
+import nookwallet from "@src/assets/icons/app_icons/nookwallet.png";
+import nookmiles from "@src/assets/icons/app_icons/nookmiles.png";
 
 const Main = () => {
   const navigate = useNavigate();
