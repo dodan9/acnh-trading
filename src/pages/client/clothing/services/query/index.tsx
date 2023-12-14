@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { ClothingFilterType } from "../../types";
 import { getClothingListApi, getClothingDetailApi } from "../api";
 import { query_key } from "@src/services/query/query_key";
+import { useClothingFilter } from "../../store/clothingFilter";
 
-export const useClothingList = (filter?: ClothingFilterType) => {
+export const useClothingList = () => {
+  const filter = useClothingFilter();
   const getClothingList = async () => {
     const response = await getClothingListApi(filter);
     return response.data;

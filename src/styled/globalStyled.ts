@@ -42,4 +42,25 @@ export const globalStyle = css`
       border: 2px solid ${passportColor.shadow};
     }
   }
+
+  /* @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+
+  img {
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 30px;
+      width: 100%;
+      animation: 1s shine linear infinite;
+    }
+  } */
 `;

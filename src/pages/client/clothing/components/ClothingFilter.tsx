@@ -1,72 +1,46 @@
 import { ColorEnum } from "@src/assets/enum";
 import { LangEnum } from "@src/lang/enum";
 import { t } from "i18next";
-import { ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { ClothingStyle, ClothingCategory, ClothingLabelTheme } from "../types";
 import {
-  ClothingStyle,
-  ClothingCategory,
-  ClothingLabelTheme,
-  ClothingFilterType,
-} from "../types";
+  useClothingFilter,
+  useClothingFilterAction,
+} from "../store/clothingFilter";
+import { ChangeEvent } from "react";
 
-const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+const ClothingFilter = () => {
+  const { category, style, labeltheme, color } = useClothingFilter();
+  const { clearFilter, setCategory, setColor, setStyle, setLabelTheme } =
+    useClothingFilterAction();
 
-  const addSearchParam = ({
-    key,
-    value,
-  }: {
-    key: "color" | "style";
-    value: ColorEnum | ClothingStyle;
-  }) => {
-    if (searchParams.getAll(key).length >= 2) {
-      alert("최대 2개까지 선택할 수 있습니다.");
-      return;
-    } else {
-      searchParams.append(key, value);
-      setSearchParams(searchParams);
-    }
+  const handleChangeCategory = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCategory(event.target.value as ClothingCategory);
   };
 
-  const removeSearchParam = ({
-    key,
-    value,
-  }: {
-    key: "color" | "style";
-    value: ColorEnum | ClothingStyle;
-  }) => {
-    const newValues = searchParams.getAll(key).filter((item) => item !== value);
-    if (newValues.length)
-      newValues.map((newValue) => searchParams.set(key, newValue));
-    else searchParams.delete(key);
-
-    setSearchParams(searchParams);
+  const handleChangeLabelTheme = (event: ChangeEvent<HTMLSelectElement>) => {
+    setLabelTheme(event.target.value as ClothingLabelTheme);
   };
 
-  const setSearchParamValue = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = event.target;
-    if (value === "") searchParams.delete(name);
-    searchParams.set(name, value);
-    setSearchParams(searchParams);
+  const handleColorChange = (color: ColorEnum) => {
+    setColor(color);
   };
 
-  const clearValue = () => {
-    setSearchParams("");
+  const handleStyleChange = (style: ClothingStyle) => {
+    setStyle(style);
   };
 
   return (
     <>
       <div>
-        <button onClick={() => clearValue()}>필터 초기화</button>
+        <button onClick={() => clearFilter()}>필터 초기화</button>
       </div>
 
       <div>
         <div>카테고리</div>
         <select
-          value={filter.category ?? ""}
+          value={category ?? ""}
           name="category"
-          onChange={setSearchParamValue}
+          onChange={handleChangeCategory}
         >
           <option value="" label="-" />
           {Object.values(ClothingCategory).map((category) => {
@@ -82,9 +56,9 @@ const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
       <div>
         <div>테마</div>
         <select
-          value={filter.labeltheme ?? ""}
+          value={labeltheme ?? ""}
           name="labeltheme"
-          onChange={setSearchParamValue}
+          onChange={handleChangeLabelTheme}
         >
           <option value="" label="-" />
           {Object.values(ClothingLabelTheme).map((labeltheme) => {
@@ -99,20 +73,16 @@ const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
 
       <div>
         <div>스타일</div>
-        {Object.values(ClothingStyle).map((style) => {
-          const isSelected = searchParams.getAll("style").includes(style);
+        {Object.values(ClothingStyle).map((styleValue) => {
+          const isSelected = style?.includes(styleValue);
           return (
-            <div key={style}>
+            <div key={styleValue}>
               <input
                 type="checkbox"
                 checked={isSelected}
-                onChange={() =>
-                  isSelected
-                    ? removeSearchParam({ key: "style", value: style })
-                    : addSearchParam({ key: "style", value: style })
-                }
+                onChange={() => handleStyleChange(styleValue)}
               />
-              {t(`${LangEnum.clothing}.style.${style}`)}
+              {t(`${LangEnum.clothing}.style.${styleValue}`)}
             </div>
           );
         })}
@@ -120,20 +90,16 @@ const ClothingFilter = ({ filter }: { filter: ClothingFilterType }) => {
 
       <div>
         <div>색상</div>
-        {Object.values(ColorEnum).map((color) => {
-          const isSelected = searchParams.getAll("color").includes(color);
+        {Object.values(ColorEnum).map((colorValue) => {
+          const isSelected = color?.includes(colorValue);
           return (
-            <div key={color}>
+            <div key={colorValue}>
               <input
                 type="checkbox"
                 checked={isSelected}
-                onChange={() =>
-                  isSelected
-                    ? removeSearchParam({ key: "color", value: color })
-                    : addSearchParam({ key: "color", value: color })
-                }
+                onChange={() => handleColorChange(colorValue)}
               />
-              {t(`${LangEnum.color}.${color}`)}
+              {t(`${LangEnum.color}.${colorValue}`)}
             </div>
           );
         })}

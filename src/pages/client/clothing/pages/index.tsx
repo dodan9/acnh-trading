@@ -1,76 +1,17 @@
 import { Wrapper } from "@src/styled";
-import { useClothingList } from "../services/query";
-import { useEffect, useState } from "react";
-import {
-  ClothingCategory,
-  ClothingFilterType,
-  ClothingLabelTheme,
-  ClothingStyle,
-} from "../types";
-import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/lang/enum";
-import { useNavigate } from "react-router";
-import { useSearchParams } from "react-router-dom";
-import { ColorEnum } from "@src/assets/enum";
-import { ClothingItem } from "../styled";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+
 import ClothingFilter from "../components/ClothingFilter";
-import TradingButton from "@src/components/tradingButton/TradingButton";
+import ClothingList from "../components/ClothingList";
 
-const ClothingList = () => {
-  const [searchParams] = useSearchParams();
-  const [filter, setFilter] = useState<ClothingFilterType>({});
-  const { data: clothingList, isLoading } = useClothingList(filter);
-
-  const navigate = useNavigate();
-
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    const category = searchParams.get("category");
-    const color = searchParams.getAll("color");
-    const style = searchParams.getAll("style");
-    const labeltheme = searchParams.get("labeltheme");
-
-    setFilter((prevFilter) => ({
-      ...prevFilter,
-      category: category as ClothingCategory,
-      color: color as ColorEnum[],
-      style: style as ClothingStyle[],
-      labeltheme: labeltheme as ClothingLabelTheme,
-    }));
-  }, [searchParams]);
-
+const ClothingMain = () => {
   return (
     <Wrapper>
       <div>옷</div>
 
-      <ClothingFilter filter={filter} />
-
-      {isLoading && <LoadingSpinner />}
-
-      {clothingList &&
-        clothingList.map((clothing) => {
-          return (
-            <ClothingItem key={clothing.name}>
-              <div onClick={() => navigate(clothing.name)}>
-                {t(
-                  `${LangEnum.clothing}.${clothing.category}.${clothing.name}`
-                )}
-              </div>
-              <div>
-                <TradingButton
-                  name={clothing.name}
-                  type={`${LangEnum.clothing}.${clothing.category}`}
-                  image_url={clothing.variations[0].image_url}
-                  amount={1}
-                />
-              </div>
-            </ClothingItem>
-          );
-        })}
+      <ClothingFilter />
+      <ClothingList />
     </Wrapper>
   );
 };
 
-export default ClothingList;
+export default ClothingMain;

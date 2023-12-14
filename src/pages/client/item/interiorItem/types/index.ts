@@ -8,8 +8,8 @@ export enum InteriorItemCategoryEnum {
 }
 
 export interface InteriorItemFilterType {
-  color: ColorEnum[];
-  excludedetails: boolean;
+  color?: ColorEnum[];
+  excludedetails?: boolean;
 }
 
 export interface InteriorItemDetailType extends InteriorBaseType {

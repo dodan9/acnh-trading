@@ -1,0 +1,19 @@
+{
+  "hha_catecory": {
+    "AC": "에어컨",
+    "Appliance": "가전제품",
+    "Audio": "오디오",
+    "Clock": "시계",
+    "Doll": "인형",
+    "Dresser": "서랍장",
+    "Kitchen": "키친",
+    "Lighting": "조명",
+    "MusicalInstrument": "악기",
+    "Pet": "반려동물",
+    "Plant": "식물",
+    "SmallGoods": "작은 소품",
+    "Trash": "쓰레기",
+    "TV": "TV",
+    "Food": "음식"
+  }
+}
