@@ -1,10 +1,10 @@
 {
   "hobby": {
-    "Education": "공부하기",
-    "Fashion": "쇼핑하기",
-    "Fitness": "운동하기",
-    "Music": "음악듣기",
-    "Nature": "자연을 만끽하기",
-    "Play": "놀기"
+    "Education": "교육",
+    "Fashion": "패션",
+    "Fitness": "운동",
+    "Music": "음악",
+    "Nature": "자연",
+    "Play": "놀이"
   }
 }

@@ -20,7 +20,7 @@ const RecipeDetail = () => {
         {recipe.materials.map((material) => {
           return (
             <div key={material.name}>
-              {material.name} x {material.count} 개
+              {t(`${LangEnum.material}.${material.name}`)} x {material.count} 개
             </div>
           );
         })}

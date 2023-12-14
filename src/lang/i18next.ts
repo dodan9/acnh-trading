@@ -27,6 +27,7 @@ import tools_ko from "./ko/tools_ko.json";
 import fossil_ko from "./ko/fossil_ko.json";
 import catchphrase_ko from "./ko/catchphrase_ko.json";
 import ceiling_decor_ko from "./ko/ceiling-decor_ko.json";
+import material_ko from "./ko/material_ko.json";
 
 import i18next, { Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -63,6 +64,7 @@ const resource: Resource = {
       ...fossil_ko,
       ...catchphrase_ko,
       ...ceiling_decor_ko,
+      ...material_ko,
     },
   },
   "en-US": {

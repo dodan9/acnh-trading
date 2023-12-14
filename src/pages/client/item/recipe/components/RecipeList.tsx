@@ -5,7 +5,6 @@ import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { useRecipeKeyword } from "../store/recipeFilter";
 import { ItemListBox } from "@src/components/card/styled";
 import { ItemCard } from "@src/components/card/ItemCard";
-import { uniq } from "lodash";
 
 const RecipeList = () => {
   const { data: recipe_list, isLoading } = useRecipeList();
@@ -15,17 +14,6 @@ const RecipeList = () => {
 
   if (isLoading) return <LoadingSpinner />;
   if (!recipe_list) return <div>no data</div>;
-
-  if (recipe_list)
-    console.log(
-      uniq(
-        recipe_list.flatMap((recipe) => {
-          return recipe.materials.map((material) => {
-            return `"${material.name}"`;
-          });
-        })
-      ).join(": '',")
-    );
 
   return (
     <ItemListBox>

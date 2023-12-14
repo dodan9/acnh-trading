@@ -22,8 +22,10 @@ export enum LangEnum {
   houseware = "housewares",
   miscellaneous = "miscellaneous",
   wallMounted = "wall-mounted",
+  ceilingDecor = "ceiling decor",
   others = "others",
   fence = "fence",
   recipe = "recipe",
   tools = "tools",
+  material = "material",
 }
