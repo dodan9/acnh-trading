@@ -7,6 +7,7 @@ import {
   useClothingFilterAction,
 } from "../store/clothingFilter";
 import { ChangeEvent } from "react";
+import { ColorChip } from "@src/components/colorChip/styled";
 
 const ClothingFilter = () => {
   const { category, style, labeltheme, color } = useClothingFilter();
@@ -93,14 +94,17 @@ const ClothingFilter = () => {
         {Object.values(ColorEnum).map((colorValue) => {
           const isSelected = color?.includes(colorValue);
           return (
-            <div key={colorValue}>
+            <ColorChip
+              key={colorValue}
+              color={colorValue}
+              isSelected={isSelected}
+            >
               <input
                 type="checkbox"
                 checked={isSelected}
                 onChange={() => handleColorChange(colorValue)}
               />
-              {t(`${LangEnum.color}.${colorValue}`)}
-            </div>
+            </ColorChip>
           );
         })}
       </div>

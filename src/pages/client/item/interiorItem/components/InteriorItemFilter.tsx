@@ -4,16 +4,13 @@ import {
   useInteriorItemFilterAction,
   useInteriorItemKeyword,
 } from "../store/interiorItemFilter";
-import { LangEnum } from "@src/lang/enum";
-import { useTranslation } from "react-i18next";
 import { ChangeEvent } from "react";
+import { ColorChip } from "@src/components/colorChip/styled";
 
 const InteriorItemFilter = () => {
   const keyword = useInteriorItemKeyword();
   const filter = useInteriorItemFilter();
   const { setKeyword, setColor } = useInteriorItemFilterAction();
-
-  const { t } = useTranslation();
 
   const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
@@ -34,14 +31,13 @@ const InteriorItemFilter = () => {
         {Object.values(ColorEnum).map((color) => {
           const isSelected = filter.color?.includes(color);
           return (
-            <div key={color}>
+            <ColorChip color={color} key={color} isSelected={isSelected}>
               <input
                 type="checkbox"
                 checked={isSelected}
                 onChange={() => handleColorChange(color)}
               />
-              {t(`${LangEnum.color}.${color}`)}
-            </div>
+            </ColorChip>
           );
         })}
       </div>
