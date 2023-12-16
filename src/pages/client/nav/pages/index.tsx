@@ -7,6 +7,7 @@ const ClientNav = () => {
   return (
     <Nav>
       <div onClick={() => navigate("/")}>home</div>
+      <div onClick={() => navigate("/generator")}>cart</div>
       {import.meta.env.DEV && (
         <div onClick={() => navigate("/console")}>console</div>
       )}

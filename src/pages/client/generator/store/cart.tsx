@@ -61,14 +61,6 @@ export const useCartStore = create<State & Action>()(
         cart: {
           addItem: ({ item, index }) => {
             set((state) => {
-              const isExist = state.cart_list.some((list) =>
-                list.items.some((prev) => prev.name === item.name)
-              );
-              if (isExist) {
-                alert("이미 있는 아이템입니다.");
-                return;
-              }
-
               const cartItem = state.cart_list.find(
                 (list) => list.index === index
               );

@@ -6,7 +6,6 @@ import {
 } from "../store/furnitureFilter";
 import { FurnitureCategory } from "../types";
 import { ColorEnum } from "@src/assets/enum";
-import { LangEnum } from "@src/lang/enum";
 import { useTranslation } from "react-i18next";
 import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
 
@@ -61,7 +60,6 @@ const FurnitureFilter = () => {
                   checked={isSelected}
                   onChange={() => handleColorChange(color)}
                 />
-                {t(`${LangEnum.color}.${color}`)}
               </ColorChip>
             );
           })}
