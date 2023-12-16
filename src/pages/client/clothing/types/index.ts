@@ -61,6 +61,6 @@ export interface ClothingDetailType {
   variations: {
     variation: string;
     image_url: string;
-    colors: ColorEnum[];
+    colors: [ColorEnum, ColorEnum?];
   }[];
 }

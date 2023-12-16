@@ -8,6 +8,7 @@ import { FurnitureCategory } from "../types";
 import { ColorEnum } from "@src/assets/enum";
 import { LangEnum } from "@src/lang/enum";
 import { useTranslation } from "react-i18next";
+import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
 
 const FurnitureFilter = () => {
   const keyword = useFurnitureKeyword();
@@ -37,7 +38,7 @@ const FurnitureFilter = () => {
 
       <div>
         <select
-          name="currentCategory"
+          name='currentCategory'
           value={filter.category}
           onChange={handleCategoryChange}
         >
@@ -50,19 +51,21 @@ const FurnitureFilter = () => {
 
       <div>
         <div>색상</div>
-        {Object.values(ColorEnum).map((color) => {
-          const isSelected = filter.color?.includes(color);
-          return (
-            <div key={color}>
-              <input
-                type="checkbox"
-                checked={isSelected}
-                onChange={() => handleColorChange(color)}
-              />
-              {t(`${LangEnum.color}.${color}`)}
-            </div>
-          );
-        })}
+        <ColorChipListBox>
+          {Object.values(ColorEnum).map((color) => {
+            const isSelected = filter.color?.includes(color);
+            return (
+              <ColorChip color={color} key={color}>
+                <input
+                  type='checkbox'
+                  checked={isSelected}
+                  onChange={() => handleColorChange(color)}
+                />
+                {t(`${LangEnum.color}.${color}`)}
+              </ColorChip>
+            );
+          })}
+        </ColorChipListBox>
       </div>
     </>
   );
