@@ -7,6 +7,7 @@
     {
       "source": "/img/:path*",
       "destination": "https://dodo.ac/:path*"
-    }
+    },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
