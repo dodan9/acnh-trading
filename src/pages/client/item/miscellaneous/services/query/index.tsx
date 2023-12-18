@@ -18,10 +18,11 @@ export const useMiscellaneousDetail = ({
   name,
   thumbsize,
 }: {
-  name: string;
-  thumbsize: number;
+  name?: string;
+  thumbsize?: number;
 }) => {
   const getMiscellaneousDetail = async () => {
+    if (!name) return false;
     const response = await getMiscellaneousDetailApi({
       name,
       thumbsize,

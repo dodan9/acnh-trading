@@ -5,15 +5,27 @@ import { ClothingStyle, ClothingCategory, ClothingLabelTheme } from "../types";
 import {
   useClothingFilter,
   useClothingFilterAction,
+  useClothingKeyword,
 } from "../store/clothingFilter";
 import { ChangeEvent } from "react";
 import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
+import SearchFilter from "@src/components/searchFilter/SearchFilter";
 
 const ClothingFilter = () => {
+  const keyword = useClothingKeyword();
   const { category, style, labeltheme, color } = useClothingFilter();
-  const { clearFilter, setCategory, setColor, setStyle, setLabelTheme } =
-    useClothingFilterAction();
+  const {
+    setKeyword,
+    clearFilter,
+    setCategory,
+    setColor,
+    setStyle,
+    setLabelTheme,
+  } = useClothingFilterAction();
 
+  const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(event.target.value);
+  };
   const handleChangeCategory = (event: ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value as ClothingCategory);
   };
@@ -37,13 +49,17 @@ const ClothingFilter = () => {
       </div>
 
       <div>
+        <SearchFilter value={keyword} onChange={handleChangeKeyword} />
+      </div>
+
+      <div>
         <div>카테고리</div>
         <select
           value={category ?? ""}
-          name='category'
+          name="category"
           onChange={handleChangeCategory}
         >
-          <option value='' label='-' />
+          <option value="" label="-" />
           {Object.values(ClothingCategory).map((category) => {
             return (
               <option key={category} value={category}>
@@ -58,10 +74,10 @@ const ClothingFilter = () => {
         <div>테마</div>
         <select
           value={labeltheme ?? ""}
-          name='labeltheme'
+          name="labeltheme"
           onChange={handleChangeLabelTheme}
         >
-          <option value='' label='-' />
+          <option value="" label="-" />
           {Object.values(ClothingLabelTheme).map((labeltheme) => {
             return (
               <option key={labeltheme} value={labeltheme}>
@@ -79,7 +95,7 @@ const ClothingFilter = () => {
           return (
             <div key={styleValue}>
               <input
-                type='checkbox'
+                type="checkbox"
                 checked={isSelected}
                 onChange={() => handleStyleChange(styleValue)}
               />
@@ -101,7 +117,7 @@ const ClothingFilter = () => {
                 isSelected={isSelected}
               >
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   checked={isSelected}
                   onChange={() => handleColorChange(colorValue)}
                 />

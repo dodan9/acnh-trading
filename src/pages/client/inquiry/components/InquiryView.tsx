@@ -12,7 +12,7 @@ export const InquiryView = () => {
       {inquiry_list &&
         inquiry_list.map((inquiry) => {
           return (
-            <InquiryMessage key={inquiry.created_at + inquiry.id}>
+            <InquiryMessage key={`${inquiry.created_at} + ${inquiry.id}`}>
               <div>{inquiry.title}</div>
               <div>{inquiry.content}</div>
             </InquiryMessage>

@@ -14,7 +14,7 @@ export const getMiscellaneousDetailApi = ({
   thumbsize,
 }: {
   name: string;
-  thumbsize: number;
+  thumbsize?: number;
 }) => {
   return nookRequest<MiscellaneousDetailType>({
     url: `/nh/items/${name}`,

@@ -1,18 +1,18 @@
 import { create } from "zustand";
 
 interface State {
-  name: string;
+  keyword: string;
 }
 interface Action {
-  actions: { setName: (name: string) => void };
+  actions: { setKeyword: (keyword: string) => void };
 }
 
 const useVillagerKeywordStore = create<State & Action>((set) => ({
-  name: "",
-  actions: { setName: (name: string) => set(() => ({ name })) },
+  keyword: "",
+  actions: { setKeyword: (keyword: string) => set(() => ({ keyword })) },
 }));
 
-export const useVillagerName = () =>
-  useVillagerKeywordStore((state) => state.name);
-export const useVillagerNameAction = () =>
+export const useVillagerKeyword = () =>
+  useVillagerKeywordStore((state) => state.keyword);
+export const useVillagerKeywordAction = () =>
   useVillagerKeywordStore((state) => state.actions);

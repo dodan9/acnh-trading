@@ -7,6 +7,7 @@ import {
 import { FurnitureCategory } from "../types";
 import { ColorEnum } from "@src/assets/enum";
 import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
+import SearchFilter from "@src/components/searchFilter/SearchFilter";
 
 const FurnitureFilter = () => {
   const keyword = useFurnitureKeyword();
@@ -14,7 +15,7 @@ const FurnitureFilter = () => {
 
   const { setKeyword, setCategory, setColor } = useFurnitureFilterAction();
 
-  const handleKeywordChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
   };
 
@@ -28,13 +29,11 @@ const FurnitureFilter = () => {
 
   return (
     <>
-      <div>
-        <input value={keyword} onChange={handleKeywordChange} />
-      </div>
+      <SearchFilter value={keyword} onChange={handleChangeKeyword} />
 
       <div>
         <select
-          name='currentCategory'
+          name="currentCategory"
           value={filter.category}
           onChange={handleCategoryChange}
         >
@@ -53,7 +52,7 @@ const FurnitureFilter = () => {
             return (
               <ColorChip color={color} key={color}>
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   checked={isSelected}
                   onChange={() => handleColorChange(color)}
                 />

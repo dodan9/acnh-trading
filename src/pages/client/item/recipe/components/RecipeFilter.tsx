@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
 import { useRecipeFilterAction, useRecipeKeyword } from "../store/recipeFilter";
+import SearchFilter from "@src/components/searchFilter/SearchFilter";
 
 const RecipeFilter = () => {
   const keyword = useRecipeKeyword();
@@ -11,11 +12,7 @@ const RecipeFilter = () => {
 
   return (
     <>
-      <div>filter</div>
-
-      <div>
-        이름으로 검색: <input value={keyword} onChange={handleChangeKeyword} />
-      </div>
+      <SearchFilter value={keyword} onChange={handleChangeKeyword} />
     </>
   );
 };

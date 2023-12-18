@@ -7,7 +7,7 @@ export const useInquiryList = () => {
   const getInquiryList = async () => {
     const { data: inquiry_list } = await supabase
       .from("inquiry")
-      .select("title, content")
+      .select("id, created_at, title, content")
       .returns<InquiryDetailType[]>();
     return inquiry_list;
   };

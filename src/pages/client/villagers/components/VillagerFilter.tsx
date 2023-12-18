@@ -4,11 +4,19 @@ import { useVillagerFilter, useVillagerFilterAction } from "../store/filter";
 import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useTranslation } from "react-i18next";
 import { LangEnum } from "@src/lang/enum";
+import { useVillagerKeyword, useVillagerKeywordAction } from "../store/keyword";
+import SearchFilter from "@src/components/searchFilter/SearchFilter";
 
 const VillagerFilter = () => {
   const { t } = useTranslation();
   const filter = useVillagerFilter();
   const { setFilter } = useVillagerFilterAction();
+  const keyword = useVillagerKeyword();
+  const { setKeyword } = useVillagerKeywordAction();
+
+  const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(event.target.value);
+  };
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -17,6 +25,8 @@ const VillagerFilter = () => {
 
   return (
     <OptionBox>
+      <SearchFilter value={keyword} onChange={handleChangeKeyword} />
+
       <div>
         종족:
         <select

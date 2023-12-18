@@ -9,6 +9,7 @@ import FurnitureDetail from "./furniture/pages/FurnitureDetail";
 import FurnitureMain from "./furniture/pages";
 import RecipeDetail from "./recipe/pages/RecipeDetail";
 import InteriorItemDetail from "./interiorItem/pages/InteriorItemDetail";
+import MiscellaneousDetail from "./miscellaneous/pages/MiscellaneousDetail";
 
 export const itemRoutes = () => {
   return (
@@ -23,6 +24,7 @@ export const itemRoutes = () => {
       <Route path="/interior/:name" element={<InteriorItemDetail />} />
 
       <Route path="/miscellaneous" element={<MiscellaneousMain />} />
+      <Route path="/miscellaneous/:name" element={<MiscellaneousDetail />} />
 
       <Route path="/recipe" element={<RecipeMain />} />
       <Route path="/recipe/:name" element={<RecipeDetail />} />
