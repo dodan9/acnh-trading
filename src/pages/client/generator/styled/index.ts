@@ -43,6 +43,7 @@ export const CartItemRow = styled.tr`
     & img {
       display: inline-block;
       width: 1.5rem;
+      max-width: 60px;
     }
   }
 

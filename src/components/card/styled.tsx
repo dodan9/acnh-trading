@@ -41,9 +41,12 @@ export const ItemImageBox = styled.div`
 `;
 
 export const ItemIcon = styled.img`
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 40% !important;
+  & {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40% !important;
+    max-width: 50px;
+  }
 `;
