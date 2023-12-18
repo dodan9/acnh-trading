@@ -71,6 +71,7 @@ const useClothingFilterStore = create<State & Action>()(
       clearFilter: () => {
         set((state) => {
           state.filter = {};
+          state.keyword = "";
         });
       },
     },

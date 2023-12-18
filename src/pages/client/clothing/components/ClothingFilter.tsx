@@ -8,8 +8,8 @@ import {
   useClothingKeyword,
 } from "../store/clothingFilter";
 import { ChangeEvent } from "react";
-import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
-import SearchFilter from "@src/components/searchFilter/SearchFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/components/filter/colorFilter/ColorFilter";
 
 const ClothingFilter = () => {
   const keyword = useClothingKeyword();
@@ -107,24 +107,8 @@ const ClothingFilter = () => {
 
       <div>
         <div>색상</div>
-        <ColorChipListBox>
-          {Object.values(ColorEnum).map((colorValue) => {
-            const isSelected = color?.includes(colorValue);
-            return (
-              <ColorChip
-                key={colorValue}
-                color={colorValue}
-                isSelected={isSelected}
-              >
-                <input
-                  type="checkbox"
-                  checked={isSelected}
-                  onChange={() => handleColorChange(colorValue)}
-                />
-              </ColorChip>
-            );
-          })}
-        </ColorChipListBox>
+
+        <ColorFilter selectedColor={color} onChange={handleColorChange} />
       </div>
     </>
   );

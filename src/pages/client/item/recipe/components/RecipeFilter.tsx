@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { useRecipeFilterAction, useRecipeKeyword } from "../store/recipeFilter";
-import SearchFilter from "@src/components/searchFilter/SearchFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
 
 const RecipeFilter = () => {
   const keyword = useRecipeKeyword();

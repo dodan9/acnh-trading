@@ -5,8 +5,8 @@ import {
   useInteriorItemKeyword,
 } from "../store/interiorItemFilter";
 import { ChangeEvent } from "react";
-import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
-import SearchFilter from "@src/components/searchFilter/SearchFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/components/filter/colorFilter/ColorFilter";
 
 const InteriorItemFilter = () => {
   const keyword = useInteriorItemKeyword();
@@ -26,20 +26,11 @@ const InteriorItemFilter = () => {
 
       <div>
         <div>색상</div>
-        <ColorChipListBox>
-          {Object.values(ColorEnum).map((color) => {
-            const isSelected = filter.color?.includes(color);
-            return (
-              <ColorChip color={color} key={color} isSelected={isSelected}>
-                <input
-                  type="checkbox"
-                  checked={isSelected}
-                  onChange={() => handleColorChange(color)}
-                />
-              </ColorChip>
-            );
-          })}
-        </ColorChipListBox>
+
+        <ColorFilter
+          selectedColor={filter.color}
+          onChange={handleColorChange}
+        />
       </div>
     </>
   );

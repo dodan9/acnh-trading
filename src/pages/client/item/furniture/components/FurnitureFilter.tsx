@@ -6,8 +6,8 @@ import {
 } from "../store/furnitureFilter";
 import { FurnitureCategory } from "../types";
 import { ColorEnum } from "@src/assets/enum";
-import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
-import SearchFilter from "@src/components/searchFilter/SearchFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/components/filter/colorFilter/ColorFilter";
 
 const FurnitureFilter = () => {
   const keyword = useFurnitureKeyword();
@@ -46,20 +46,10 @@ const FurnitureFilter = () => {
 
       <div>
         <div>색상</div>
-        <ColorChipListBox>
-          {Object.values(ColorEnum).map((color) => {
-            const isSelected = filter.color?.includes(color);
-            return (
-              <ColorChip color={color} key={color}>
-                <input
-                  type="checkbox"
-                  checked={isSelected}
-                  onChange={() => handleColorChange(color)}
-                />
-              </ColorChip>
-            );
-          })}
-        </ColorChipListBox>
+        <ColorFilter
+          selectedColor={filter.color}
+          onChange={handleColorChange}
+        />
       </div>
     </>
   );

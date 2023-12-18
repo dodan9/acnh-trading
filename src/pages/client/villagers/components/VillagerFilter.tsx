@@ -5,7 +5,7 @@ import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useTranslation } from "react-i18next";
 import { LangEnum } from "@src/lang/enum";
 import { useVillagerKeyword, useVillagerKeywordAction } from "../store/keyword";
-import SearchFilter from "@src/components/searchFilter/SearchFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
 
 const VillagerFilter = () => {
   const { t } = useTranslation();
