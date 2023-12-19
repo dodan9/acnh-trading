@@ -9,11 +9,6 @@ export const globalStyle = css`
     box-sizing: border-box;
     font-family: "Jua", sans-serif;
     position: relative;
-    font-size: 0.92rem;
-    /* cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto; */
-    @media ${device.medium} {
-      font-size: 1rem;
-    }
   }
 
   #root {
@@ -24,7 +19,11 @@ export const globalStyle = css`
   body {
     background-color: rgb(235, 226, 188);
     color: rgb(65, 51, 45);
-
+    font-size: 0.9rem;
+    /* cursor: url("/src/assets/cursor/Leaf.png") 0 0, auto; */
+    @media ${device.medium} {
+      font-size: 1rem;
+    }
     li {
       list-style: none;
     }

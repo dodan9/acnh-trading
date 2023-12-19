@@ -3,6 +3,7 @@ import {
   useMiscellaneousFilterAction,
   useMiscellaneousKeyword,
 } from "../store/miscellaneousFilter";
+import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
 
 const MiscellaneousFilter = () => {
   const keyword = useMiscellaneousKeyword();
@@ -13,10 +14,7 @@ const MiscellaneousFilter = () => {
   };
   return (
     <>
-      <div>검색:</div>
-      <div>
-        <input value={keyword} onChange={handleChangeKeyword} />
-      </div>
+      <SearchFilter value={keyword} onChange={handleChangeKeyword} />
     </>
   );
 };

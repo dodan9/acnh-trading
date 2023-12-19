@@ -5,11 +5,23 @@ import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { ItemCard } from "@src/components/card/ItemCard";
 import { ItemListBox } from "@src/components/card/styled";
 import { useMiscellaneousKeyword } from "../store/miscellaneousFilter";
+import { MiscellaneousDetailType } from "../types";
 
 const MiscellaneousList = () => {
   const keyword = useMiscellaneousKeyword();
   const { data: miscellaneous_list, isLoading } = useMiscellaneousList();
   const { t } = useTranslation();
+
+  const getItemName = (miscellaneous: MiscellaneousDetailType) => {
+    const translationKey = miscellaneous.is_fence
+      ? LangEnum.fence
+      : LangEnum.others;
+    const itemName = t(`${translationKey}.${miscellaneous.name}`, {
+      nsSeparator: false,
+    });
+
+    return itemName;
+  };
 
   if (isLoading) return <LoadingSpinner />;
   if (!miscellaneous_list) return <div>no data</div>;
@@ -18,24 +30,19 @@ const MiscellaneousList = () => {
       {miscellaneous_list
         .filter(
           (miscellaneous) =>
-            keyword === "" ||
-            t(`${LangEnum.miscellaneous}.${miscellaneous.name}`).includes(
-              keyword
-            )
+            keyword === "" || getItemName(miscellaneous).includes(keyword)
         )
-        .map((item) => {
+        .map((miscellaneous) => {
           return (
             <ItemCard
-              key={item.name}
-              ko_name={t(
-                `${item.is_fence ? LangEnum.fence : LangEnum.others}.${
-                  item.name
-                }`
-              )}
+              key={miscellaneous.name}
+              ko_name={getItemName(miscellaneous)}
               item={{
-                name: item.name,
-                type: `${item.is_fence ? LangEnum.fence : LangEnum.others}`,
-                image_url: item.image_url,
+                name: miscellaneous.name,
+                type: `${
+                  miscellaneous.is_fence ? LangEnum.fence : LangEnum.others
+                }`,
+                image_url: miscellaneous.image_url,
                 amount: 1,
               }}
             />
