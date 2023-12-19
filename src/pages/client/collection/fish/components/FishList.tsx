@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
-import { ItemCard } from "@src/components/card/ItemCard";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import { useIslandInfo } from "@src/pages/client/nav/store/setting";
+import { useIslandInfo } from "@src/pages/client/myIsland/store/setting";
 import { FishDetailType } from "../types";
-import { ItemListBox } from "@src/components/card/styled";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
 
 const FishList = () => {
   const { data: fish_list, isLoading } = useFishList();
@@ -30,7 +30,7 @@ const FishList = () => {
   if (isLoading) return <LoadingSpinner />;
   if (!fish_list) return <div>no data</div>;
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {"south" in fish_list && "north" in fish_list
         ? hemisphere === "north"
           ? fish_list.north.map((fish) => {
@@ -42,7 +42,7 @@ const FishList = () => {
         : fish_list.map((fish) => {
             return <FishListItem key={fish.name} fish={fish} />;
           })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 

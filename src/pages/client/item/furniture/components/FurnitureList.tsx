@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useFurnitureList } from "../services/query";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { useFurnitureKeyword } from "../store/furnitureFilter";
-import { ItemCard } from "@src/components/card/ItemCard";
-import { ItemListBox } from "@src/components/card/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
 
 const FurnitureList = () => {
   const { data: furniture_list, isLoading } = useFurnitureList();
@@ -15,7 +15,7 @@ const FurnitureList = () => {
     <>
       {isLoading && <LoadingSpinner />}
       {furniture_list && (
-        <ItemListBox>
+        <ItemCardListBox>
           {furniture_list
             .filter(
               (furniture) =>
@@ -41,7 +41,7 @@ const FurnitureList = () => {
                   />
                 );
             })}
-        </ItemListBox>
+        </ItemCardListBox>
       )}
     </>
   );

@@ -2,13 +2,16 @@ import styled from "@emotion/styled";
 import { device } from "@src/styled";
 import { passportColor } from "@src/styled/color";
 
-export const ItemListBox = styled.div`
-  position: relative;
+export const ItemCardListBox = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 10px 0;
   gap: 20px;
   font-size: 0.8rem;
+
+  & > div {
+    flex-direction: column;
+  }
 
   @media ${device.small} {
     font-size: 0.9rem;
@@ -26,10 +29,24 @@ export const ItemListBox = styled.div`
   }
 `;
 
+export const ItemListupBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  & img {
+    width: 40px;
+  }
+
+  & > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
 export const ItemCardBox = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 5px;
   padding: 10px;

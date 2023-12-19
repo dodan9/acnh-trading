@@ -9,9 +9,8 @@ const SearchFilter = ({
 }) => {
   return (
     <>
-      <div>검색:</div>
       <div>
-        <input value={value} onChange={onChange} />
+        검색: <input value={value} onChange={onChange} />
       </div>
     </>
   );

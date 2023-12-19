@@ -2,10 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useBugList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import { useIslandInfo } from "@src/pages/client/nav/store/setting";
+import { useIslandInfo } from "@src/pages/client/myIsland/store/setting";
 import { BugDetailType } from "../types";
-import { ItemCard } from "@src/components/card/ItemCard";
-import { ItemListBox } from "@src/components/card/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
 
 const BugList = () => {
   const { data: bug_list, isFetching } = useBugList();
@@ -32,7 +32,7 @@ const BugList = () => {
   if (isFetching) return <LoadingSpinner />;
   if (!bug_list) return <div>no data</div>;
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {"south" in bug_list && "north" in bug_list
         ? hemisphere === "north"
           ? bug_list.north.map((bug) => {
@@ -44,7 +44,7 @@ const BugList = () => {
         : bug_list.map((bug) => {
             return <BugListItem bug={bug} key={bug.name} />;
           })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 

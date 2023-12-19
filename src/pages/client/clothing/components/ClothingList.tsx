@@ -3,8 +3,8 @@ import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { useClothingList } from "../services/query";
 import { useTranslation } from "react-i18next";
 import { useClothingKeyword } from "../store/clothingFilter";
-import { ItemListBox } from "@src/components/card/styled";
-import { ItemCard } from "@src/components/card/ItemCard";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 
 const ClothingList = () => {
   const { data: clothingList, isLoading } = useClothingList();
@@ -15,7 +15,7 @@ const ClothingList = () => {
   if (isLoading) return <LoadingSpinner />;
   if (!clothingList) return <div>no data</div>;
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {clothingList
         .filter(
           (clothing) =>
@@ -38,7 +38,7 @@ const ClothingList = () => {
             />
           );
         })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 

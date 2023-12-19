@@ -1,10 +1,11 @@
+import { Title } from "@src/styled";
 import MiscellaneousFilter from "../components/MiscellaneousFilter";
 import MiscellaneousList from "../components/MiscellaneousList";
 
 const MiscellaneousMain = () => {
   return (
     <>
-      <div>아이템(비가구)</div>
+      <Title>아이템(비가구)</Title>
 
       <MiscellaneousFilter />
       <MiscellaneousList />

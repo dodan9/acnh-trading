@@ -3,8 +3,8 @@ import { useRecipeList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { useRecipeKeyword } from "../store/recipeFilter";
-import { ItemListBox } from "@src/components/card/styled";
-import { ItemCard } from "@src/components/card/ItemCard";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 
 const RecipeList = () => {
   const { data: recipe_list, isLoading } = useRecipeList();
@@ -16,7 +16,7 @@ const RecipeList = () => {
   if (!recipe_list) return <div>no data</div>;
 
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {recipe_list
         .filter(
           (recipe) =>
@@ -37,7 +37,7 @@ const RecipeList = () => {
             />
           );
         })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 

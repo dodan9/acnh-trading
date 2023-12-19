@@ -16,7 +16,7 @@ import { ItemImage } from "./CartItemImage";
 import { ChangeEvent, memo } from "react";
 import { LangEnum } from "@src/lang/enum";
 import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
-import { ItemIcon } from "@src/components/card/styled";
+import { ItemIcon } from "@src/components/itemCard/styled";
 
 interface PriceUpdateProps {
   list: CartListType;
@@ -42,8 +42,8 @@ const UpdateAmountButton = memo(
   ({ item, index, amount, updateItemAmount }: AmountUpdateProps) => {
     return (
       <button
-        aria-details='icon'
-        data-html2canvas-ignore='true'
+        aria-details="icon"
+        data-html2canvas-ignore="true"
         onClick={() =>
           updateItemAmount({
             item,
@@ -62,8 +62,8 @@ const PriceUpdateButton = memo(
   ({ list, price, updatePrice }: PriceUpdateProps) => {
     return (
       <button
-        aria-details='icon'
-        data-html2canvas-ignore='true'
+        aria-details="icon"
+        data-html2canvas-ignore="true"
         onClick={() =>
           updatePrice({ index: list.index, price: list.price + price })
         }
@@ -101,22 +101,22 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
         className={index + 1 === list.items.length ? "last" : ""}
       >
         {index === 0 && (
-          <td rowSpan={list.items.length} data-html2canvas-ignore='true'>
+          <td rowSpan={list.items.length} data-html2canvas-ignore="true">
             <input
-              type='checkbox'
+              type="checkbox"
               checked={list.isSelected}
               onChange={() => selectItem(list.index)}
             />
           </td>
         )}
-        <td aria-details='image'>
+        <td aria-details="image">
           <div>
             <ItemImage
               name={item.name + list.index + index}
               image_url={item.image_url}
             />
             <DeleteButton
-              data-html2canvas-ignore='true'
+              data-html2canvas-ignore="true"
               onClick={() => removeItem({ item, index: list.index })}
             >
               x
@@ -125,8 +125,8 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
           </div>
         </td>
         <td>
-          <div aria-details='amount'>
-            <div aria-details='title'>
+          <div aria-details="amount">
+            <div aria-details="title">
               {t(`${item.type}.${item.name}`)}
               {item.type === LangEnum.recipe && <img src={PaperRecipe} />}
             </div>
@@ -139,7 +139,7 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
               />
               <AmountCell>
                 <div>{item.amount}</div>
-                <div data-html2canvas-ignore='true'>
+                <div data-html2canvas-ignore="true">
                   <input
                     value={item.amount ?? ""}
                     onChange={handleAmountChange}
@@ -166,7 +166,7 @@ const CartListItem = memo(({ list }: { list: CartListType }) => {
               />
               <AmountCell>
                 <div>{list.price}</div>
-                <div data-html2canvas-ignore='true'>
+                <div data-html2canvas-ignore="true">
                   <input
                     value={list.price ?? ""}
                     onChange={handlePriceChange}

@@ -4,7 +4,7 @@ import {
   HemisphereType,
   useIslandActions,
   useIslandInfo,
-} from "../../nav/store/setting";
+} from "../store/setting";
 import { Wrapper } from "@src/styled";
 import { ChangeEvent, useState } from "react";
 

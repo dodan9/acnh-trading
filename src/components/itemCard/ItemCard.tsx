@@ -4,11 +4,12 @@ import { ItemCardBox, ItemIcon, ItemImageBox } from "./styled";
 import { LangEnum } from "@src/lang/enum";
 import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
 
-interface Props {
+export interface ItemProps {
   item: TradingItemType;
   ko_name: string;
+  isList?: boolean;
 }
-export const ItemCard = ({ item, ko_name }: Props) => {
+export const ItemCard = ({ item, ko_name }: ItemProps) => {
   const navigate = useNavigate();
 
   return (

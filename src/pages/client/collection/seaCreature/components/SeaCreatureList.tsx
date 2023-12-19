@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { LangEnum } from "@src/lang/enum";
-import { ItemCard } from "@src/components/card/ItemCard";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import { useIslandInfo } from "@src/pages/client/nav/store/setting";
-import { ItemListBox } from "@src/components/card/styled";
+import { useIslandInfo } from "@src/pages/client/myIsland/store/setting";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
 import { useSeaCreatureList } from "../services/query";
 import { SeaCreatureDetailType } from "../types";
 
@@ -35,7 +35,7 @@ const FishList = () => {
   if (isLoading) return <LoadingSpinner />;
   if (!sea_creature_list) return <div>no data</div>;
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {"south" in sea_creature_list && "north" in sea_creature_list
         ? hemisphere === "north"
           ? sea_creature_list.north.map((sea_creature) => {
@@ -62,7 +62,7 @@ const FishList = () => {
               />
             );
           })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 

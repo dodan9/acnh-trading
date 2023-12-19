@@ -3,7 +3,6 @@ import { persist } from "zustand/middleware";
 
 export type FruitType = "apple" | "pear" | "orange" | "peach" | "cherry" | "";
 export type HemisphereType = "north" | "south";
-export type ThemeType = "light" | "dark";
 
 interface State {
   island: {
@@ -12,7 +11,6 @@ interface State {
     fruit: FruitType;
     hemisphere: HemisphereType;
   };
-  theme: ThemeType;
 }
 interface Action {
   actions: {
@@ -22,7 +20,6 @@ interface Action {
       setFruit: (fruit: FruitType) => void;
       setHemisphere: (hemisphere: HemisphereType) => void;
     };
-    theme: { setTheme: (theme: ThemeType) => void };
   };
 }
 
@@ -53,18 +50,16 @@ const useSettingStore = create<State & Action>()(
               return { island: { ...state.island, hemisphere } };
             }),
         },
-        theme: { setTheme: (theme) => set({ theme }) },
       },
     }),
     {
       name: "setting-storage",
-      partialize: (state) => ({ island: state.island, theme: state.theme }),
+      partialize: (state) => ({ island: state.island }),
     }
   )
 );
 
 export const useIslandInfo = () => useSettingStore((state) => state.island);
-export const useThemeInfo = () => useSettingStore((state) => state.theme);
 
 export const useIslandActions = () =>
   useSettingStore((state) => state.actions.island);

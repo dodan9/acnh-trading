@@ -2,10 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useMiscellaneousList } from "../services/query";
 import { LangEnum } from "@src/lang/enum";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import { ItemCard } from "@src/components/card/ItemCard";
-import { ItemListBox } from "@src/components/card/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 import { useMiscellaneousKeyword } from "../store/miscellaneousFilter";
 import { MiscellaneousDetailType } from "../types";
+import ItemList from "@src/components/itemCard/ItemList";
 
 const MiscellaneousList = () => {
   const keyword = useMiscellaneousKeyword();
@@ -16,8 +16,9 @@ const MiscellaneousList = () => {
     const translationKey = miscellaneous.is_fence
       ? LangEnum.fence
       : LangEnum.others;
+
     const itemName = t(`${translationKey}.${miscellaneous.name}`, {
-      nsSeparator: false,
+      nsSeparator: false, // 네임스페이스 구분자를 사용하지 않음 => ":" 이 들어가는 key 존재
     });
 
     return itemName;
@@ -26,29 +27,31 @@ const MiscellaneousList = () => {
   if (isLoading) return <LoadingSpinner />;
   if (!miscellaneous_list) return <div>no data</div>;
   return (
-    <ItemListBox>
-      {miscellaneous_list
-        .filter(
-          (miscellaneous) =>
-            keyword === "" || getItemName(miscellaneous).includes(keyword)
-        )
-        .map((miscellaneous) => {
-          return (
-            <ItemCard
-              key={miscellaneous.name}
-              ko_name={getItemName(miscellaneous)}
-              item={{
-                name: miscellaneous.name,
-                type: `${
-                  miscellaneous.is_fence ? LangEnum.fence : LangEnum.others
-                }`,
-                image_url: miscellaneous.image_url,
-                amount: 1,
-              }}
-            />
-          );
-        })}
-    </ItemListBox>
+    <>
+      <ItemList>
+        {miscellaneous_list
+          .filter(
+            (miscellaneous) =>
+              keyword === "" || getItemName(miscellaneous).includes(keyword)
+          )
+          .map((miscellaneous) => {
+            return (
+              <ItemCard
+                key={miscellaneous.name}
+                ko_name={getItemName(miscellaneous)}
+                item={{
+                  name: miscellaneous.name,
+                  type: `${
+                    miscellaneous.is_fence ? LangEnum.fence : LangEnum.others
+                  }`,
+                  image_url: miscellaneous.image_url,
+                  amount: 1,
+                }}
+              />
+            );
+          })}
+      </ItemList>
+    </>
   );
 };
 

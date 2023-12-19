@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useInteriorItemList } from "../services/query";
 import LoadingSpinner from "@src/components/loading/LoadingSpinner";
 import { useInteriorItemKeyword } from "../store/interiorItemFilter";
-import { ItemListBox } from "@src/components/card/styled";
-import { ItemCard } from "@src/components/card/ItemCard";
+import { ItemCardListBox } from "@src/components/itemCard/styled";
+import { ItemCard } from "@src/components/itemCard/ItemCard";
 
 const InteriorItemList = () => {
   const { data: interior_item_list, isLoading } = useInteriorItemList();
@@ -12,7 +12,7 @@ const InteriorItemList = () => {
 
   if (isLoading) return <LoadingSpinner />;
   return (
-    <ItemListBox>
+    <ItemCardListBox>
       {interior_item_list &&
         interior_item_list
           .filter(
@@ -34,7 +34,7 @@ const InteriorItemList = () => {
               />
             );
           })}
-    </ItemListBox>
+    </ItemCardListBox>
   );
 };
 
