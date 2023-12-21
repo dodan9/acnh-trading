@@ -23,6 +23,7 @@ const SelectFilter = ({
 
   const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
+    setSelectedOptionIndex(0);
     if (event.target.value === "") {
       setSelectedOptionIndex(-1);
     }
@@ -47,7 +48,7 @@ const SelectFilter = ({
       if (newIndex >= 0 && newIndex < filteredOptions.length) {
         setSelectedOptionIndex(newIndex);
       }
-    } else if (event.key === "Enter" && selectedOptionIndex !== -1) {
+    } else if (event.key === "Enter") {
       const filteredOptions = options.filter((option) =>
         regex.test(option.value)
       );
@@ -56,10 +57,12 @@ const SelectFilter = ({
           filteredOptions[selectedOptionIndex].key,
           filteredOptions[selectedOptionIndex].value
         );
-      } else {
+      } else if (keyword === "") {
         setValue("");
       }
     }
+
+    event.stopPropagation();
   };
 
   return (
