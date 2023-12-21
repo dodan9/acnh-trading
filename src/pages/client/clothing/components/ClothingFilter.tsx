@@ -1,5 +1,5 @@
 import { ColorEnum } from "@src/assets/enum";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import { t } from "i18next";
 import { ClothingStyle, ClothingCategory, ClothingLabelTheme } from "../types";
 import {

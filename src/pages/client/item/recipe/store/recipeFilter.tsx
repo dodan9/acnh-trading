@@ -21,7 +21,8 @@ const useRecipeFilterStore = create<State & Action>()(
       setKeyword: (keyword: string) => set(() => ({ keyword })),
       setMaterial: (material: string) =>
         set((state) => {
-          state.filter.material = material;
+          if (material !== "") state.filter.material = material;
+          else state.filter.material = undefined;
         }),
     },
   }))

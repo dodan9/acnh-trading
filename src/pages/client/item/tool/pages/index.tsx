@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useToolListQuery } from "../services/query";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 
 const ToolsMain = () => {
   const { data: tool_list } = useToolListQuery();

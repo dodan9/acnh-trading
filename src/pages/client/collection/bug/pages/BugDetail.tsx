@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import { useNavigate, useParams } from "react-router";
 import { useBugDetail } from "../services/query";
 

@@ -14,7 +14,7 @@ import {
 } from "../styled";
 import { ItemImage } from "./CartItemImage";
 import { ChangeEvent, memo } from "react";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
 import { ItemIcon } from "@src/common/components/itemCard/styled";
 

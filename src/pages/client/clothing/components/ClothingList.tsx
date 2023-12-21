@@ -1,4 +1,4 @@
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useClothingList } from "../services/query";
 import { useTranslation } from "react-i18next";

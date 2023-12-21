@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useMiscellaneousDetail } from "../services/query";
 import { useTranslation } from "react-i18next";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 
 const MiscellaneousDetail = () => {
   const { name } = useParams();

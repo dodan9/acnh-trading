@@ -13,7 +13,7 @@ import {
   PassportQuote,
 } from "../styled/VillagerDetailStyled";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 
 const VillagerDetail = () => {
   const { name } = useParams();

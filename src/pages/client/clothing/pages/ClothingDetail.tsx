@@ -2,7 +2,7 @@ import { Title, Wrapper } from "@src/common/styled";
 import { useParams } from "react-router";
 import { useClothingDetail } from "../services/query";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import TradingButton from "@src/common/components/tradingButton/TradingButton";
 import { useEffect, useState } from "react";

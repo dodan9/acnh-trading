@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { FossilDetailType } from "../types";
 import FossilParts from "../components/FossilParts";
 import { Title } from "@src/common/styled";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import { useTranslation } from "react-i18next";
 
 const FossilMain = () => {

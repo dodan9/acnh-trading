@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useRecipeList } from "../services/query";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useRecipeKeyword } from "../store/recipeFilter";
 import { ItemCardListBox } from "@src/common/components/itemCard/styled";

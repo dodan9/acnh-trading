@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import { ItemCard } from "@src/common/components/itemCard/ItemCard";
 import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useIslandInfo } from "@src/pages/client/myIsland/store/setting";

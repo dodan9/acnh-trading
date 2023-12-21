@@ -3,7 +3,7 @@ import { Wrapper } from "@src/common/styled";
 // import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useEventList } from "../services/query";
-import { LangEnum } from "@src/assets/lang/enum";
+import { LangEnum } from "@src/common/util/lang/enum";
 import axios from "axios";
 import { useEffect } from "react";
 

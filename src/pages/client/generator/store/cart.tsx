@@ -1,3 +1,4 @@
+import { sortByKr } from "@src/common/util/sortByKr";
 import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
 import { useTranslation } from "react-i18next";
@@ -212,9 +213,9 @@ export const useCartList = (sort: "name" | "type" | false) =>
         item2: CartItemType
       ): number => {
         if (sort === "name")
-          return t(`${item1.type}.${item1.name}`).localeCompare(
-            t(`${item2.type}.${item2.name}`),
-            "ko-KR"
+          return sortByKr(
+            t(`${item1.type}.${item1.name}`),
+            t(`${item2.type}.${item2.name}`)
           );
         else return item1.type.localeCompare(item2.type);
       };
