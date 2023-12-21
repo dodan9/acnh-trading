@@ -1,5 +1,8 @@
 import { ColorEnum } from "@src/assets/enum";
-import { ColorChip, ColorChipListBox } from "@src/components/colorChip/styled";
+import {
+  ColorChip,
+  ColorChipListBox,
+} from "@src/common/components/colorChip/styled";
 
 const ColorFilter = ({
   selectedColor,

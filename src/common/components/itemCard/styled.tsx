@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { device } from "@src/styled";
-import { passportColor } from "@src/styled/color";
+import { device } from "@src/common/styled";
+import { passportColor } from "@src/common/styled/color";
 
 export const ItemCardListBox = styled.div`
   display: grid;

@@ -1,5 +1,5 @@
-import { query_key } from "@src/services/query/query_key";
-import { supabase } from "@src/services/supabase";
+import { query_key } from "@src/common/services/query/query_key";
+import { supabase } from "@src/common/services/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { InquiryDetailType } from "../types";
 

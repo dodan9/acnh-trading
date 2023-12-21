@@ -1,7 +1,7 @@
 import { useInquiryList } from "../services/query";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { InquiryMessage } from "../styled";
-import { Title } from "@src/styled";
+import { Title } from "@src/common/styled";
 
 export const InquiryView = () => {
   const { data: inquiry_list, isLoading } = useInquiryList();

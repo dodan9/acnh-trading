@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { VillagerDetailType, VillagerFilterType } from "../../types";
 
 export const getVillagerListApi = (filter?: VillagerFilterType) => {

@@ -1,5 +1,5 @@
 import { mainRoutes } from "@src/pages/client/routes/mainRoute";
-import { Container } from "@src/styled";
+import { Container } from "@src/common/styled";
 import ClientNav from "./nav/pages";
 
 const Client = () => {

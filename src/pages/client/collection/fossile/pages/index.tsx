@@ -3,8 +3,8 @@ import groupBy from "lodash/groupBy";
 import { ChangeEvent, useEffect, useState } from "react";
 import { FossilDetailType } from "../types";
 import FossilParts from "../components/FossilParts";
-import { Title } from "@src/styled";
-import { LangEnum } from "@src/lang/enum";
+import { Title } from "@src/common/styled";
+import { LangEnum } from "@src/assets/lang/enum";
 import { useTranslation } from "react-i18next";
 
 const FossilMain = () => {

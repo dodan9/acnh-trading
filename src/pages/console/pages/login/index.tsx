@@ -1,4 +1,4 @@
-import { SignDataType, signIn } from "@src/services/supabase/auth";
+import { SignDataType, signIn } from "@src/common/services/supabase/auth";
 import { ChangeEvent, useState } from "react";
 
 const ConsoleSignIn = () => {

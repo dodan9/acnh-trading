@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import TradingButton, { TradingItemType } from "../tradingButton/TradingButton";
 import { ItemCardBox, ItemIcon, ItemImageBox } from "./styled";
-import { LangEnum } from "@src/lang/enum";
+import { LangEnum } from "@src/assets/lang/enum";
 import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
 
 export interface ItemProps {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getToolDetailsApi, getToolListApi } from "../api";
-import { query_key } from "@src/services/query/query_key";
+import { query_key } from "@src/common/services/query/query_key";
 
 export const useToolListQuery = (excludedetails?: boolean) => {
   const getToolList = async () => {

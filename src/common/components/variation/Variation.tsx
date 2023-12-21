@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { device } from "@src/styled";
+import { device } from "@src/common/styled";
 
 const Variation = ({
   image_url,

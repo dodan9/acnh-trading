@@ -5,7 +5,7 @@ import {
   FurnitureFilterType,
 } from "../../types";
 import { getFurnitureDetailApi, getFurnitureListApi } from "../api";
-import { query_key } from "@src/services/query/query_key";
+import { query_key } from "@src/common/services/query/query_key";
 import { useFurnitureFilter } from "../../store/furnitureFilter";
 import { ColorEnum } from "@src/assets/enum";
 

@@ -1,10 +1,10 @@
-import { LangEnum } from "@src/lang/enum";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/assets/lang/enum";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useClothingList } from "../services/query";
 import { useTranslation } from "react-i18next";
 import { useClothingKeyword } from "../store/clothingFilter";
-import { ItemCardListBox } from "@src/components/itemCard/styled";
-import { ItemCard } from "@src/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import { ItemCard } from "@src/common/components/itemCard/ItemCard";
 
 const ClothingList = () => {
   const { data: clothingList, isLoading } = useClothingList();

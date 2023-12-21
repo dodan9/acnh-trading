@@ -3,7 +3,7 @@ import {
   useMiscellaneousFilterAction,
   useMiscellaneousKeyword,
 } from "../store/miscellaneousFilter";
-import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
+import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
 
 const MiscellaneousFilter = () => {
   const keyword = useMiscellaneousKeyword();

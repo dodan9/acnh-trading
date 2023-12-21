@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { FishDetailType, FishFilterType } from "../../types";
 
 export const getFishListApi = (filter?: FishFilterType) => {

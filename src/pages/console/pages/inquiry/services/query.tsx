@@ -3,7 +3,7 @@ import {
   InquiryAnswerType,
   InquiryDetailType,
 } from "@src/pages/client/inquiry/types";
-import { supabase } from "@src/services/supabase";
+import { supabase } from "@src/common/services/supabase";
 import { useQuery } from "@tanstack/react-query";
 
 interface ConsoleInquiryType extends InquiryDetailType {

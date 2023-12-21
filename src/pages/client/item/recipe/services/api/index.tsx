@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { RecipeDetailType, RecipeFilterType } from "../../types";
 
 export const getRecipeListApi = (filter?: RecipeFilterType) => {

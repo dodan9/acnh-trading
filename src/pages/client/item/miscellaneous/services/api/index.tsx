@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { MiscellaneousDetailType } from "../../types";
 
 export const getMiscellaneousListApi = (excludedetails?: boolean) => {

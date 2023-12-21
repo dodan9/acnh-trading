@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { InteriorItemDetailType, InteriorItemFilterType } from "../../types";
 import { ColorEnum } from "@src/assets/enum";
 

@@ -1,6 +1,6 @@
-import { Modal } from "@src/components/modal/Modal";
+import { Modal } from "@src/common/components/modal/Modal";
 import { useConsoleInquiryDetail } from "../services/query";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { format } from "date-fns";
 
 const InquiryDetail = ({

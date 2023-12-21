@@ -3,9 +3,9 @@ import { OptionBox } from "../styled";
 import { useVillagerFilter, useVillagerFilterAction } from "../store/filter";
 import { VillagerGame, VillagerPersonality, VillagerSpecies } from "../types";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/lang/enum";
+import { LangEnum } from "@src/assets/lang/enum";
 import { useVillagerKeyword, useVillagerKeywordAction } from "../store/keyword";
-import SearchFilter from "@src/components/filter/searchFilter/SearchFilter";
+import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
 
 const VillagerFilter = () => {
   const { t } = useTranslation();

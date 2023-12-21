@@ -1,4 +1,4 @@
-import { Title } from "@src/styled";
+import { Title } from "@src/common/styled";
 import RecipeList from "../components/RecipeList";
 import RecipeFilter from "../components/RecipeFilter";
 

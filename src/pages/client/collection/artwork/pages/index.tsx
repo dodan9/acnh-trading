@@ -1,6 +1,6 @@
 import { useArtworkList } from "../services/query";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/lang/enum";
+import { LangEnum } from "@src/assets/lang/enum";
 
 const ArtworkMain = () => {
   const { data: artwork_list } = useArtworkList();

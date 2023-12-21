@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useFishList } from "../services/query";
-import { LangEnum } from "@src/lang/enum";
-import { ItemCard } from "@src/components/itemCard/ItemCard";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/assets/lang/enum";
+import { ItemCard } from "@src/common/components/itemCard/ItemCard";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useIslandInfo } from "@src/pages/client/myIsland/store/setting";
 import { FishDetailType } from "../types";
-import { ItemCardListBox } from "@src/components/itemCard/styled";
+import { ItemCardListBox } from "@src/common/components/itemCard/styled";
 
 const FishList = () => {
   const { data: fish_list, isLoading } = useFishList();

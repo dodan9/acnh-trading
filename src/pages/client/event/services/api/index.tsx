@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { EventDetailType, EventFilterType } from "../../types";
 
 export const getEventListApi = (filter?: EventFilterType) => {

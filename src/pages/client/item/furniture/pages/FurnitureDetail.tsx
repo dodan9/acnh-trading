@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
 import { useFurnitureDetail } from "../services/query";
-import TradingButton from "@src/components/tradingButton/TradingButton";
-import { Title } from "@src/styled";
+import TradingButton from "@src/common/components/tradingButton/TradingButton";
+import { Title } from "@src/common/styled";
 import { useEffect, useState } from "react";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
-import Variation, { VariationList } from "@src/components/variation/Variation";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import Variation, {
+  VariationList,
+} from "@src/common/components/variation/Variation";
 import { useTranslation } from "react-i18next";
 
 const FurnitureDetail = () => {

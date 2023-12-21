@@ -5,7 +5,7 @@ import {
   useIslandActions,
   useIslandInfo,
 } from "../store/setting";
-import { Wrapper } from "@src/styled";
+import { Wrapper } from "@src/common/styled";
 import { ChangeEvent, useState } from "react";
 
 const MyIsland = () => {

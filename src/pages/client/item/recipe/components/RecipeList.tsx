@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useRecipeList } from "../services/query";
-import { LangEnum } from "@src/lang/enum";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/assets/lang/enum";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useRecipeKeyword } from "../store/recipeFilter";
-import { ItemCardListBox } from "@src/components/itemCard/styled";
-import { ItemCard } from "@src/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import { ItemCard } from "@src/common/components/itemCard/ItemCard";
 
 const RecipeList = () => {
   const { data: recipe_list, isLoading } = useRecipeList();

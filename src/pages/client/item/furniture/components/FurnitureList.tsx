@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useFurnitureList } from "../services/query";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useFurnitureKeyword } from "../store/furnitureFilter";
-import { ItemCard } from "@src/components/itemCard/ItemCard";
-import { ItemCardListBox } from "@src/components/itemCard/styled";
+import { ItemCard } from "@src/common/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/common/components/itemCard/styled";
 
 const FurnitureList = () => {
   const { data: furniture_list, isLoading } = useFurnitureList();

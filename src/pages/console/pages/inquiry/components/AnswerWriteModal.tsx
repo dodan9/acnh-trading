@@ -1,6 +1,6 @@
-import { Modal } from "@src/components/modal/Modal";
+import { Modal } from "@src/common/components/modal/Modal";
 import { console_query_key } from "@src/pages/console/auth/console_query_key";
-import { supabase } from "@src/services/supabase";
+import { supabase } from "@src/common/services/supabase";
 import { useQueryClient } from "@tanstack/react-query";
 import { ChangeEvent, useState } from "react";
 

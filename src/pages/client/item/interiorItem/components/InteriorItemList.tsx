@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useInteriorItemList } from "../services/query";
-import LoadingSpinner from "@src/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useInteriorItemKeyword } from "../store/interiorItemFilter";
-import { ItemCardListBox } from "@src/components/itemCard/styled";
-import { ItemCard } from "@src/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import { ItemCard } from "@src/common/components/itemCard/ItemCard";
 
 const InteriorItemList = () => {
   const { data: interior_item_list, isLoading } = useInteriorItemList();

@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { BugDetailType, BugFilterType } from "../../types";
 
 export const getBugListApi = (filter?: BugFilterType) => {

@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/services/api";
+import { nookRequest } from "@src/common/services/api";
 import { ArtworkDetailType, ArtworkFilterType } from "../../types";
 
 export const getArtworkListApi = (filter?: ArtworkFilterType) => {

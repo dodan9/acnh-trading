@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getClothingListApi, getClothingDetailApi } from "../api";
-import { query_key } from "@src/services/query/query_key";
+import { query_key } from "@src/common/services/query/query_key";
 import { useClothingFilter } from "../../store/clothingFilter";
 
 export const useClothingList = () => {
