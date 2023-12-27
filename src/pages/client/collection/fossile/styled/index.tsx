@@ -6,11 +6,6 @@ export const FossilGroupBox = styled.div`
     font-size: 1.1rem;
   }
 `;
-export const FossilPartsBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;
 
 export const FossilPartCard = styled.div`
   width: 128px;

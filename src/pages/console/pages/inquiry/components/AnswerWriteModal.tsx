@@ -37,13 +37,11 @@ const AnswerWriteModal = ({
 
   return (
     <Modal onClose={onClose}>
-      <>
-        <div>
-          <textarea value={answer} onChange={handleContentChange} />
-        </div>
+      <div>
+        <textarea value={answer} onChange={handleContentChange} />
+      </div>
 
-        <button onClick={handleAnswer}>답변하기</button>
-      </>
+      <button onClick={handleAnswer}>답변하기</button>
     </Modal>
   );
 };

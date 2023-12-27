@@ -48,3 +48,27 @@ export const Title = styled.h2`
   text-align: center;
   font-size: 1.3rem;
 `;
+
+export const FlexBox = styled.div<{
+  width?: number;
+  height?: number;
+  direction?: "row" | "column";
+  justifyContent?:
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "flex-start"
+    | "flex-end";
+  alignItems?: "center" | "flex-start" | "flex-end" | "stretch";
+  gap?: string;
+}>`
+  display: flex;
+  flex-wrap: wrap;
+  ${({ width }) => (width ? `width: ${width}px` : "")};
+  ${({ height }) => (height ? `height: ${height}px` : "")};
+  ${({ gap }) => (gap ? `gap: ${gap}` : "")};
+  ${({ direction }) => (direction ? `flex-direction: ${direction}` : "")};
+  ${({ justifyContent }) =>
+    justifyContent ? `justify-content: ${justifyContent}` : ""};
+  ${({ alignItems }) => (alignItems ? `align-items: ${alignItems}` : "")};
+`;

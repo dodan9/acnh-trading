@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { FlexBox } from "@src/common/styled";
 import { backgroundColor } from "@src/common/styled/color";
 import {
   createFuzzyMatcher,
@@ -66,7 +67,7 @@ const SelectFilter = ({
   };
 
   return (
-    <SelectFilterBox>
+    <FlexBox direction="column">
       <div>{name}</div>
       <SelectInput
         ref={inputRef}
@@ -97,16 +98,11 @@ const SelectFilter = ({
             })}
         </SelectOptionListBox>
       )}
-    </SelectFilterBox>
+    </FlexBox>
   );
 };
 
 export default SelectFilter;
-
-const SelectFilterBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 const SelectInput = styled.input``;
 

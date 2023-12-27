@@ -7,18 +7,27 @@ import PaperRecipe from "@src/assets/icons/inventory_icons/PaperRecipe.png";
 export interface ItemProps {
   item: TradingItemType;
   ko_name: string;
-  isList?: boolean;
+  onVariantClick?: () => void;
 }
-export const ItemCard = ({ item, ko_name }: ItemProps) => {
+export const ItemCard = ({ item, ko_name, onVariantClick }: ItemProps) => {
   const navigate = useNavigate();
 
   return (
-    <ItemCardBox onClick={() => navigate(item.name)}>
+    <ItemCardBox
+      onClick={() => {
+        navigate(item.name);
+      }}
+    >
       <ItemImageBox>
         <img src={item.image_url} alt={ko_name} />
         {item.type === LangEnum.recipe && <ItemIcon src={PaperRecipe} />}
       </ItemImageBox>
       <div>{ko_name}</div>
+      {onVariantClick && (
+        <div onClick={onVariantClick}>
+          {`{`}팔레트 아이콘{`}`}
+        </div>
+      )}
       <div>
         <TradingButton
           name={item.name}

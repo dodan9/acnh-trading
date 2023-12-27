@@ -4,12 +4,18 @@ import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
 import { useFurnitureKeyword } from "../store/furnitureFilter";
 import { ItemCard } from "@src/common/components/itemCard/ItemCard";
 import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import VariantsModal from "@src/common/components/modal/VariantsModal";
+import { useState } from "react";
+import { FurnitureDetailType } from "../types";
 
 const FurnitureList = () => {
   const { data: furniture_list, isLoading } = useFurnitureList();
-
   const { t } = useTranslation();
   const keyword = useFurnitureKeyword();
+
+  const [selectedFurniture, setSelectedFurniture] = useState<
+    FurnitureDetailType | false
+  >(false);
 
   return (
     <>
@@ -38,10 +44,20 @@ const FurnitureList = () => {
                       image_url: furniture.variations[0].image_url,
                       amount: 1,
                     }}
+                    onVariantClick={() => setSelectedFurniture(furniture)}
                   />
                 );
             })}
         </ItemCardListBox>
+      )}
+
+      {selectedFurniture && (
+        <VariantsModal
+          onClose={() => setSelectedFurniture(false)}
+          name={selectedFurniture.name}
+          type={selectedFurniture.category.toLowerCase()}
+          variations={selectedFurniture.variations}
+        />
       )}
     </>
   );

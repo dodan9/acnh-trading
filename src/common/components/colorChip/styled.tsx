@@ -20,9 +20,3 @@ export const ColorChip = styled.label<{ color: string; isSelected?: boolean }>`
     "background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #33cc33, #3399ff, #cc33ff, #ff00cc);"}
   ${(props) => props.isSelected && "border: 3px solid #fff"}
 `;
-
-export const ColorChipListBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-`;

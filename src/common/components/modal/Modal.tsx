@@ -6,7 +6,7 @@ export const Modal = ({
   children,
 }: {
   onClose: () => void;
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 }) => {
   const handleClose = () => {
     onClose();

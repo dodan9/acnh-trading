@@ -22,6 +22,7 @@ export const VariationList = styled.div`
   flex-wrap: wrap;
   gap: 10px;
 `;
+
 const VariationBox = styled.div`
   & img {
     width: 50px;

@@ -12,5 +12,5 @@ export interface ToolDetailType {
   notes: string;
   availability: { from: string; note: string }[];
   buy: { price: number; currency: string }[];
-  variations: { variation: string; image_url: string };
+  variations: { variation: string; image_url: string }[];
 }

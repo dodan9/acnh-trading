@@ -54,6 +54,6 @@ export interface FurnitureDetailType extends InteriorBaseType {
     variation: string;
     pattern: string;
     image_url: string;
-    colors: string[];
+    colors: [ColorType, (ColorType | undefined)?];
   }[];
 }

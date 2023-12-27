@@ -50,12 +50,10 @@ const GeneratorMain = () => {
 
       {imageData && (
         <Modal onClose={() => setImageData(false)}>
-          <>
-            <img src={imageData ? URL.createObjectURL(imageData) : ""} />
-            <div>
-              <button onClick={handleDownload}>다운로드</button>
-            </div>
-          </>
+          <img src={imageData ? URL.createObjectURL(imageData) : ""} />
+          <div>
+            <button onClick={handleDownload}>다운로드</button>
+          </div>
         </Modal>
       )}
     </Wrapper>

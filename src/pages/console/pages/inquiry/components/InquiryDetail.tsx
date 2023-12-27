@@ -16,18 +16,16 @@ const InquiryDetail = ({
   if (!inquiry) return <div>no data...</div>;
   return (
     <Modal onClose={onClose}>
-      <>
-        <div>{inquiry.id}</div>
-        <div>{inquiry.title}</div>
-        <div>{format(new Date(inquiry.created_at), "yyyy-MM-dd HH:mm:ss")}</div>
-        <div>{inquiry.email}</div>
-        <div>{inquiry.content}</div>
-        <div>
-          {inquiry.answer.map((answer) => {
-            return <div key={answer.id}>{answer.answer}</div>;
-          })}
-        </div>
-      </>
+      <div>{inquiry.id}</div>
+      <div>{inquiry.title}</div>
+      <div>{format(new Date(inquiry.created_at), "yyyy-MM-dd HH:mm:ss")}</div>
+      <div>{inquiry.email}</div>
+      <div>{inquiry.content}</div>
+      <div>
+        {inquiry.answer.map((answer) => {
+          return <div key={answer.id}>{answer.answer}</div>;
+        })}
+      </div>
     </Modal>
   );
 };

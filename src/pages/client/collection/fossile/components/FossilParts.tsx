@@ -1,10 +1,11 @@
 import { LangEnum } from "@src/common/util/lang/enum";
 import { FossilDetailType } from "../types";
 import { useTranslation } from "react-i18next";
-import { FossilPartsBox, FossilPartCard, FossilGroupBox } from "../styled";
+import { FossilPartCard, FossilGroupBox } from "../styled";
 import TradingButton from "@src/common/components/tradingButton/TradingButton";
 import { useState } from "react";
 import FossilModal from "./FossilModal";
+import { FlexBox } from "@src/common/styled";
 
 const FossilParts = ({
   group,
@@ -24,7 +25,7 @@ const FossilParts = ({
         <h3>
           {t(`${LangEnum.fossil}.group.${group}`)}, {fossils.length}개
         </h3>
-        <FossilPartsBox>
+        <FlexBox gap="10px">
           {fossils &&
             fossils.map((fossil) => (
               <FossilPartCard
@@ -47,7 +48,7 @@ const FossilParts = ({
                 </div>
               </FossilPartCard>
             ))}
-        </FossilPartsBox>
+        </FlexBox>
       </FossilGroupBox>
 
       {selectedFossil && (

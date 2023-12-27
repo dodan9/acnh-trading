@@ -1,8 +1,6 @@
 import { ColorType } from "@src/assets/enum";
-import {
-  ColorChip,
-  ColorChipListBox,
-} from "@src/common/components/colorChip/styled";
+import { ColorChip } from "@src/common/components/colorChip/styled";
+import { FlexBox } from "@src/common/styled";
 
 const ColorFilter = ({
   selectedColor,
@@ -12,7 +10,7 @@ const ColorFilter = ({
   onChange: (color: ColorType) => void;
 }) => {
   return (
-    <ColorChipListBox>
+    <FlexBox gap="10px">
       {Object.values(ColorType).map((colorValue) => {
         const isSelected = selectedColor?.includes(colorValue);
         return (
@@ -29,7 +27,7 @@ const ColorFilter = ({
           </ColorChip>
         );
       })}
-    </ColorChipListBox>
+    </FlexBox>
   );
 };
 

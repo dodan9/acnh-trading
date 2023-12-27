@@ -21,27 +21,27 @@ export const useFurnitureList = () => {
         const { housewares_data } = await import(
           `@src/assets/furniture/housewares.ts`
         );
-        furniture_data = housewares_data;
+        furniture_data = housewares_data as FurnitureDetailType[];
         break;
 
       case FurnitureCategory.WallMounted:
         const { wall_mounted_data } = await import(
           `@src/assets/furniture/wall-mounted.ts`
         );
-        furniture_data = wall_mounted_data;
+        furniture_data = wall_mounted_data as FurnitureDetailType[];
         break;
 
       case FurnitureCategory.Miscellaneous:
         const { miscellaneous_data } = await import(
           `@src/assets/furniture/miscellaneaous.ts`
         );
-        furniture_data = miscellaneous_data;
+        furniture_data = miscellaneous_data as FurnitureDetailType[];
         break;
       case FurnitureCategory.CeilingDecor:
         const { ceiling_decor_data } = await import(
           `@src/assets/furniture/ceiling-decor.ts`
         );
-        furniture_data = ceiling_decor_data;
+        furniture_data = ceiling_decor_data as unknown as FurnitureDetailType[];
         break;
     }
 
