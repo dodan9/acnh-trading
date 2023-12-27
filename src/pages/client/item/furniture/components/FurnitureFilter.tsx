@@ -5,7 +5,7 @@ import {
   useFurnitureKeyword,
 } from "../store/furnitureFilter";
 import { FurnitureCategory } from "../types";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
 import ColorFilter from "@src/common/components/filter/colorFilter/ColorFilter";
 
@@ -19,7 +19,7 @@ const FurnitureFilter = () => {
     setKeyword(event.target.value);
   };
 
-  const handleColorChange = (color: ColorEnum) => {
+  const handleColorChange = (color: ColorType) => {
     setColor(color);
   };
 

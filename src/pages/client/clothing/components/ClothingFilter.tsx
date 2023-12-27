@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import { LangEnum } from "@src/common/util/lang/enum";
 import { t } from "i18next";
 import { ClothingStyle, ClothingCategory, ClothingLabelTheme } from "../types";
@@ -34,7 +34,7 @@ const ClothingFilter = () => {
     setLabelTheme(event.target.value as ClothingLabelTheme);
   };
 
-  const handleColorChange = (color: ColorEnum) => {
+  const handleColorChange = (color: ColorType) => {
     setColor(color);
   };
 

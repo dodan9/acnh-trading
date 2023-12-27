@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { InteriorItemFilterType } from "../types";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 
 interface State {
   keyword: string;
@@ -10,7 +10,7 @@ interface State {
 interface Action {
   actions: {
     setKeyword: (keyword: string) => void;
-    setColor: (color: ColorEnum) => void;
+    setColor: (color: ColorType) => void;
   };
 }
 

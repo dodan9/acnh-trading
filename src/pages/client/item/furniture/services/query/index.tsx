@@ -7,7 +7,7 @@ import {
 import { getFurnitureDetailApi, getFurnitureListApi } from "../api";
 import { query_key } from "@src/common/services/query/query_key";
 import { useFurnitureFilter } from "../../store/furnitureFilter";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 
 export const useFurnitureList = () => {
   const filter = useFurnitureFilter();
@@ -49,7 +49,7 @@ export const useFurnitureList = () => {
       furniture_data = furniture_data.filter((furniture) => {
         return furniture.variations.some((variation) =>
           variation.colors.some((color) =>
-            filter.color?.includes(color as ColorEnum)
+            filter.color?.includes(color as ColorType)
           )
         );
       });

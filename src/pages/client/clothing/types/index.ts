@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 
 export enum ClothingCategory {
   Tops = "Tops",
@@ -37,7 +37,7 @@ export enum ClothingLabelTheme {
 
 export interface ClothingFilterType {
   category?: ClothingCategory;
-  color?: ColorEnum[];
+  color?: ColorType[];
   style?: ClothingStyle[];
   labeltheme?: ClothingLabelTheme;
   excludedetails?: boolean; // 상세 정보 제외(이름만 반환)
@@ -61,6 +61,6 @@ export interface ClothingDetailType {
   variations: {
     variation: string;
     image_url: string;
-    colors: [ColorEnum, ColorEnum?];
+    colors: [ColorType, ColorType?];
   }[];
 }

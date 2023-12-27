@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import {
   useInteriorItemFilter,
   useInteriorItemFilterAction,
@@ -16,7 +16,7 @@ const InteriorItemFilter = () => {
   const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
     setKeyword(event.target.value);
   };
-  const handleColorChange = (color: ColorEnum) => {
+  const handleColorChange = (color: ColorType) => {
     setColor(color);
   };
 

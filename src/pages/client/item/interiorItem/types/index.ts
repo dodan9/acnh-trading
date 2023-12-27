@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import { InteriorBaseType } from "../../types";
 
 export enum InteriorItemCategoryEnum {
@@ -8,11 +8,11 @@ export enum InteriorItemCategoryEnum {
 }
 
 export interface InteriorItemFilterType {
-  color?: ColorEnum[];
+  color?: ColorType[];
   excludedetails?: boolean;
 }
 
 export interface InteriorItemDetailType extends InteriorBaseType {
   image_url: string;
-  colors: ColorEnum;
+  colors: ColorType;
 }

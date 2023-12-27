@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import {
   ColorChip,
   ColorChipListBox,
@@ -8,12 +8,12 @@ const ColorFilter = ({
   selectedColor,
   onChange,
 }: {
-  selectedColor?: ColorEnum[];
-  onChange: (color: ColorEnum) => void;
+  selectedColor?: ColorType[];
+  onChange: (color: ColorType) => void;
 }) => {
   return (
     <ColorChipListBox>
-      {Object.values(ColorEnum).map((colorValue) => {
+      {Object.values(ColorType).map((colorValue) => {
         const isSelected = selectedColor?.includes(colorValue);
         return (
           <ColorChip

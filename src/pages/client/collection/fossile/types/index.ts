@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 
 export interface FossilDetailType {
   name: string;
@@ -10,7 +10,7 @@ export interface FossilDetailType {
   hha_base: number; // 해피홈 점수
   width: number;
   length: number;
-  colors: ColorEnum[];
+  colors: ColorType[];
 }
 
 export interface FossilGroupType {

@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import { ClothingStyle } from "@src/pages/client/clothing/types";
 
 export enum VillagerSpecies {
@@ -103,7 +103,7 @@ export interface NewHorizonsVillagerType {
   clothing: string; // 기본 옷
   clothing_variation: string; // 기본 옷 종류?
   fav_styles: ClothingStyle[]; // 좋아하는 옷 종류
-  fav_colors: ColorEnum[]; // 좋아하는 색
+  fav_colors: ColorType[]; // 좋아하는 색
   hobby: VillagerHobby;
   house_interior_url: string; // 집 인테리어
   house_exterior_url: string; // 집 외관

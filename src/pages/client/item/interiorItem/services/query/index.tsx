@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { query_key } from "@src/common/services/query/query_key";
 import { getInteriorItemDetailApi, getInteriorItemListApi } from "../api";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import { useInteriorItemFilter } from "../../store/interiorItemFilter";
 
 export const useInteriorItemList = () => {
@@ -24,7 +24,7 @@ export const useInteriorItemDetail = ({
   thumbsize,
 }: {
   name?: string;
-  color?: ColorEnum;
+  color?: ColorType;
   thumbsize?: number;
 }) => {
   const getInteriorItemDetail = async () => {

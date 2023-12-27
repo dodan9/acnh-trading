@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import {
   ClothingCategory,
   ClothingFilterType,
@@ -16,7 +16,7 @@ interface Action {
   actions: {
     setKeyword: (keyword: string) => void;
     setCategory: (category: ClothingCategory) => void;
-    setColor: (color: ColorEnum) => void;
+    setColor: (color: ColorType) => void;
     setStyle: (style: ClothingStyle) => void;
     setLabelTheme: (label: ClothingLabelTheme) => void;
     clearFilter: () => void;

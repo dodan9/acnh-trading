@@ -1,6 +1,6 @@
 import { nookRequest } from "@src/common/services/api";
 import { InteriorItemDetailType, InteriorItemFilterType } from "../../types";
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 
 export const getInteriorItemListApi = (filter?: InteriorItemFilterType) => {
   return nookRequest<InteriorItemDetailType[]>({
@@ -16,7 +16,7 @@ export const getInteriorItemDetailApi = ({
   thumbsize,
 }: {
   name: string;
-  color?: ColorEnum;
+  color?: ColorType;
   thumbsize?: number;
 }) => {
   return nookRequest<InteriorItemDetailType>({

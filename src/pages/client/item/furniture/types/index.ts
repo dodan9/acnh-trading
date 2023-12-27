@@ -1,4 +1,4 @@
-import { ColorEnum } from "@src/assets/enum";
+import { ColorType } from "@src/assets/enum";
 import { InteriorBaseType } from "../../types";
 
 export enum FurnitureCategory {
@@ -10,7 +10,7 @@ export enum FurnitureCategory {
 
 export interface FurnitureFilterType {
   category?: FurnitureCategory;
-  color?: ColorEnum[];
+  color?: ColorType[];
   excludedetails?: boolean;
 }
 
