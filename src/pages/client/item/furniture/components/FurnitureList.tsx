@@ -44,7 +44,11 @@ const FurnitureList = () => {
                       image_url: furniture.variations[0].image_url,
                       amount: 1,
                     }}
-                    onVariantClick={() => setSelectedFurniture(furniture)}
+                    onVariantClick={
+                      furniture.variations.length > 1
+                        ? () => setSelectedFurniture(furniture)
+                        : undefined
+                    }
                   />
                 );
             })}

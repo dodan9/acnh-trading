@@ -8,8 +8,14 @@ export interface ItemProps {
   item: TradingItemType;
   ko_name: string;
   onVariantClick?: () => void;
+  variantCount?: number;
 }
-export const ItemCard = ({ item, ko_name, onVariantClick }: ItemProps) => {
+export const ItemCard = ({
+  item,
+  ko_name,
+  onVariantClick,
+  variantCount,
+}: ItemProps) => {
   const navigate = useNavigate();
 
   return (
@@ -24,9 +30,7 @@ export const ItemCard = ({ item, ko_name, onVariantClick }: ItemProps) => {
       </ItemImageBox>
       <div>{ko_name}</div>
       {onVariantClick && (
-        <div onClick={onVariantClick}>
-          {`{`}팔레트 아이콘{`}`}
-        </div>
+        <div onClick={onVariantClick}>{`${variantCount} (팔레트 아이콘)`}</div>
       )}
       <div>
         <TradingButton

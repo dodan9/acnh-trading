@@ -30,6 +30,11 @@ const ToolsList = () => {
                 image_url: tool.variations[0].image_url,
                 amount: 1,
               }}
+              onVariantClick={
+                tool.variations.length > 1
+                  ? () => setSelectedTool(tool)
+                  : undefined
+              }
             />
           );
         })}
