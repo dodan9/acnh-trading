@@ -1,4 +1,4 @@
-import { mainRoutes } from "@src/pages/client/routes/mainRoute";
+import { mainRoutes } from "@src/features/client/routes/mainRoute";
 import { Container } from "@src/common/styled";
 import ClientNav from "./nav/pages";
 

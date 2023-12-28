@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import villagerRoutes from "@src/pages/client/villagers/routes";
-import { clotingRoutes } from "@src/pages/client/clothing/routes";
-import { eventRoutes } from "@src/pages/client/event/routes";
-import { generatorRoutes } from "@src/pages/client/generator/routes";
-import { inquiryRoutes } from "@src/pages/client/inquiry/routes";
+import villagerRoutes from "@src/features/client/villagers/routes";
+import { clotingRoutes } from "@src/features/client/clothing/routes";
+import { eventRoutes } from "@src/features/client/event/routes";
+import { generatorRoutes } from "@src/features/client/generator/routes";
+import { inquiryRoutes } from "@src/features/client/inquiry/routes";
 
-import Main from "@src/pages/client/main/Main";
+import Main from "@src/features/client/main/Main";
 import { lazy } from "react";
 import MyIsland from "../myIsland/pages";
 const CollectionRoutes = lazy(() => import("../collection"));

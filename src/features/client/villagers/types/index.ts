@@ -1,5 +1,5 @@
 import { ColorType } from "@src/assets/enum";
-import { ClothingStyle } from "@src/pages/client/clothing/types";
+import { ClothingStyle } from "@src/features/client/clothing/types";
 
 export enum VillagerSpecies {
   Alligator = "Alligator",
