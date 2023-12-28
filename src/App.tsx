@@ -7,8 +7,8 @@ import { lazy } from "react";
 import { Global } from "@emotion/react";
 import { globalStyle } from "./common/styled/globalStyled";
 import ScrollToTop from "./common/util/ScrollToTop";
-const Console = lazy(() => import("@src/pages/console/pages"));
-const Client = lazy(() => import("@src/pages/client"));
+const Console = lazy(() => import("@src/features/console/pages"));
+const Client = lazy(() => import("@src/features/client"));
 
 function App() {
   const queryClient = new QueryClient({
