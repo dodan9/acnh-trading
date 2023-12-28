@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useMiscellaneousList } from "../services/query";
-import { LangEnum } from "@src/common/util/lang/enum";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
-import { ItemCard } from "@src/common/components/itemCard/ItemCard";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
+import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
 import { useMiscellaneousKeyword } from "../store/miscellaneousFilter";
 import { MiscellaneousDetailType } from "../types";
-import ItemList from "@src/common/components/itemCard/ItemList";
+import ItemList from "@src/commons/components/itemCard/ItemList";
 
 const MiscellaneousList = () => {
   const keyword = useMiscellaneousKeyword();

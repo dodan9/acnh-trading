@@ -1,6 +1,6 @@
 import { ColorType } from "@src/assets/enum";
-import { ColorChip } from "@src/common/components/colorChip/styled";
-import { FlexBox } from "@src/common/styled";
+import { ColorChip } from "@src/commons/components/colorChip/styled";
+import { FlexBox } from "@src/commons/styled";
 
 const ColorFilter = ({
   selectedColor,

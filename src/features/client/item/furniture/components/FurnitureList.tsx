@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useFurnitureList } from "../services/query";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useFurnitureKeyword } from "../store/furnitureFilter";
-import { ItemCard } from "@src/common/components/itemCard/ItemCard";
-import { ItemCardListBox } from "@src/common/components/itemCard/styled";
-import VariantsModal from "@src/common/components/modal/VariantsModal";
+import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/commons/components/itemCard/styled";
+import VariantsModal from "@src/commons/components/modal/VariantsModal";
 import { useState } from "react";
 import { FurnitureDetailType } from "../types";
 

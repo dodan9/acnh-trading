@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ToolDetailType } from "../types";
 import { useToolListQuery } from "../services/query";
 import { useTranslation } from "react-i18next";
-import { ItemCard } from "@src/common/components/itemCard/ItemCard";
-import { LangEnum } from "@src/common/util/lang/enum";
-import VariantsModal from "@src/common/components/modal/VariantsModal";
+import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import VariantsModal from "@src/commons/components/modal/VariantsModal";
 
 const ToolsList = () => {
   const { data: tool_list } = useToolListQuery();

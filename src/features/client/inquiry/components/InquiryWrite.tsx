@@ -1,8 +1,8 @@
-import { supabase } from "@src/common/services/supabase";
+import { supabase } from "@src/commons/services/supabase";
 import { ChangeEvent, useState } from "react";
 import { NewInquiryType } from "../types";
 import { useQueryClient } from "@tanstack/react-query";
-import { query_key } from "@src/common/services/query/query_key";
+import { query_key } from "@src/commons/services/query/query_key";
 import { InquiryWriteSection } from "../styled";
 
 export const InquiryWrite = () => {

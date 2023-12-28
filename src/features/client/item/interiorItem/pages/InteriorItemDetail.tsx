@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useInteriorItemDetail } from "../services/query";
 import { useTranslation } from "react-i18next";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 
 const InteriorItemDetail = () => {
   const { name } = useParams();

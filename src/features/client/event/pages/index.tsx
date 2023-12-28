@@ -1,9 +1,9 @@
-import { Wrapper } from "@src/common/styled";
+import { Wrapper } from "@src/commons/styled";
 // import axios from "axios";
 // import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useEventList } from "../services/query";
-import { LangEnum } from "@src/common/util/lang/enum";
+import { LangEnum } from "@src/commons/util/lang/enum";
 import axios from "axios";
 import { useEffect } from "react";
 

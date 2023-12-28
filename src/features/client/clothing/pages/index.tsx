@@ -1,4 +1,4 @@
-import { Wrapper } from "@src/common/styled";
+import { Wrapper } from "@src/commons/styled";
 
 import ClothingFilter from "../components/ClothingFilter";
 import ClothingList from "../components/ClothingList";

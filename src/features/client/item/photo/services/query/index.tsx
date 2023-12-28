@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPhotoDetailApi, getPhotoListApi } from "../api";
-import { query_key } from "@src/common/services/query/query_key";
+import { query_key } from "@src/commons/services/query/query_key";
 
 export const usePhotoList = (excludedetails?: boolean) => {
   const getPhotoList = async () => {

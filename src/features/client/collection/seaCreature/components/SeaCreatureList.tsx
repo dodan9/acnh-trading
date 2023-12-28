@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/common/util/lang/enum";
-import { ItemCard } from "@src/common/components/itemCard/ItemCard";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
-import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import { ItemCardListBox } from "@src/commons/components/itemCard/styled";
 import { useSeaCreatureList } from "../services/query";
 import { SeaCreatureDetailType } from "../types";
 

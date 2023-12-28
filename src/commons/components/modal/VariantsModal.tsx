@@ -1,7 +1,7 @@
 import { ColorType } from "@src/assets/enum";
-import { Modal } from "@src/common/components/modal/Modal";
-import TradingButton from "@src/common/components/tradingButton/TradingButton";
-import { FlexBox } from "@src/common/styled";
+import { Modal } from "@src/commons/components/modal/Modal";
+import TradingButton from "@src/commons/components/tradingButton/TradingButton";
+import { FlexBox } from "@src/commons/styled";
 
 const VariantsModal = ({
   onClose,

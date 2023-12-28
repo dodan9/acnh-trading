@@ -1,14 +1,14 @@
-import { Title, Wrapper } from "@src/common/styled";
+import { Title, Wrapper } from "@src/commons/styled";
 import { useParams } from "react-router";
 import { useClothingDetail } from "../services/query";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/common/util/lang/enum";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
-import TradingButton from "@src/common/components/tradingButton/TradingButton";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
+import TradingButton from "@src/commons/components/tradingButton/TradingButton";
 import { useEffect, useState } from "react";
 import Variation, {
   VariationList,
-} from "@src/common/components/variation/Variation";
+} from "@src/commons/components/variation/Variation";
 
 const ClothingDetail = () => {
   const { name } = useParams();

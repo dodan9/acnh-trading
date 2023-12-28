@@ -1,9 +1,9 @@
-import { Wrapper } from "@src/common/styled";
+import { Wrapper } from "@src/commons/styled";
 import DownloadedSection from "../components/DownloadedSection";
 import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
-import { Modal } from "@src/common/components/modal/Modal";
+import { Modal } from "@src/commons/components/modal/Modal";
 
 const GeneratorMain = () => {
   const targetRef = useRef<HTMLDivElement>(null);

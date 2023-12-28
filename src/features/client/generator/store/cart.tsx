@@ -1,4 +1,4 @@
-import { sortByKr } from "@src/common/util/sortByKr";
+import { sortByKr } from "@src/commons/util/sortByKr";
 import filter from "lodash/filter";
 import sortBy from "lodash/sortBy";
 import { useTranslation } from "react-i18next";

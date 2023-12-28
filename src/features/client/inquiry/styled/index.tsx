@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { passportColor } from "@src/common/styled/color";
+import { passportColor } from "@src/commons/styled/color";
 
 export const InquiryContainer = styled.div`
   max-width: 600px;

@@ -1,4 +1,4 @@
-import { getSession } from "@src/common/services/supabase/auth";
+import { getSession } from "@src/commons/services/supabase/auth";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";

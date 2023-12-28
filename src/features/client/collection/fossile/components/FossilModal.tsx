@@ -1,9 +1,9 @@
-import { Modal } from "@src/common/components/modal/Modal";
+import { Modal } from "@src/commons/components/modal/Modal";
 import { FossilDetailType } from "../types";
-import { LangEnum } from "@src/common/util/lang/enum";
+import { LangEnum } from "@src/commons/util/lang/enum";
 import { useTranslation } from "react-i18next";
 import { FossilPartCard } from "../styled";
-import TradingButton from "@src/common/components/tradingButton/TradingButton";
+import TradingButton from "@src/commons/components/tradingButton/TradingButton";
 
 const FossilModal = ({
   onClose,

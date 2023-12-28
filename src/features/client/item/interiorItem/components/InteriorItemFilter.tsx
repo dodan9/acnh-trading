@@ -5,8 +5,8 @@ import {
   useInteriorItemKeyword,
 } from "../store/interiorItemFilter";
 import { ChangeEvent } from "react";
-import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
-import ColorFilter from "@src/common/components/filter/colorFilter/ColorFilter";
+import SearchFilter from "@src/commons/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/commons/components/filter/colorFilter/ColorFilter";
 
 const InteriorItemFilter = () => {
   const keyword = useInteriorItemKeyword();

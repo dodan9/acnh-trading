@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router";
 import { useFishDetail } from "../services/query";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/common/util/lang/enum";
+import { LangEnum } from "@src/commons/util/lang/enum";
 
 const FishDetail = () => {
   const { name } = useParams();

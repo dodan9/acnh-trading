@@ -1,4 +1,4 @@
-import { Wrapper } from "@src/common/styled";
+import { Wrapper } from "@src/commons/styled";
 import { collectionRoute } from "./route";
 
 const CollectionRoutes = () => {

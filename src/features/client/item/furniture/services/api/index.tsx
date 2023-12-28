@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/common/services/api";
+import { nookRequest } from "@src/commons/services/api";
 import { FurnitureDetailType, FurnitureFilterType } from "../../types";
 
 export const getFurnitureListApi = (filter?: FurnitureFilterType) => {

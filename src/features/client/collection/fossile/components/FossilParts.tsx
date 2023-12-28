@@ -1,11 +1,11 @@
-import { LangEnum } from "@src/common/util/lang/enum";
+import { LangEnum } from "@src/commons/util/lang/enum";
 import { FossilDetailType } from "../types";
 import { useTranslation } from "react-i18next";
 import { FossilPartCard, FossilGroupBox } from "../styled";
-import TradingButton from "@src/common/components/tradingButton/TradingButton";
+import TradingButton from "@src/commons/components/tradingButton/TradingButton";
 import { useState } from "react";
 import FossilModal from "./FossilModal";
-import { FlexBox } from "@src/common/styled";
+import { FlexBox } from "@src/commons/styled";
 
 const FossilParts = ({
   group,

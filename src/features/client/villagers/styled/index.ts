@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { device } from "@src/common/styled";
+import { device } from "@src/commons/styled";
 
 export const OptionBox = styled.div`
   padding: 20px 0;

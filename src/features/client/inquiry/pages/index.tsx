@@ -1,6 +1,6 @@
 import { InquiryView } from "../components/InquiryView";
 import { InquiryWrite } from "../components/InquiryWrite";
-import { Wrapper } from "@src/common/styled";
+import { Wrapper } from "@src/commons/styled";
 import { InquiryContainer } from "../styled";
 
 const InquiryMain = () => {
