@@ -1,4 +1,4 @@
-import { Title, Wrapper } from "@src/common/styled";
+import { Title, Wrapper } from "@src/commons/styled";
 import VillagerFilter from "../components/VillagerFilter";
 import VillagerList from "../components/VillagerList";
 

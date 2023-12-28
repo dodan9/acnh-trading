@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { device } from "@src/common/styled";
-import { passportColor } from "@src/common/styled/color";
+import { device } from "@src/commons/styled";
+import { passportColor } from "@src/commons/styled/color";
 
 export const MenuBox = styled.div`
   max-width: 120px;

@@ -1,4 +1,4 @@
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useConsoleInquiryList } from "../services/query";
 import { useState } from "react";
 import AnswerWriteModal from "./AnswerWriteModal";

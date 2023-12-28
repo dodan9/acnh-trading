@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import { useRecipeDetail } from "../services/query";
 import { useTranslation } from "react-i18next";
-import { LangEnum } from "@src/common/util/lang/enum";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 
 const RecipeDetail = () => {
   const { name } = useParams();

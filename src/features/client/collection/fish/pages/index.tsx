@@ -1,4 +1,4 @@
-import { Title } from "@src/common/styled";
+import { Title } from "@src/commons/styled";
 import FishFilter from "../components/FishFilter";
 import FishList from "../components/FishList";
 

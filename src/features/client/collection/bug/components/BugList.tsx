@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useBugList } from "../services/query";
-import { LangEnum } from "@src/common/util/lang/enum";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/commons/util/lang/enum";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
 import { BugDetailType } from "../types";
-import { ItemCard } from "@src/common/components/itemCard/ItemCard";
-import { ItemCardListBox } from "@src/common/components/itemCard/styled";
+import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
+import { ItemCardListBox } from "@src/commons/components/itemCard/styled";
 
 const BugList = () => {
   const { data: bug_list, isFetching } = useBugList();

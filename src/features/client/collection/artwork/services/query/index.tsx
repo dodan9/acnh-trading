@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ArtworkFilterType } from "../../types";
 import { getArtworkDetailApi, getArtworkListApi } from "../api";
-import { query_key } from "@src/common/services/query/query_key";
+import { query_key } from "@src/commons/services/query/query_key";
 
 export const useArtworkList = (filter?: ArtworkFilterType) => {
   const getArtworkList = async () => {

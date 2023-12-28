@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import {
   useListOption,
   useListOptionActions,
-} from "@src/common/store/listOptionStore";
+} from "@src/commons/store/listOptionStore";
 
 const ListOptionFilter = () => {
   const isList = useListOption();

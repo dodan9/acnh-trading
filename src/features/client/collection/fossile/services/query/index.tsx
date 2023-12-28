@@ -7,7 +7,7 @@ import {
   getFossilGroupListApi,
   getFossilListApi,
 } from "../api";
-import { query_key } from "@src/common/services/query/query_key";
+import { query_key } from "@src/commons/services/query/query_key";
 
 export const useFossilList = (thumbsize?: number) => {
   const getFossilList = async () => {

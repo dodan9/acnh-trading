@@ -1,4 +1,4 @@
-import { Title } from "@src/common/styled";
+import { Title } from "@src/commons/styled";
 import MiscellaneousFilter from "../components/MiscellaneousFilter";
 import MiscellaneousList from "../components/MiscellaneousList";
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { device } from "@src/common/styled";
-import { passportColor } from "@src/common/styled/color";
+import { device } from "@src/commons/styled";
+import { passportColor } from "@src/commons/styled/color";
 
 export const PassportBack = styled.div`
   background-color: ${passportColor.background};

@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/common/services/api";
+import { nookRequest } from "@src/commons/services/api";
 import { ClothingDetailType, ClothingFilterType } from "../../types";
 
 export const getClothingListApi = (filter?: ClothingFilterType) => {

@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "@src/common/util/lang/i18next";
+import "@src/commons/util/lang/i18next";
 import { Suspense } from "react";
-import LoadingSpinner from "./common/components/loading/LoadingSpinner";
+import LoadingSpinner from "./commons/components/loading/LoadingSpinner";
 import { lazy } from "react";
 import { Global } from "@emotion/react";
-import { globalStyle } from "./common/styled/globalStyled";
-import ScrollToTop from "./common/util/ScrollToTop";
+import { globalStyle } from "./commons/styled/globalStyled";
+import ScrollToTop from "./commons/util/ScrollToTop";
 const Console = lazy(() => import("@src/features/console/pages"));
 const Client = lazy(() => import("@src/features/client"));
 

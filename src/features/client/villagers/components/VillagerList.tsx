@@ -3,8 +3,8 @@ import { VillagerCard, VillagerListBox } from "../styled";
 import { useVillagerKeyword } from "../store/keyword";
 import { useNavigate } from "react-router";
 import { useVillagerListQuery } from "../services/query";
-import LoadingSpinner from "@src/common/components/loading/LoadingSpinner";
-import { LangEnum } from "@src/common/util/lang/enum";
+import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
+import { LangEnum } from "@src/commons/util/lang/enum";
 
 const VillagerList = () => {
   const { t } = useTranslation();

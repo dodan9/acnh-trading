@@ -1,4 +1,4 @@
-import { imgRequest } from "@src/common/services/api";
+import { imgRequest } from "@src/commons/services/api";
 import { memo, useEffect } from "react";
 
 export const ItemImage = memo(

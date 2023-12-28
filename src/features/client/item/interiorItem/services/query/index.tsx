@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { query_key } from "@src/common/services/query/query_key";
+import { query_key } from "@src/commons/services/query/query_key";
 import { getInteriorItemDetailApi, getInteriorItemListApi } from "../api";
 import { ColorType } from "@src/assets/enum";
 import { useInteriorItemFilter } from "../../store/interiorItemFilter";

@@ -1,5 +1,5 @@
 import { ColorType } from "@src/assets/enum";
-import { LangEnum } from "@src/common/util/lang/enum";
+import { LangEnum } from "@src/commons/util/lang/enum";
 import { t } from "i18next";
 import { ClothingStyle, ClothingCategory, ClothingLabelTheme } from "../types";
 import {
@@ -8,8 +8,8 @@ import {
   useClothingKeyword,
 } from "../store/clothingFilter";
 import { ChangeEvent } from "react";
-import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
-import ColorFilter from "@src/common/components/filter/colorFilter/ColorFilter";
+import SearchFilter from "@src/commons/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/commons/components/filter/colorFilter/ColorFilter";
 
 const ClothingFilter = () => {
   const keyword = useClothingKeyword();

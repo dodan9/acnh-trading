@@ -1,4 +1,4 @@
-import { nookRequest } from "@src/common/services/api";
+import { nookRequest } from "@src/commons/services/api";
 import { PhotoDetailType } from "../../types";
 
 export const getPhotoListApi = (excludedetails?: boolean) => {

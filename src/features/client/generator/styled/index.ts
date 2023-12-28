@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import { device } from "@src/common/styled";
+import { device } from "@src/commons/styled";
 import {
   backgroundColor,
   passportColor,
   textColor,
-} from "@src/common/styled/color";
+} from "@src/commons/styled/color";
 
 export const SectionHeader = styled.div`
   width: 100%;

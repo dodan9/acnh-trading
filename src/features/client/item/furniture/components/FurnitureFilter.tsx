@@ -6,8 +6,8 @@ import {
 } from "../store/furnitureFilter";
 import { FurnitureCategory } from "../types";
 import { ColorType } from "@src/assets/enum";
-import SearchFilter from "@src/common/components/filter/searchFilter/SearchFilter";
-import ColorFilter from "@src/common/components/filter/colorFilter/ColorFilter";
+import SearchFilter from "@src/commons/components/filter/searchFilter/SearchFilter";
+import ColorFilter from "@src/commons/components/filter/colorFilter/ColorFilter";
 
 const FurnitureFilter = () => {
   const keyword = useFurnitureKeyword();
