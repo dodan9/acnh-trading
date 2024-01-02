@@ -10,6 +10,8 @@ const InquiryMain = () => {
         <InquiryView />
         <InquiryWrite />
       </InquiryContainer>
+
+      <div>* 작성된 내용은 모두에게 공개됩니다.</div>
     </Wrapper>
   );
 };

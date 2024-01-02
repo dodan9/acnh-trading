@@ -1,6 +1,7 @@
 import { imgRequest } from "@src/commons/services/api";
 import { memo, useEffect } from "react";
 
+// dom에서 직접 getElement를 하지 말고 useRef를 사용하는 방향으로 수정 요망
 export const ItemImage = memo(
   ({ name, image_url }: { name: string; image_url: string }) => {
     const handleLoad = async (image_url: string, name: string) => {
@@ -9,10 +10,6 @@ export const ItemImage = memo(
       try {
         const response = await imgRequest({
           url: image_url,
-          headers: {
-            "Content-Type": "image/png",
-          },
-          responseType: "blob",
         });
         const blob = response.data;
 

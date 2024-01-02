@@ -49,6 +49,7 @@ const FurnitureList = () => {
                         ? () => setSelectedFurniture(furniture)
                         : undefined
                     }
+                    variantCount={furniture.variation_total}
                   />
                 );
             })}
