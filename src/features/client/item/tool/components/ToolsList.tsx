@@ -35,6 +35,7 @@ const ToolsList = () => {
                   ? () => setSelectedTool(tool)
                   : undefined
               }
+              variantCount={tool.variations.length}
             />
           );
         })}
