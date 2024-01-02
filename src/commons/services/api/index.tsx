@@ -27,6 +27,10 @@ nookRequest.interceptors.response.use(
 
 export const imgRequest = axios.create({
   baseURL: "/img",
+  headers: {
+    "Content-Type": "image/png",
+  },
+  responseType: "blob",
 });
 imgRequest.interceptors.request.use((config) => {
   return { ...config, url: config.url?.replace(/^https:\/\/dodo\.ac/, "") };
