@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { signOut } from "@src/commons/services/supabase/auth";
-import { useConsoleGuard } from "@src/features/console/auth/guard";
+import { useConsoleGuard } from "@src/features/console/auth/guard";
 import { ConsoleNavBox } from "./style";
 
 const ConsoleNav = () => {

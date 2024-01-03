@@ -3,7 +3,7 @@ import { useFishList } from "../services/query";
 import { LangEnum } from "@src/commons/util/lang/enum";
 import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
 import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
-import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
+import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
 import { FishDetailType } from "../types";
 import { ItemCardListBox } from "@src/commons/components/itemCard/styled";
 
