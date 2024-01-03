@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useBugList } from "../services/query";
 import { LangEnum } from "@src/commons/util/lang/enum";
 import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
-import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
+import { useIslandInfo } from "@src/features/client/myIsland/store/setting";
 import { BugDetailType } from "../types";
 import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
 import { ItemCardListBox } from "@src/commons/components/itemCard/styled";

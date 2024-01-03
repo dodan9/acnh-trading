@@ -30,7 +30,7 @@ export const ItemCard = ({
       </ItemImageBox>
       <div>{ko_name}</div>
       {onVariantClick && (
-        <div onClick={onVariantClick}>{`${variantCount} (팔레트 아이콘)`}</div>
+        <div onClick={onVariantClick}>{`${variantCount} ()`}</div>
       )}
       <div>
         <TradingButton

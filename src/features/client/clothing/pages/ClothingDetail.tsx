@@ -62,6 +62,18 @@ const ClothingDetail = () => {
       </VariationList>
 
       <div>
+        {clothing.buy.map((buy) => {
+          return (
+            <div key={`${buy.price}.${buy.currency}`}>
+              <div>
+                {buy.price} {t(`${LangEnum.currency}.${buy.currency}`)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div>
         <TradingButton
           name={clothing.name}
           type={`${LangEnum.clothing}.${clothing.category}`}
