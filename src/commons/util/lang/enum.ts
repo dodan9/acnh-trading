@@ -28,4 +28,5 @@ export enum LangEnum {
   recipe = "recipe",
   tools = "tools",
   material = "material",
+  currency = "currency",
 }
