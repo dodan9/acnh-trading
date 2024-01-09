@@ -6,7 +6,7 @@ export const ItemCardListBox = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 10px 0;
-  gap: 20px;
+  gap: 15px;
   font-size: 0.8rem;
 
   & > div {
@@ -14,7 +14,7 @@ export const ItemCardListBox = styled.div`
   }
 
   @media ${device.small} {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   @media ${device.medium} {
@@ -34,7 +34,7 @@ export const ItemListupBox = styled.div`
   flex-direction: column;
   gap: 10px;
   & img {
-    width: 40px;
+    width: 40px !important;
   }
 
   & > div {

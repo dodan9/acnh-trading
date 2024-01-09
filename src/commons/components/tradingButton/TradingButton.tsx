@@ -1,7 +1,7 @@
 import {
   useAddItem,
   useCartLastIndex,
-} from "@src/features/client/generator/store/cart";
+} from "@src/features/client/generator/store/cart";
 import { MouseEvent, memo } from "react";
 
 export interface TradingItemType {
