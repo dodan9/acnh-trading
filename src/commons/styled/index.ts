@@ -61,12 +61,14 @@ export const FlexBox = styled.div<{
     | "flex-end";
   alignItems?: "center" | "flex-start" | "flex-end" | "stretch";
   gap?: string;
+  padding?: string;
 }>`
   display: flex;
   flex-wrap: wrap;
   ${({ width }) => (width ? `width: ${width}px` : "")};
   ${({ height }) => (height ? `height: ${height}px` : "")};
   ${({ gap }) => (gap ? `gap: ${gap}` : "")};
+  ${({ padding }) => (padding ? `padding: ${padding}` : "")};
   ${({ direction }) => (direction ? `flex-direction: ${direction}` : "")};
   ${({ justifyContent }) =>
     justifyContent ? `justify-content: ${justifyContent}` : ""};

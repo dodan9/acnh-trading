@@ -3,11 +3,11 @@ import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { useClothingList } from "../services/query";
 import { useTranslation } from "react-i18next";
 import { useClothingKeyword } from "../store/clothingFilter";
-import { ItemCardListBox } from "@src/commons/components/itemCard/styled";
 import { ItemCard } from "@src/commons/components/itemCard/ItemCard";
 import { useState } from "react";
 import { ClothingDetailType } from "../types";
 import VariantsModal from "@src/commons/components/modal/VariantsModal";
+import ItemList from "@src/commons/components/itemCard/ItemList";
 
 const ClothingList = () => {
   const { data: clothingList, isLoading } = useClothingList();
@@ -22,7 +22,7 @@ const ClothingList = () => {
   if (!clothingList) return <div>no data</div>;
   return (
     <>
-      <ItemCardListBox>
+      <ItemList>
         {clothingList
           .filter(
             (clothing) =>
@@ -51,7 +51,7 @@ const ClothingList = () => {
               />
             );
           })}
-      </ItemCardListBox>
+      </ItemList>
       {selectedClothing && (
         <VariantsModal
           onClose={() => setSelectedClothing(false)}

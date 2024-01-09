@@ -44,13 +44,7 @@ const FurnitureFilter = () => {
         </select>
       </div>
 
-      <div>
-        <div>색상</div>
-        <ColorFilter
-          selectedColor={filter.color}
-          onChange={handleColorChange}
-        />
-      </div>
+      <ColorFilter selectedColor={filter.color} onChange={handleColorChange} />
     </>
   );
 };

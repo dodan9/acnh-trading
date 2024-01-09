@@ -1,127 +1,46 @@
 import styled from "@emotion/styled";
 import { FlexBox } from "@src/commons/styled";
-import { backgroundColor } from "@src/commons/styled/color";
-import {
-  createFuzzyMatcher,
-  highlightText,
-} from "@src/commons/util/searchPattern";
-import { ChangeEvent, KeyboardEvent, useRef, useState } from "react";
+import { backgroundColor, passportColor } from "@src/commons/styled/color";
+import { useTranslation } from "react-i18next";
 
 const SelectFilter = ({
-  name,
-  setValue,
   options,
+  type,
+  selectedOptions,
+  onSelect,
 }: {
-  name: string;
-  setValue: (value: string) => void;
-  options: { key: string; value: string }[];
+  options: string[];
+  type: string;
+  selectedOptions?: string[];
+  onSelect: (option: string) => void;
 }) => {
-  const [keyword, setKeyword] = useState<string>("");
-  const [isOptionOpen, setIsOptionOpen] = useState<boolean>(false);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(-1);
-  const regex = createFuzzyMatcher(keyword);
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const handleChangeKeyword = (event: ChangeEvent<HTMLInputElement>) => {
-    setKeyword(event.target.value);
-    setSelectedOptionIndex(0);
-    if (event.target.value === "") {
-      setSelectedOptionIndex(-1);
-    }
-  };
-
-  const handleChangeOption = (key: string, value: string) => {
-    setValue(key);
-    setKeyword(value);
-    setIsOptionOpen(false);
-    if (inputRef.current) inputRef.current.blur();
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-      event.preventDefault();
-      const direction = event.key === "ArrowDown" ? 1 : -1;
-      const filteredOptions = options.filter((option) =>
-        regex.test(option.value)
-      );
-      const newIndex = selectedOptionIndex + direction;
-
-      if (newIndex >= 0 && newIndex < filteredOptions.length) {
-        setSelectedOptionIndex(newIndex);
-      }
-    } else if (event.key === "Enter") {
-      const filteredOptions = options.filter((option) =>
-        regex.test(option.value)
-      );
-      if (selectedOptionIndex !== -1) {
-        handleChangeOption(
-          filteredOptions[selectedOptionIndex].key,
-          filteredOptions[selectedOptionIndex].value
-        );
-      } else if (keyword === "") {
-        setValue("");
-      }
-    }
-
-    event.stopPropagation();
-  };
+  const { t } = useTranslation();
 
   return (
-    <FlexBox direction="column">
-      <div>{name}</div>
-      <SelectInput
-        ref={inputRef}
-        value={keyword}
-        onChange={handleChangeKeyword}
-        onFocus={() => setIsOptionOpen(true)}
-        onKeyDown={handleKeyDown}
-      />
+    <FlexBox gap="10px">
+      {options.map((value) => {
+        const isSelected = selectedOptions?.includes(value);
 
-      {isOptionOpen && (
-        <SelectOptionListBox>
-          {options
-            .filter((option) => {
-              return regex.test(option.value);
-            })
-            .map((option, index) => {
-              const isSelected = index === selectedOptionIndex;
-              return (
-                <SelectOption
-                  isSelected={isSelected}
-                  dangerouslySetInnerHTML={{
-                    __html: highlightText(option.value, regex, keyword),
-                  }}
-                  key={option.key}
-                  onClick={() => handleChangeOption(option.key, option.value)}
-                />
-              );
-            })}
-        </SelectOptionListBox>
-      )}
+        return (
+          <OptionItem
+            key={value}
+            isSelected={isSelected}
+            onClick={() => onSelect(value)}
+          >
+            {t(`${type}.${value}`)}
+          </OptionItem>
+        );
+      })}
     </FlexBox>
   );
 };
 
 export default SelectFilter;
 
-const SelectInput = styled.input``;
-
-const SelectOptionListBox = styled.div`
-  display: flex;
-  gap: 3px;
-  flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 10px;
-  & > div:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  max-height: 200px;
-  overflow-y: auto;
-`;
-
-const SelectOption = styled.div<{ isSelected: boolean }>`
-  ${({ isSelected }) =>
-    isSelected && `background-color: ${backgroundColor.light};`}
+const OptionItem = styled.div<{ isSelected?: boolean }>`
+  border: 2px solid
+    ${({ isSelected }) =>
+      isSelected ? backgroundColor.littleBlue : passportColor.shadow};
+  padding: 0.25rem 0.5rem;
+  border-radius: 1.5rem;
 `;

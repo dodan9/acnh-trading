@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { useRecipeFilterAction, useRecipeKeyword } from "../store/recipeFilter";
 import SearchFilter from "@src/commons/components/filter/searchFilter/SearchFilter";
 import material_ko from "@src/commons/util/lang/ko/material_ko.json";
-import SelectFilter from "@src/commons/components/filter/selectFilter/SelectFilter";
+import SearchSelectFilter from "@src/commons/components/filter/selectFilter/SearchSelectFilter";
 
 const RecipeFilter = () => {
   const keyword = useRecipeKeyword();
@@ -17,7 +17,7 @@ const RecipeFilter = () => {
     <>
       <SearchFilter value={keyword} onChange={handleChangeKeyword} />
       <div>
-        <SelectFilter
+        <SearchSelectFilter
           name="재료"
           setValue={setMaterial}
           options={Object.entries(material_ko.material).map(([key, value]) => {

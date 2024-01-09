@@ -6,20 +6,17 @@ import { useListOption } from "@src/commons/store/listOptionStore";
 const ItemList = ({ children }: { children: ReactNode[] }) => {
   const isList = useListOption();
 
-  if (isList)
-    return (
-      <ItemListupBox>
-        <ListOptionFilter />
-        {children}
-      </ItemListupBox>
-    );
-  else
-    return (
-      <ItemCardListBox>
-        <ListOptionFilter />
-        {children}
-      </ItemCardListBox>
-    );
+  return (
+    <>
+      <ListOptionFilter />
+
+      {isList ? (
+        <ItemListupBox>{children}</ItemListupBox>
+      ) : (
+        <ItemCardListBox>{children}</ItemCardListBox>
+      )}
+    </>
+  );
 };
 
 export default ItemList;

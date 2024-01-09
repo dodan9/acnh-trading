@@ -34,7 +34,7 @@ export const ItemListupBox = styled.div`
   flex-direction: column;
   gap: 10px;
   & img {
-    width: 40px;
+    width: 40px !important;
   }
 
   & > div {
