@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import FilterBox from "../filterBox/FilterBox";
 
 const SearchFilter = ({
   value,
@@ -8,11 +9,9 @@ const SearchFilter = ({
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
-    <>
-      <div>
-        검색: <input value={value} onChange={onChange} />
-      </div>
-    </>
+    <FilterBox name="검색" direction="row">
+      <input value={value} onChange={onChange} />
+    </FilterBox>
   );
 };
 
