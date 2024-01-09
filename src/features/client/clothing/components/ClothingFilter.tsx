@@ -10,6 +10,8 @@ import {
 import { ChangeEvent } from "react";
 import SearchFilter from "@src/commons/components/filter/searchFilter/SearchFilter";
 import ColorFilter from "@src/commons/components/filter/colorFilter/ColorFilter";
+import SelectFilter from "@src/commons/components/filter/selectFilter/SelectFilter";
+import FilterBox from "@src/commons/components/filter/filterBox/FilterBox";
 
 const ClothingFilter = () => {
   const keyword = useClothingKeyword();
@@ -38,8 +40,8 @@ const ClothingFilter = () => {
     setColor(color);
   };
 
-  const handleStyleChange = (style: ClothingStyle) => {
-    setStyle(style);
+  const handleStyleChange = (style: string) => {
+    setStyle(style as ClothingStyle);
   };
 
   return (
@@ -70,8 +72,7 @@ const ClothingFilter = () => {
         </select>
       </div>
 
-      <div>
-        <div>테마</div>
+      <FilterBox name="테마" direction="column">
         <select
           value={labeltheme ?? ""}
           name="labeltheme"
@@ -86,30 +87,18 @@ const ClothingFilter = () => {
             );
           })}
         </select>
-      </div>
+      </FilterBox>
 
-      <div>
-        <div>스타일</div>
-        {Object.values(ClothingStyle).map((styleValue) => {
-          const isSelected = style?.includes(styleValue);
-          return (
-            <div key={styleValue}>
-              <input
-                type="checkbox"
-                checked={isSelected}
-                onChange={() => handleStyleChange(styleValue)}
-              />
-              {t(`${LangEnum.clothing}.style.${styleValue}`)}
-            </div>
-          );
-        })}
-      </div>
+      <FilterBox name="스타일" direction="column">
+        <SelectFilter
+          options={Object.values(ClothingStyle)}
+          selectedOptions={style}
+          type={`${LangEnum.clothing}.style`}
+          onSelect={handleStyleChange}
+        />
+      </FilterBox>
 
-      <div>
-        <div>색상</div>
-
-        <ColorFilter selectedColor={color} onChange={handleColorChange} />
-      </div>
+      <ColorFilter selectedColor={color} onChange={handleColorChange} />
     </>
   );
 };

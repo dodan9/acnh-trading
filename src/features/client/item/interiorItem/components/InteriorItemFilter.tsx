@@ -24,14 +24,7 @@ const InteriorItemFilter = () => {
     <>
       <SearchFilter value={keyword} onChange={handleChangeKeyword} />
 
-      <div>
-        <div>색상</div>
-
-        <ColorFilter
-          selectedColor={filter.color}
-          onChange={handleColorChange}
-        />
-      </div>
+      <ColorFilter selectedColor={filter.color} onChange={handleColorChange} />
     </>
   );
 };
