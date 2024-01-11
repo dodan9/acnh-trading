@@ -18,10 +18,11 @@ export const useToolDetailQuery = ({
   name,
   thumbsize,
 }: {
-  name: string;
+  name?: string;
   thumbsize?: number;
 }) => {
   const getToolDetail = async () => {
+    if (!name) return false;
     const response = await getToolDetailsApi({ name, thumbsize });
     return response.data;
   };
