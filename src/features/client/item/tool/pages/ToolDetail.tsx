@@ -3,7 +3,7 @@ import { useToolDetailQuery } from "../services/query";
 import LoadingSpinner from "@src/commons/components/loading/LoadingSpinner";
 import { LangEnum } from "@src/commons/util/lang/enum";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Variation, {
   VariationList,
 } from "@src/commons/components/variation/Variation";
@@ -17,12 +17,18 @@ const ToolDetail = () => {
 
   const { t } = useTranslation();
 
-  if (isLoading) return <LoadingSpinner />;
-  if (!tool) return <div>no data</div>;
-
   const handleVariantClick = (variant: string) => {
     setCurrentVariant(variant);
   };
+
+  useEffect(() => {
+    if (tool) {
+      setCurrentVariant(tool.variations[0].variation);
+    }
+  }, [tool]);
+
+  if (isLoading) return <LoadingSpinner />;
+  if (!tool) return <div>no data</div>;
 
   const img_src =
     tool.variations.find((variation) => variation.variation === currentVariant)
