@@ -10,6 +10,7 @@ import FurnitureMain from "./furniture/pages";
 import RecipeDetail from "./recipe/pages/RecipeDetail";
 import InteriorItemDetail from "./interiorItem/pages/InteriorItemDetail";
 import MiscellaneousDetail from "./miscellaneous/pages/MiscellaneousDetail";
+import ToolDetail from "./tool/pages/ToolDetail";
 
 export const itemRoutes = () => {
   return (
@@ -30,6 +31,7 @@ export const itemRoutes = () => {
       <Route path="/recipe/:name" element={<RecipeDetail />} />
 
       <Route path="/tools" element={<ToolsMain />} />
+      <Route path="/tools/:name" element={<ToolDetail />} />
     </Routes>
   );
 };
